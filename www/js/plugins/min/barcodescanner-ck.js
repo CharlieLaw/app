@@ -1,0 +1,7 @@
+/**
+ * PhoneGap/Cordova is available under *either* the terms of the modified BSD license *or* the
+ * MIT License (2008). See http://opensource.org/licenses/alphabetical for full text.
+ *
+ * Copyright (c) Matt Kane 2010
+ * Copyright (c) 2010, IBM Corporation
+ */(function(){var e=function(){};e.Encode={TEXT_TYPE:"TEXT_TYPE",EMAIL_TYPE:"EMAIL_TYPE",PHONE_TYPE:"PHONE_TYPE",SMS_TYPE:"SMS_TYPE",CONTACT_TYPE:"CONTACT_TYPE",LOCATION_TYPE:"LOCATION_TYPE"};e.prototype.scan=function(e,t,n){function r(t){t.cancelled=t.cancelled==1;e.call(null,t)}t||(t=function(){});if(typeof t!="function"){console.log("BarcodeScanner.scan failure: failure parameter not a function");return}if(typeof e!="function"){t("success callback parameter must be a function");return}null==n&&(n=[]);return Cordova.exec(r,t,"org.apache.cordova.barcodeScanner","scan",n)};e.prototype.encode=function(e,t,n,r,i){r||(r=function(){});if(typeof r!="function"){console.log("BarcodeScanner.scan failure: failure parameter not a function");return}if(typeof n!="function"){r("success callback parameter must be a function");return}return Cordova.exec(n,r,"org.apache.cordova.barcodeScanner","encode",[{type:e,data:t,options:i}])};window.plugins||(window.plugins={});window.plugins.barcodeScanner||(window.plugins.barcodeScanner=new e)})();
