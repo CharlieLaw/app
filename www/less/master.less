@@ -33,7 +33,7 @@
 			       -webkit-transition: 0.25s margin-left ease-in
 			     }
 
-    	.active #wrapper{ margin-left:-80% !important; }    		
+    	.active #wrapper{ border-right: solid 1px @grayDark; margin-left:-80% !important; }    		
 
 
 	// Pages
@@ -269,9 +269,10 @@
 		.intro { color: @grayLighter; .font-size(14); margin-bottom: 0.3em; }
 		.intro b { display: none; }
 		.or { display: none; }
-		.btn { border-top-left-radius: 0; border-bottom-left-radius: 0; font-weight: normal; .font-size(16); position: absolute; line-height: 26px; right: -3px; top: -1px; z-index: 2; }
+		.btn { border-top-left-radius: 0; border-bottom-left-radius: 0; font-weight: normal; .font-size(16); position: absolute; line-height: 26px; right: -3px; top: -2px; z-index: 2; }
 		.btn-scan { display: none; }
 		label { color: #fff; display: none; }
+		input[type='search'],
 		input[type='text'] {line-height: 29px; border: none; .border-radius(6px); display: inline-block; .font-size(18);  margin: 0; padding: 0.5em 4em 0.5em 0.5em; position: relative; width: 100%; z-index: 1;   
 		                     -webkit-appearance: none; }		
 	}
@@ -282,12 +283,13 @@
 	.pg .tracking-form {
 		.tracking-form-search { display: inline-block; width: 65%;  margin-right: 5%; }
 		.intro b, 
-		.or { color: #fff; display: inline-block; font-weight: normal; }		
-		button { display: none; }
+		.or { color: #fff; display: inline-block; font-weight: normal; }				
 		.btn-scan { .border-radius(6px); display: inline-block; line-height: 45px;  padding: 0 0.5em; right: 0; top: 0px; -webkit-appearance: none; }		
 		.btn-scan b { background: url(../img/scan.png) 0 0 no-repeat; display: inline-block; height: 40px; width: 40px; text-indent: -9999em; position: relative; top: 8px; }
-		input[type='text'] { padding-right: 0.5em; }
+		input[type='search'] { padding-right: 0.5em; }
 	} 
+
+	.pg #tracking-submit { opacity: 0 } // Not display none and iphone will not submit the form from the keyboard
 
 
 
@@ -324,7 +326,7 @@
 //****************************************************************************************************************
 
     
-    #header { background-color: rgb(220,0,0); border-bottom: 1px solid #b10; .box-shadow(0 3px 0 0 @grayLight); height: @headerHeight; margin-left: 0; position: fixed; text-align: center; top: 0; width: 100%; z-index: 3; 
+    #header { background-color: rgb(220,0,0); border-bottom: 1px solid @gray; height: @headerHeight; margin-left: 0; position: fixed; text-align: center; top: 0; width: 100%; z-index: 3; 
               -webkit-transition:0.25s all ease-in;    	
 		h1 { color: #fff; font-weight: normal; line-height: @headerHeight; text-align: center; text-shadow: 1px 1px 1px #000; text-transform: capitalize; width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0 auto}		
 	}

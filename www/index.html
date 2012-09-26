@@ -9,9 +9,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
     <meta charset="utf-8">
 
-    <title>New Zealand Post</title>
+    <title>NZ Post</title>
     
-    <link rel="apple-touch-startup-image" href="img/loading-screen.png" />
     <link rel="stylesheet" href="css/reset.css" media="screen">
     <link rel="stylesheet" href="css/buttons-custom.css" media="screen">
     <link rel="stylesheet" href="css/master.css" media="screen">
@@ -167,11 +166,11 @@
               <div class="row">
                 <div class="tracking-form-search" style="inline-block">
                   <label for="tracking-number">Tracking Number</label>
-                  <input type="text" id="tracking-number" placeholder="Tracking Number" />
-                  <button id="tracking-submit" class="btn btn-primary">Track</button> 
+                  <input type="search" id="tracking-number" placeholder="Tracking Number" />
+                  <input type="submit" id="tracking-submit" class="btn btn-primary" value="Track" /> 
                  </div> 
                  <span class="or">or</span>
-                <a href="#" class="btn btn-scan btn-primary"><b>Scan</b></a>
+                <a href="#" id="tracking-scan" class="btn btn-scan btn-primary"><b>Scan</b></a>
               </div>
 
             </form>
@@ -180,14 +179,14 @@
 
       </script>
 
-      <script id="tmp-tracking-item" type="text/template">
+      <script id="tmp-tracking-item" type="text/template">           
            <% if (typeof(error_code) != "undefined") { %> 
             <a href="#" class="tracking-<%= error_code %> <%= spinner %>">
            <% } else { %> 
             <a href="#" class="tracking-success <%= spinner %>">
            <% } %>               
-              <b></b>
               <div>
+                <b></b>
                 <% if (typeof(user_added_name) != "undefined" && user_added_name.length > 0) { %>
                 <h2><%= user_added_name %></h2>
                 <% } %>

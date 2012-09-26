@@ -120,7 +120,8 @@
 		},
 
 		events: {
-		  'click #tracking-submit': 'getPackage'
+		  'click #tracking-submit': 'getPackage',
+		  'click #tracking-scan': 'scanItem' 
 		},
 
 
@@ -132,64 +133,72 @@
 		},
 
 		getPackage: function(e) {
-
-			e.preventDefault();
-
-			var self = this;
-
-
-
+			e.preventDefault();			
 			// If the user has entered a value into the input box
-			if($trackingNo.val() != "") {
-
-				//Get the users tracking result based on their input
+				if($trackingNo.val() != "") {				
 					var tCode = $trackingNo.val();
-					processTrackingCode(tCode);
+					this.processTrackingCode(tCode);
 				};
-		}
-	});
+		},
 
-function processTrackingCode(tCode) {
-	//var trackUrl = 'http://api.nzpost.co.nz/tracking/track?license_key='+this.model.get('apiKey')+'&tracking_code='+tCode+'&mock='+this.model.get('mockValue')+'&format=jsonp&callback=?'; // Pass in the Dynamic URL based on the users input
-
-	/*
-		Loop over the collection to check the code entered is not a dupliate
-	 	If it is a duplicate add a classname to hightlight class name
-	 	If is not a duplicate then do the AJAX call
-	*/
-	var matchingCode;
-	nzp.trackingPageCollection.each(function(model){
-		
-		if ( model.get("track_code") === tCode ) {
-			matchingCode = model;							
-			model.set('highlight', 'highlight high-out');
-			setTimeout(function(){
-				model.set('highlight', 'high-out')
-			},1000);
-		}
-	});
-
-	if (!IsObject(matchingCode)) {
-        var item = nzp.trackingPageCollection.create({track_code: tCode});
-
-		$.ajax({
-			dataType: 'jsonp',
-			url: item.url(),
-			//timeout: 1000, 
-			success: function(data) {
-				var userCode = tCode.toUpperCase();
-				if(data[userCode] != undefined) {
-
-					if(data[userCode].track_code != undefined) {								
-						console.log('Sucessful code')
-						data[tCode].track_code = tCode;
-						item.set(data[tCode]); // Add a code to the collection																		
-					} else {
-						item.save({error_code:data[userCode].error_code, detail_description: data[userCode].detail_description, short_description: data[userCode].short_description, spinner: ''}); // Save the item to the collection and set its spinner to blank            				    										
+		// Scan item using PhoneGap barcode plugin
+			scanItem: function(e) {
+				e.preventDefault();
+				var self = this;
+				window.plugins.barcodeScanner.scan(							
+					function(result) {
+						if (!result.cancelled) {
+							self.processTrackingCode(result.text)
+						}
+					},
+					function(error) {					
+						alert("Scanning failed: " + error)
 					}
-				}
-			}
-		});
-	};
+				)	
+			},
 
-}
+		// Check for duplicate code and retrieve new item if its not a duplicate	
+			processTrackingCode: function(tCode) {				
+				/*
+					Loop over the collection to check the code entered is not a dupliate
+				 	If it is a duplicate add a classname to hightlight class name
+				 	If is not a duplicate then do the AJAX call
+				*/
+				$trackingNo.blur();
+				var matchingCode;
+				this.collection.each(function(model){
+					
+					if ( model.get("track_code") === tCode ) {
+						matchingCode = model;							
+						model.set('highlight', 'highlight high-out');
+						setTimeout(function(){
+							model.set('highlight', 'high-out')
+						},1000);
+					}
+				});
+
+				if (!IsObject(matchingCode)) {
+			        var item = nzp.trackingPageCollection.create({track_code: tCode});
+
+					$.ajax({
+						dataType: 'jsonp',
+						url: item.url(),
+						success: function(data) {
+							var userCode = tCode.toUpperCase();
+							if(data[userCode] != undefined) {
+
+								if(data[userCode].track_code != undefined) {								
+									console.log('Sucessful code')
+									data[tCode].track_code = tCode;
+									item.set(data[tCode]); // Add a code to the collection																		
+								} else {
+									item.save({error_code:data[userCode].error_code, detail_description: data[userCode].detail_description, short_description: data[userCode].short_description, spinner: ''}); // Save the item to the collection and set its spinner to blank            				    										
+								}
+							}
+						}
+					});
+				};
+
+			}			
+
+	});

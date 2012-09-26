@@ -38,7 +38,7 @@
 					 	return false;									// No value entered
 					 } else {
 						this.model.save({user_added_name: newName});	// Save new value to local storage
-						nzp.$packageName.blur();							// Hides the keyboard in iOS by removing focus
+						nzp.$packageName.blur();						// Hides the keyboard in iOS by removing focus
 						nzp.$body.removeClass('showform');				// Hides the form
 
 					}
