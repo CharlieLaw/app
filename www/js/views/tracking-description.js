@@ -94,7 +94,7 @@
 	// The individual tracked items finer details
 		nzp.TrackingDetails = Backbone.View.extend({
 
-			el: '<div id="tracking-details">',
+			el: '<div id="tracking-details-page">',
 
  			template: _.template($('#tmp-tracking-description-item').html()),
 

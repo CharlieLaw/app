@@ -1,9 +1,9 @@
 <!doctype html>
 
-<html lang="en" class="no-js">
+<html lang="en">
 
   <head>    
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
@@ -160,18 +160,22 @@
 
   <!-- TRACKING -->
 
-      <script id="tmp-tracking" type="text/template">
-          <p class="blocked">You must be online to <br />find new Tracking Codes</p>
+      <script id="tmp-tracking" type="text/template">          
           <div class="tracking-form">
-            <p class="intro hide">Enter the package details or <a href="#">Scan your barcode</a></p>            
+            <p class="intro">Enter a tracking number <b class="nopghide">or scan your barcode</b></p>
             <form>
               <div class="row">
-                <label for="tracking-number">Tracking Number</label>
-                <input type="text" id="tracking-number" placeholder="Tracking Number" />
-                <button id="tracking-submit" class="btn btn-primary">Track</button>
+                <div class="tracking-form-search" style="inline-block">
+                  <label for="tracking-number">Tracking Number</label>
+                  <input type="text" id="tracking-number" placeholder="Tracking Number" />
+                  <button id="tracking-submit" class="btn btn-primary">Track</button> 
+                 </div> 
+                 <span class="or">or</span>
+                <a href="#" class="btn btn-scan btn-primary"><b>Scan</b></a>
               </div>
-            </form>
 
+            </form>
+            
           </div>
 
       </script>
@@ -372,11 +376,12 @@
            if(phoneGap) {
               console.log('phonegap')
               app.initialize();
+              document.getElementsByTagName('html')[0].className = 'pg';
            } else {
              console.log('no phonegap')
              $(function() {
                 nzp.appView = new nzp.AppView;
-                nzp.appView.render();
+                nzp.appView.render();                
               }(jQuery));
            }                       
         </script>

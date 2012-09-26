@@ -549,7 +549,7 @@ nzp.Router = Backbone.Router.extend({
 			*/
 			// Set page title, body class & previuos page								
 			nzp.headerTitle.set({title: id});				
-			nzp.$body.attr('id', 'tracking')
+			nzp.$body.attr('id', 'tracking-details')
 			this.previousPage = 'tracking';
 
 
