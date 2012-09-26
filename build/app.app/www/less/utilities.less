@@ -1,0 +1,98 @@
+/********************************************************************************************************************************
+	
+	Module Name: Helper classes
+	Module Description: This file should always come last to overwrite and style before it
+
+********************************************************************************************************************************/
+	
+
+	// Import Varialbes and Mixins
+	@import "variables";
+	@import "mixins";
+
+
+//********************************************************************************************************************************
+/*	Default - Mobile first */
+//********************************************************************************************************************************
+
+
+	// Quick floats
+		.fl {float:left}
+		.fr {float:right}
+		.fn {float:none}
+
+
+	// Toggling content / Show and Hide
+		.hide {display: none}
+		.show {display: block}
+		.invisible {visibility: hidden}
+		.visible-desktop {display:block}
+		.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+		.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+
+	// Alignments
+		.al { text-align: right; }
+		.ar { text-align: right; }
+		.ac { text-align: center; }
+
+	// Image replacement
+		.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+
+	// spacing helpers 
+		// p,m = padding,margin
+		// a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
+		// s,m,l,n = small(@baseline/2 = 0.75em),medium(@baseline = 1.5em),large(@baseline * 2 = 3em),none(0)
+
+		@gridGutterWidth: 20px;
+		.ptn,.pvn,.pan{padding-top:0}
+		.pts,.pvs,.pas{padding-top:@baseLineHeight / 2}
+		.ptm,.pvm,.pam{padding-top:@baseLineHeight}
+		.ptl,.pvl,.pal{padding-top:@baseLineHeight * 2}
+		.prn,.phn,.pan{padding-right:0}
+		.prs,.phs,.pas{padding-right:@gridGutterWidth / 4}
+		.prm,.phm,.pam{padding-right:@gridGutterWidth / 2}
+		.prl,.phl,.pal{padding-right:@gridGutterWidth}
+		.pbn,.pvn,.pan{padding-bottom:0}
+		.pbs,.pvs,.pas{padding-bottom:@baseLineHeight / 2}
+		.pbm,.pvm,.pam{padding-bottom:@baseLineHeight}
+		.pbl,.pvl,.pal{padding-bottom:@baseLineHeight * 2}
+		.pln,.phn,.pan{padding-left:0}
+		.pls,.phs,.pas{padding-left:@gridGutterWidth / 4}
+		.plm,.phm,.pam{padding-left:@gridGutterWidth / 2}
+		.pll,.phl,.pal{padding-left:@gridGutterWidth}
+		.mtn,.mvn,.man{margin-top:0}
+		.mts,.mvs,.mas{margin-top:@baseLineHeight /  2}
+		.mtm,.mvm,.mam{margin-top:@baseLineHeight}
+		.mtl,.mvl,.mal{margin-top:@baseLineHeight * 2}
+		.mrn,.mhn,.man{margin-right:0}
+		.mrs,.mhs,.mas{margin-right:@gridGutterWidth / 4}
+		.mrm,.mhm,.mam{margin-right:@gridGutterWidth / 2}
+		.mrl,.mhl,.mal{margin-right:@gridGutterWidth}
+		.mbn,.mvn,.man{margin-bottom:0}
+		.mbs,.mvs,.mas{margin-bottom:@baseLineHeight /  2}
+		.mbm,.mvm,.mam{margin-bottom:@baseLineHeight}
+		.mbl,.mvl,.mal{margin-bottom:@baseLineHeight * 2}
+		.mln,.mhn,.man{margin-left:0}
+		.mls,.mhs,.mas{margin-left:@gridGutterWidth / 4}
+		.mlm,.mhm,.mam{margin-left:@gridGutterWidth / 2}
+		.mll,.mhl,.mal{margin-left:@gridGutterWidth}
+
+		
+	// Bold / not bold
+		.nobold { font-weight: normal; }
+		.bold { font-weight: bold; }
+
+	// Block
+		.block { display: block; }
+		.inline { display: inline; }
+
+	// Small text 
+		.smalltxt { .font-size(12); }
+
+	// Rows
+		.row { display: block; position: relative; }
+
+
+ 
+

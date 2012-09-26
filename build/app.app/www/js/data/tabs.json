@@ -1,0 +1,11 @@
+var DirectionTabsData = [	    	
+	{id:0, title: 'Driving', slug:'driving'},
+	{id:1, title: 'Walking', slug:'walking'}
+];
+
+var AllMarkersTabsData = [	    	
+	{id:0, title: 'All', slug:'postall'},	
+	{id:1, title: 'Postbox', slug:'postbox'},
+	{id:2, title: 'Postbox Lobby', slug:'postboxlobby'},
+	{id:3, title: 'Postshop', slug:'postshop'}	
+];

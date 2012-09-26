@@ -1,0 +1,705 @@
+Tapp
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Info.plist app/app-Info.plist
+cPhaseScriptExecution "Touch www folder" /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Script-304B58A110DAC018002A0835.sh
+cCopyPlistFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Cordova.plist app/Resources/../Cordova.plist
+cCpResource www cordova/../build/app.app/www
+cCpResource app/Resources/icons/icon-72.png cordova/../build/app.app/icon-72.png
+cCpResource app/Resources/icons/icon.png cordova/../build/app.app/icon.png
+cCpResource app/Resources/icons/icon@2x.png cordova/../build/app.app/icon@2x.png
+cCopyStringsFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/en.lproj/Localizable.strings app/Resources/en.lproj/Localizable.strings
+cCpResource app/Resources/Capture.bundle cordova/../build/app.app/Capture.bundle
+cCopyStringsFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/es.lproj/Localizable.strings app/Resources/es.lproj/Localizable.strings
+cCompileXIB /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.xib
+cCopyStringsFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/de.lproj/Localizable.strings app/Resources/de.lproj/Localizable.strings
+cCopyStringsFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/se.lproj/Localizable.strings app/Resources/se.lproj/Localizable.strings
+cCpResource app/Resources/splash/Default-Landscape@2x~ipad.png cordova/../build/app.app/Default-Landscape@2x~ipad.png
+cCpResource app/Resources/splash/Default-Landscape~ipad.png cordova/../build/app.app/Default-Landscape~ipad.png
+cCpResource app/Resources/splash/Default-Portrait@2x~ipad.png cordova/../build/app.app/Default-Portrait@2x~ipad.png
+cCpResource app/Resources/splash/Default-Portrait~ipad.png cordova/../build/app.app/Default-Portrait~ipad.png
+cCpResource app/Resources/splash/Default@2x~iphone.png cordova/../build/app.app/Default@2x~iphone.png
+cCpResource app/Resources/splash/Default~iphone.png cordova/../build/app.app/Default~iphone.png
+cCpResource Default-568h@2x.png cordova/../build/app.app/Default-568h@2x.png
+cProcessPCH++ /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-bsceepwxyejfbhcsndajxsdpdeha/app-Prefix.pch.pth app/app-Prefix.pch normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cProcessPCH /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-clhedxncxzqjflgubhevjzzdwofm/app-Prefix.pch.pth app/app-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cProcessPCH++ /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-gonsmhaqkrnzrjbjytzqzzdxxbmp/app-Prefix.pch.pth app/app-Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/zxing-all-in-one.o /Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/zxing-all-in-one.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/main.o /Users/Charlie/Dropbox/sites/NZPost/app/app/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/AppDelegate.o /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/MainViewController.o /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/CDVBarcodeScanner.o /Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/CDVBarcodeScanner.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/app normal i386
+cGenerateDSYMFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app.dSYM /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/app
+cTouch /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk
+c00000000504916AD0000000000000110
+t1346967213
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
+c0000000050617A4300000000001EAFC0
+t1348565571
+s2011072
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/AddressBook.framework/AddressBook
+c0000000050617A4100000000000C0EF0
+t1348565569
+s790256
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
+c0000000050617A420000000000193640
+t1348565570
+s1652288
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/AssetsLibrary.framework/AssetsLibrary
+c0000000050617A4200000000000225D0
+t1348565570
+s140752
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c0000000050617A4300000000003D2B80
+t1348565571
+s4008832
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
+c0000000050617A430000000000215D60
+t1348565571
+s2186592
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c0000000050617A440000000000228FD0
+t1348565572
+s2265040
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/CoreLocation.framework/CoreLocation
+c0000000050617A44000000000009C220
+t1348565572
+s639520
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/CoreMedia.framework/CoreMedia
+c0000000050617A4D0000000000085620
+t1348565581
+s546336
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
+c0000000050617A4E0000000000020F20
+t1348565582
+s134944
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c0000000050617A4F00000000003DCEF0
+t1348565583
+s4050672
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
+c0000000050617A5400000000002C6C10
+t1348565588
+s2911248
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/MobileCoreServices.framework/MobileCoreServices
+c0000000050617A5500000000000BCB50
+t1348565589
+s772944
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c0000000050617A5900000000001D57A0
+t1348565593
+s1922976
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/SystemConfiguration.framework/SystemConfiguration
+c0000000050617A5A000000000006CC50
+t1348565594
+s445520
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c0000000050617A5C0000000000AB3D60
+t1348565596
+s11222368
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/lib/libiconv.dylib
+c0000000050617A6C00000000000FFFF0
+t1348565612
+s1048560
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/Default-568h@2x.png
+c000000005049BB1000000000000048A2
+t1347009296
+s18594
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/AppDelegate.m
+c000000005062333100000000000015BE
+t1348612913
+s5566
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.m
+c0000000050623341000000000000114E
+t1348612929
+s4430
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.xib
+c00000000506230190000000000001759
+t1348612121
+s5977
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/CDVBarcodeScanner.mm
+c000000005060F7C70000000000007F7A
+t1348532167
+s32634
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/zxing-all-in-one.cpp
+c000000005060F9070000000000062643
+t1348532487
+s403011
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/../Cordova.plist
+c000000005062335100000000000006CC
+t1348612945
+s1740
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/Capture.bundle
+c000000005062301A00000000000002EC
+t1348612122
+s748
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/de.lproj/Localizable.strings
+c000000005062301A0000000000000485
+t1348612122
+s1157
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/en.lproj/Localizable.strings
+c000000005062301A0000000000000470
+t1348612122
+s1136
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/es.lproj/Localizable.strings
+c000000005062301A000000000000047D
+t1348612122
+s1149
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/icons/icon-72.png
+c000000005062301A0000000000001350
+t1348612122
+s4944
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/icons/icon.png
+c000000005062301A0000000000000F3E
+t1348612122
+s3902
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/icons/icon@2x.png
+c000000005062301A0000000000001EBD
+t1348612122
+s7869
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/se.lproj/Localizable.strings
+c000000005062301A0000000000000471
+t1348612122
+s1137
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default-Landscape@2x~ipad.png
+c000000005062301A0000000000176888
+t1348612122
+s1534088
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default-Landscape~ipad.png
+c000000005062301B00000000000674B7
+t1348612123
+s423095
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default-Portrait@2x~ipad.png
+c000000005062301B00000000001892C2
+t1348612123
+s1610434
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default-Portrait~ipad.png
+c000000005062301B0000000000066F23
+t1348612123
+s421667
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default@2x~iphone.png
+c000000005062301B0000000000055981
+t1348612123
+s350593
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default~iphone.png
+c000000005062301B0000000000016EC9
+t1348612123
+s93897
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/app-Prefix.pch
+c000000005062301B00000000000003B7
+t1348612123
+s951
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/app/main.m
+c000000005062301B000000000000044E
+t1348612123
+s1102
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/AppDelegate.o
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/CDVBarcodeScanner.o
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/MainViewController.o
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/app.LinkFileList
+c00000000506243B9000000000000026D
+t1348617145
+s621
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/main.o
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/zxing-all-in-one.o
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Script-304B58A110DAC018002A0835.sh
+c00000000506243B90000000000000027
+t1348617145
+s39
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/build/libCordova.a
+c00000000506243B900000000002C8DF0
+t1348617145
+s2919920
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app.dSYM
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Capture.bundle
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Cordova.plist
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default-568h@2x.png
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default-Landscape@2x~ipad.png
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default-Landscape~ipad.png
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default-Portrait@2x~ipad.png
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default-Portrait~ipad.png
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default@2x~iphone.png
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default~iphone.png
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Info.plist
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/MainViewController.nib
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/PkgInfo
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/app
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/de.lproj/Localizable.strings
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/en.lproj/Localizable.strings
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/es.lproj/Localizable.strings
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/icon-72.png
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/icon.png
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/icon@2x.png
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/se.lproj/Localizable.strings
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/www
+t2
+s0
+
+N/Users/Charlie/Dropbox/sites/NZPost/app/www
+c000000005062415D00000000000001BA
+t1348616541
+s442
+
+N/var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-bsceepwxyejfbhcsndajxsdpdeha/app-Prefix.pch.pth
+t2
+s0
+
+N/var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-clhedxncxzqjflgubhevjzzdwofm/app-Prefix.pch.pth
+t2
+s0
+
+N/var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-gonsmhaqkrnzrjbjytzqzzdxxbmp/app-Prefix.pch.pth
+t2
+s0
+
+Napp/app-Info.plist
+c000000005062301B00000000000009C1
+t1348612123
+s2497
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies06d867397b12b641^27326b397b12b641^---0#1#0#--18"Check dependencies36"05D30DB5-74B5-4732-B39E-71516BB4B480-
+
+CCompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/AppDelegate.o /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s370309950.411645
+e370309950.754844
+r1
+xCompileC
+xbuild/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/AppDelegate.o
+x/Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/AppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/AppDelegate.m639a693e7b12b641^533dc13e7b12b641^---0#0#0#-19%DVTDocumentLocation2@81"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/AppDelegate.m0000000000000000^3429"CompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/AppDelegate.o app/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=4.2 -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-generated-files.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-own-target-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-all-target-headers.hmap -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-project-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/include -I/Users/Charlie/Dropbox/sites/phonegap-phonegap-26d211b/lib/ios/CordovaLib/Classes -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources/i386 -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources -F/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build -include /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-clhedxncxzqjflgubhevjzzdwofm/app-Prefix.pch -MMD -MT dependencies -MF /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/AppDelegate.d --serialize-diagnostics /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/AppDelegate.dia -c /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/AppDelegate.m -o /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/AppDelegate.o36"B5FD9221-0EAE-48D5-BD06-A8CEF0334EA8-
+
+CCompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/CDVBarcodeScanner.o /Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/CDVBarcodeScanner.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370309950.535856
+e370309951.128099
+r1
+xCompileC
+xbuild/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/CDVBarcodeScanner.o
+x/Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/CDVBarcodeScanner.mm
+xnormal
+xi386
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Compile /Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/CDVBarcodeScanner.mmd960893e7b12b641^3acb203f7b12b641^---0#0#0#-19%DVTDocumentLocation2@88"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/CDVBarcodeScanner.mm0000000000000000^3599"CompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/CDVBarcodeScanner.o app/Plugins/CDVBarcodeScanner.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Warc-abi -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=4.2 -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-generated-files.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-own-target-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-all-target-headers.hmap -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-project-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/include -I/Users/Charlie/Dropbox/sites/phonegap-phonegap-26d211b/lib/ios/CordovaLib/Classes -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources/i386 -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources -F/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build -include /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-bsceepwxyejfbhcsndajxsdpdeha/app-Prefix.pch -MMD -MT dependencies -MF /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/CDVBarcodeScanner.d --serialize-diagnostics /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/CDVBarcodeScanner.dia -c /Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/CDVBarcodeScanner.mm -o /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/CDVBarcodeScanner.o36"FAC043A0-83AF-49DE-9A80-63207C92CC57-
+
+CCompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/MainViewController.o /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s370309950.412253
+e370309950.753553
+r1
+xCompileC
+xbuild/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/MainViewController.o
+x/Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Compile /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.m40c1693e7b12b641^4fe9c03e7b12b641^---0#0#0#-19%DVTDocumentLocation2@88"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.m0000000000000000^3471"CompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/MainViewController.o app/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=4.2 -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-generated-files.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-own-target-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-all-target-headers.hmap -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-project-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/include -I/Users/Charlie/Dropbox/sites/phonegap-phonegap-26d211b/lib/ios/CordovaLib/Classes -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources/i386 -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources -F/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build -include /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-clhedxncxzqjflgubhevjzzdwofm/app-Prefix.pch -MMD -MT dependencies -MF /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/MainViewController.d --serialize-diagnostics /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/MainViewController.dia -c /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.m -o /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/MainViewController.o36"7C611893-CC75-4CF6-9A5C-6E6EC067C87A-
+
+CCompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/main.o /Users/Charlie/Dropbox/sites/NZPost/app/app/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s370309950.411633
+e370309950.531440
+r1
+xCompileC
+xbuild/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/main.o
+x/Users/Charlie/Dropbox/sites/NZPost/app/app/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Compile /Users/Charlie/Dropbox/sites/NZPost/app/app/main.md89a693e7b12b641^fe0b883e7b12b641^---0#0#0#-19%DVTDocumentLocation2@66"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/main.m0000000000000000^3371"CompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/main.o app/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=4.2 -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-generated-files.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-own-target-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-all-target-headers.hmap -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-project-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/include -I/Users/Charlie/Dropbox/sites/phonegap-phonegap-26d211b/lib/ios/CordovaLib/Classes -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources/i386 -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources -F/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build -include /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-clhedxncxzqjflgubhevjzzdwofm/app-Prefix.pch -MMD -MT dependencies -MF /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/main.dia -c /Users/Charlie/Dropbox/sites/NZPost/app/app/main.m -o /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/main.o36"095A4982-C8A0-4F6F-BCF7-901F06204A4C-
+
+CCompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/zxing-all-in-one.o /Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/zxing-all-in-one.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370309949.887233
+e370309953.293556
+r1
+xCompileC
+xbuild/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/zxing-all-in-one.o
+x/Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/zxing-all-in-one.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Compile /Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/zxing-all-in-one.cpp2446e33d7b12b641^9a274b417b12b641^---0#0#0#-19%DVTDocumentLocation2@88"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/zxing-all-in-one.cpp0000000000000000^3195"CompileC build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/zxing-all-in-one.o app/Plugins/zxing-all-in-one.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -mios-simulator-version-min=4.2 -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-generated-files.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-own-target-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-all-target-headers.hmap -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-project-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/include -I/Users/Charlie/Dropbox/sites/phonegap-phonegap-26d211b/lib/ios/CordovaLib/Classes -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources/i386 -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources -F/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build -include /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-gonsmhaqkrnzrjbjytzqzzdxxbmp/app-Prefix.pch -MMD -MT dependencies -MF /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/zxing-all-in-one.d --serialize-diagnostics /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/zxing-all-in-one.dia -c /Users/Charlie/Dropbox/sites/NZPost/app/app/Plugins/zxing-all-in-one.cpp -o /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/zxing-all-in-one.o36"43F8059A-AE8E-4D4B-AEC0-F5051DCAAC57-
+
+CCompileXIB /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.xib
+s370309945.474600
+e370309949.817089
+r1
+xCompileXIB
+x/Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.xib
+o2012-09-26 11:52:29.337 Interface Builder Cocoa Touch Tool[66499:14603] CFPreferences: user home directory at file://localhost/Users/Charlie/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Compiling /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.xib6aa479397b12b641^902fd13d7b12b641^-242"2012-09-26 11:52:29.337 Interface Builder Cocoa Touch Tool[66499:14603] CFPreferences: user home directory at file://localhost/Users/Charlie/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.-0#0#0#-19%DVTDocumentLocation2@90"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.xib0000000000000000^1125"CompileXIB app/Classes/MainViewController.xib    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/MainViewController.nib /Users/Charlie/Dropbox/sites/NZPost/app/app/Classes/MainViewController.xib --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk36"6632C419-CEA1-4FBA-B562-B8CC6B783C3D-
+
+CCopyPlistFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Cordova.plist app/Resources/../Cordova.plist
+s370309945.467780
+e370309945.475898
+r1
+xCopyPlistFile
+x/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Cordova.plist
+xapp/Resources/../Cordova.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection35"Copy app/Resources/../Cordova.plist48e077397b12b641^17d679397b12b641^---0#0#0#-19%DVTDocumentLocation2@86"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/../Cordova.plist0000000000000000^704"CopyPlistFile cordova/../build/app.app/Cordova.plist app/Resources/../Cordova.plist    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copyPlist --convert binary1 --outdir /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app -- app/Resources/../Cordova.plist36"36ACC4C7-77FD-4C4C-B4F0-0E832AB39C63-
+
+CCopyStringsFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/de.lproj/Localizable.strings app/Resources/de.lproj/Localizable.strings
+s370309945.475230
+e370309945.833418
+r1
+xCopyStringsFile
+x/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/de.lproj/Localizable.strings
+xapp/Resources/de.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Copy app/Resources/de.lproj/Localizable.stringsc1c679397b12b641^b85cd5397b12b641^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/de.lproj/Localizable.strings0000000000000000^795"CopyStringsFile cordova/../build/app.app/de.lproj/Localizable.strings app/Resources/de.lproj/Localizable.strings    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/de.lproj -- app/Resources/de.lproj/Localizable.strings36"0DC232BC-4574-4886-A039-D6FD425F11FD-
+
+CCopyStringsFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/en.lproj/Localizable.strings app/Resources/en.lproj/Localizable.strings
+s370309945.469115
+e370309945.484923
+r1
+xCopyStringsFile
+x/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/en.lproj/Localizable.strings
+xapp/Resources/en.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Copy app/Resources/en.lproj/Localizable.stringsaa2a78397b12b641^c0257c397b12b641^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/en.lproj/Localizable.strings0000000000000000^795"CopyStringsFile cordova/../build/app.app/en.lproj/Localizable.strings app/Resources/en.lproj/Localizable.strings    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/en.lproj -- app/Resources/en.lproj/Localizable.strings36"6EDCBCB1-309A-4A5A-891E-714C09584D9A-
+
+CCopyStringsFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/es.lproj/Localizable.strings app/Resources/es.lproj/Localizable.strings
+s370309945.469132
+e370309945.488454
+r1
+xCopyStringsFile
+x/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/es.lproj/Localizable.strings
+xapp/Resources/es.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Copy app/Resources/es.lproj/Localizable.strings763278397b12b641^e10d7d397b12b641^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/es.lproj/Localizable.strings0000000000000000^795"CopyStringsFile cordova/../build/app.app/es.lproj/Localizable.strings app/Resources/es.lproj/Localizable.strings    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/es.lproj -- app/Resources/es.lproj/Localizable.strings36"E3CB0B77-5845-40A5-86C3-5BB72584154E-
+
+CCopyStringsFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/se.lproj/Localizable.strings app/Resources/se.lproj/Localizable.strings
+s370309945.477037
+e370309945.837239
+r1
+xCopyStringsFile
+x/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/se.lproj/Localizable.strings
+xapp/Resources/se.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Copy app/Resources/se.lproj/Localizable.strings7d3e7a397b12b641^0456d6397b12b641^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/se.lproj/Localizable.strings0000000000000000^795"CopyStringsFile cordova/../build/app.app/se.lproj/Localizable.strings app/Resources/se.lproj/Localizable.strings    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/se.lproj -- app/Resources/se.lproj/Localizable.strings36"64F538A8-5447-4127-B041-8E1D70F25D7F-
+
+CCpResource Default-568h@2x.png cordova/../build/app.app/Default-568h@2x.png
+s370309945.493896
+e370309945.828204
+r1
+xCpResource
+xDefault-568h@2x.png
+xcordova/../build/app.app/Default-568h@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection49"Copy cordova/../build/app.app/Default-568h@2x.png18937e397b12b641^f705d4397b12b641^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default-568h@2x.png000000000080d041^791"CpResource "Default-568h@2x.png" "cordova/../build/app.app/Default-568h@2x.png"    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Charlie/Dropbox/sites/NZPost/app/Default-568h@2x.png" /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"18396005-FDC5-43CA-B417-6A5D900C91D7-
+
+CCpResource app/Resources/Capture.bundle cordova/../build/app.app/Capture.bundle
+s370309945.469126
+e370309945.484434
+r1
+xCpResource
+xapp/Resources/Capture.bundle
+xcordova/../build/app.app/Capture.bundle
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy cordova/../build/app.app/Capture.bundle233278397b12b641^18067c397b12b641^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Capture.bundle000000000080d041^798"CpResource app/Resources/Capture.bundle cordova/../build/app.app/Capture.bundle    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/Capture.bundle /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"FAC7D3CC-89F6-4210-944B-415E17797DC3-
+
+CCpResource app/Resources/icons/icon-72.png cordova/../build/app.app/icon-72.png
+s370309945.468401
+e370309945.473359
+r1
+xCpResource
+xapp/Resources/icons/icon-72.png
+xcordova/../build/app.app/icon-72.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection41"Copy cordova/../build/app.app/icon-72.png59fb77397b12b641^e73a79397b12b641^---0#0#0#-19%DVTDocumentLocation2@92"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/icon-72.png000000000080d041^801"CpResource app/Resources/icons/icon-72.png cordova/../build/app.app/icon-72.png    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/icons/icon-72.png /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"AC1A5A73-27E4-41E0-ACE4-B98F6B8890A1-
+
+CCpResource app/Resources/icons/icon.png cordova/../build/app.app/icon.png
+s370309945.468422
+e370309945.474174
+r1
+xCpResource
+xapp/Resources/icons/icon.png
+xcordova/../build/app.app/icon.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection38"Copy cordova/../build/app.app/icon.pngdbfc77397b12b641^be6679397b12b641^---0#0#0#-19%DVTDocumentLocation2@89"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/icon.png000000000080d041^792"CpResource app/Resources/icons/icon.png cordova/../build/app.app/icon.png    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/icons/icon.png /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"B68E2A0E-0A8E-4092-9179-C408B1102080-
+
+CCpResource app/Resources/icons/icon@2x.png cordova/../build/app.app/icon@2x.png
+s370309945.469098
+e370309945.476569
+r1
+xCpResource
+xapp/Resources/icons/icon@2x.png
+xcordova/../build/app.app/icon@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection41"Copy cordova/../build/app.app/icon@2x.pngf62878397b12b641^ac017a397b12b641^---0#0#0#-19%DVTDocumentLocation2@92"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/icon@2x.png000000000080d041^807"CpResource "app/Resources/icons/icon@2x.png" "cordova/../build/app.app/icon@2x.png"    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/icons/icon@2x.png" /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"27805F5E-5F04-4EFC-AABC-79A930E6903B-
+
+CCpResource app/Resources/splash/Default-Landscape@2x~ipad.png cordova/../build/app.app/Default-Landscape@2x~ipad.png
+s370309945.477091
+e370309945.486505
+r1
+xCpResource
+xapp/Resources/splash/Default-Landscape@2x~ipad.png
+xcordova/../build/app.app/Default-Landscape@2x~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection59"Copy cordova/../build/app.app/Default-Landscape@2x~ipad.png41447a397b12b641^938c7c397b12b641^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default-Landscape@2x~ipad.png000000000080d041^863"CpResource "app/Resources/splash/Default-Landscape@2x~ipad.png" "cordova/../build/app.app/Default-Landscape@2x~ipad.png"    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default-Landscape@2x~ipad.png" /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"AA961B15-C0C4-47EB-8D11-FE454901E5E9-
+
+CCpResource app/Resources/splash/Default-Landscape~ipad.png cordova/../build/app.app/Default-Landscape~ipad.png
+s370309945.485737
+e370309945.488438
+r1
+xCpResource
+xapp/Resources/splash/Default-Landscape~ipad.png
+xcordova/../build/app.app/Default-Landscape~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Copy cordova/../build/app.app/Default-Landscape~ipad.pngf6797c397b12b641^cc0a7d397b12b641^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default-Landscape~ipad.png000000000080d041^854"CpResource "app/Resources/splash/Default-Landscape~ipad.png" "cordova/../build/app.app/Default-Landscape~ipad.png"    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default-Landscape~ipad.png" /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"1AA6D2BA-B46F-4F46-8847-AC3ABA877913-
+
+CCpResource app/Resources/splash/Default-Portrait@2x~ipad.png cordova/../build/app.app/Default-Portrait@2x~ipad.png
+s370309945.485981
+e370309945.492754
+r1
+xCpResource
+xapp/Resources/splash/Default-Portrait@2x~ipad.png
+xcordova/../build/app.app/Default-Portrait@2x~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Copy cordova/../build/app.app/Default-Portrait@2x~ipad.png44877c397b12b641^3e267e397b12b641^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default-Portrait@2x~ipad.png000000000080d041^860"CpResource "app/Resources/splash/Default-Portrait@2x~ipad.png" "cordova/../build/app.app/Default-Portrait@2x~ipad.png"    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default-Portrait@2x~ipad.png" /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"24115066-9B77-4856-A16F-34E729ECED31-
+
+CCpResource app/Resources/splash/Default-Portrait~ipad.png cordova/../build/app.app/Default-Portrait~ipad.png
+s370309945.487648
+e370309945.495373
+r1
+xCpResource
+xapp/Resources/splash/Default-Portrait~ipad.png
+xcordova/../build/app.app/Default-Portrait~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection55"Copy cordova/../build/app.app/Default-Portrait~ipad.pngbaf37c397b12b641^e5d07e397b12b641^---0#0#0#-19%DVTDocumentLocation2@106"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default-Portrait~ipad.png000000000080d041^851"CpResource "app/Resources/splash/Default-Portrait~ipad.png" "cordova/../build/app.app/Default-Portrait~ipad.png"    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default-Portrait~ipad.png" /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"9A98BF2E-DE7D-4820-BC5C-68A260B4A91C-
+
+CCpResource app/Resources/splash/Default@2x~iphone.png cordova/../build/app.app/Default@2x~iphone.png
+s370309945.489606
+e370309945.715930
+r1
+xCpResource
+xapp/Resources/splash/Default@2x~iphone.png
+xcordova/../build/app.app/Default@2x~iphone.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection51"Copy cordova/../build/app.app/Default@2x~iphone.pnged7e7d397b12b641^1b48b7397b12b641^---0#0#0#-19%DVTDocumentLocation2@102"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default@2x~iphone.png000000000080d041^839"CpResource "app/Resources/splash/Default@2x~iphone.png" "cordova/../build/app.app/Default@2x~iphone.png"    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default@2x~iphone.png" /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"E385BF72-6A31-4230-84F9-30AA42EF713C-
+
+CCpResource app/Resources/splash/Default~iphone.png cordova/../build/app.app/Default~iphone.png
+s370309945.489609
+e370309945.494482
+r1
+xCpResource
+xapp/Resources/splash/Default~iphone.png
+xcordova/../build/app.app/Default~iphone.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection48"Copy cordova/../build/app.app/Default~iphone.pnge1797d397b12b641^ab987e397b12b641^---0#0#0#-19%DVTDocumentLocation2@99"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Default~iphone.png000000000080d041^830"CpResource "app/Resources/splash/Default~iphone.png" "cordova/../build/app.app/Default~iphone.png"    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Charlie/Dropbox/sites/NZPost/app/app/Resources/splash/Default~iphone.png" /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"48ADC50B-F2F2-4BA0-AF40-63905F97523E-
+
+CCpResource www cordova/../build/app.app/www
+s370309945.467807
+e370309946.135245
+r1
+xCpResource
+xwww
+xcordova/../build/app.app/www
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection33"Copy cordova/../build/app.app/www83de77397b12b641^de90223a7b12b641^---0#0#0#-19%DVTDocumentLocation2@84"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/www000000000080d041^737"CpResource www cordova/../build/app.app/www    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/Charlie/Dropbox/sites/NZPost/app/www /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"742E644C-3117-4D5E-B7E4-290A3C0D3928-
+
+CGenerateDSYMFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app.dSYM /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/app
+s370309954.410376
+e370309954.920676
+r1
+xGenerateDSYMFile
+x/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app.dSYM
+x/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Generating /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app.dSYMb32369427b12b641^f2b1eb427b12b641^---0#0#0#-19%DVTDocumentLocation2@85"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app.dSYM000000000080d041^790"GenerateDSYMFile cordova/../build/app.app.dSYM cordova/../build/app.app/app    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/app -o /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app.dSYM36"BC2B278F-408F-4C5F-90E2-1247B56BF510-
+
+CLd /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/app normal i386
+s370309953.300439
+e370309954.402646
+r1
+xLd
+x/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/app
+xnormal
+xi386
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Link /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/app5a114d417b12b641^341467427b12b641^---0#0#0#--1836"Ld cordova/../build/app.app/app normal i386    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv IPHONEOS_DEPLOYMENT_TARGET 4.2    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -L/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build -F/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build -filelist /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/app.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -weak_framework CoreFoundation -weak_framework UIKit -weak_framework AVFoundation -weak_framework CoreMedia -weak-lSystem -all_load -Obj-C -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=4.2 -liconv -framework CoreVideo -framework AssetsLibrary -weak_framework AVFoundation /Users/Charlie/Dropbox/sites/NZPost/app/build/libCordova.a -framework Foundation -weak_framework UIKit -framework CoreGraphics -framework AddressBook -framework AddressBookUI -framework AudioToolbox -framework CFNetwork -framework CoreLocation -framework MediaPlayer -framework QuartzCore -framework SystemConfiguration -framework MobileCoreServices -weak_framework CoreMedia -o /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/app36"C2669B9E-8CBC-4681-81B4-F7859D17B008-
+
+CPhaseScriptExecution "Touch www folder" /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Script-304B58A110DAC018002A0835.sh
+s370309945.441833
+e370309945.460098
+r1
+xPhaseScriptExecution
+xTouch www folder
+x/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Script-304B58A110DAC018002A0835.sh
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection42"Run custom shell script 'Touch www folder'f0a372397b12b641^4fc975397b12b641^---0#0#0#--19767"PhaseScriptExecution "Touch www folder" build/app.build/Debug-iphonesimulator/app.build/Script-304B58A110DAC018002A0835.sh    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv ACTION build    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER Charlie    setenv ALWAYS_SEARCH_USER_PATHS NO    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS i386    setenv ARCHS_STANDARD_32_BIT i386    setenv ARCHS_UNIVERSAL_IPHONE_OS i386    setenv AVAILABLE_PLATFORMS "iphonesimulator macosx iphoneos"    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build    setenv BUILD_ROOT /Users/Charlie/Dropbox/sites/NZPost/app/build    setenv BUILD_STYLE     setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build    setenv CACHE_ROOT /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501    setenv CCHROOT /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLANG_ENABLE_OBJC_ARC NO    setenv CLANG_WARN_OBJCPP_ARC_ABI YES    setenv CLASS_FILE_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/JavaClasses    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/CompositeSDKs    setenv COMPRESS_PNG_FILES YES    setenv CONFIGURATION Debug    setenv CONFIGURATION_BUILD_DIR /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build    setenv CONFIGURATION_TEMP_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator    setenv CONTENTS_FOLDER_PATH app.app    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP NO    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv CORDOVALIB /Users/Charlie/Dropbox/sites/phonegap-phonegap-26d211b/lib/ios/CordovaLib    setenv CP /bin/cp    setenv CURRENT_ARCH i386    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING NO    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf-with-dsym    setenv DEFAULT_COMPILER com.apple.compilers.llvm.clang.1_0    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources    setenv DERIVED_FILE_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources    setenv DERIVED_SOURCES_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources    setenv DEVELOPER_APPLICATIONS_DIR /Applications/Xcode.app/Contents/Developer/Applications    setenv DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/usr/bin    setenv DEVELOPER_DIR /Applications/Xcode.app/Contents/Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Applications/Xcode.app/Contents/Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Applications/Xcode.app/Contents/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Applications/Xcode.app/Contents/Developer/Library    setenv DEVELOPER_SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Applications/Xcode.app/Contents/Developer/Tools    setenv DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DOCUMENTATION_FOLDER_PATH app.app/English.lproj/Documentation    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/app.dst    setenv DT_TOOLCHAIN_DIR /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain    setenv DWARF_DSYM_FILE_NAME app.app.dSYM    setenv DWARF_DSYM_FILE_SHOULD_ACCOMPANY_PRODUCT NO    setenv DWARF_DSYM_FOLDER_PATH /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build    setenv EFFECTIVE_PLATFORM_NAME -iphonesimulator    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".DS_Store .svn .git .hg CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLES_FOLDER_PATH app.app/Executables    setenv EXECUTABLE_FOLDER_PATH app.app    setenv EXECUTABLE_NAME app    setenv EXECUTABLE_PATH app.app/app    setenv FILE_LIST /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects/LinkFileList    setenv FIXED_FILES_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/FixedFiles    setenv FRAMEWORKS_FOLDER_PATH app.app/Frameworks    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build\" "    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME app.app    setenv GCC3_VERSION 3.3    setenv GCC_C_LANGUAGE_STANDARD c99    setenv GCC_DYNAMIC_NO_PIC NO    setenv GCC_INLINES_ARE_PRIVATE_EXTERN YES    setenv GCC_OBJC_LEGACY_DISPATCH YES    setenv GCC_OPTIMIZATION_LEVEL 0    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_PRECOMPILE_PREFIX_HEADER YES    setenv GCC_PREFIX_HEADER app/app-Prefix.pch    setenv GCC_SYMBOLS_PRIVATE_EXTERN YES    setenv GCC_THUMB_SUPPORT NO    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION com.apple.compilers.llvm.clang.1_0    setenv GCC_VERSION_IDENTIFIER com_apple_compilers_llvm_clang_1_0    setenv GCC_WARN_ABOUT_RETURN_TYPE YES    setenv GCC_WARN_UNUSED_VARIABLE YES    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE YES    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADER_SEARCH_PATHS "\"/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/include\" /Users/Charlie/Dropbox/sites/phonegap-phonegap-26d211b/lib/ios/CordovaLib/Classes"    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_FILE app/app-Info.plist    setenv INFOPLIST_OUTPUT_FORMAT binary    setenv INFOPLIST_PATH app.app/Info.plist    setenv INFOPLIST_PREPROCESS NO    setenv INFOSTRINGS_PATH app.app/English.lproj/InfoPlist.strings    setenv INSTALL_DIR /tmp/app.dst/Applications    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER Charlie    setenv INSTALL_PATH /Applications    setenv INSTALL_ROOT /tmp/app.dst    setenv IPHONEOS_DEPLOYMENT_TARGET 4.2    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FOLDER_PATH app.app/Java    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-LinkMap-normal-i386.txt    setenv LD_NO_PIE NO    setenv LEGACY_DEVELOPER_DIR /Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer    setenv LEX lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "\"/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build\" "    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_i386 /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal/i386/app.LinkFileList    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCALIZED_RESOURCES_FOLDER_PATH app.app/English.lproj    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE mh_execute    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv MAC_OS_X_PRODUCT_BUILD_VERSION 11E53    setenv MAC_OS_X_VERSION_ACTUAL 1074    setenv MAC_OS_X_VERSION_MAJOR 1070    setenv MAC_OS_X_VERSION_MINOR 0704    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJC_ABI_VERSION 2    setenv OBJECT_FILE_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects    setenv OBJECT_FILE_DIR_normal /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Objects-normal    setenv OBJROOT /Users/Charlie/Dropbox/sites/NZPost/app/build    setenv ONLY_ACTIVE_ARCH NO    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_LDFLAGS "-weak_framework CoreFoundation -weak_framework UIKit -weak_framework AVFoundation -weak_framework CoreMedia -weak-lSystem -all_load -Obj-C"    setenv PACKAGE_TYPE com.apple.package-type.wrapper.application    setenv PASCAL_STRINGS YES    setenv PATH "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Tools:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin"    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Applications/Xcode.app/Contents/Developer/Headers /Applications/Xcode.app/Contents/Developer/SDKs /Applications/Xcode.app/Contents/Developer/Platforms"    setenv PBDEVELOPMENTPLIST_PATH app.app/pbdevelopment.plist    setenv PFE_FILE_C_DIALECTS "objective-c c++ objective-c++"    setenv PKGINFO_FILE_PATH /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/PkgInfo    setenv PKGINFO_PATH app.app/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr    setenv PLATFORM_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform    setenv PLATFORM_NAME iphonesimulator    setenv PLATFORM_PREFERRED_ARCH i386    setenv PLATFORM_PRODUCT_BUILD_VERSION 10A403    setenv PLATFORM_VERSION_AVAILABILITY_H_FORMAT 60000    setenv PLIST_FILE_OUTPUT_FORMAT binary    setenv PLUGINS_FOLDER_PATH app.app/PlugIns    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/PrefixHeaders    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH app.app/PrivateHeaders    setenv PRODUCT_NAME app    setenv PRODUCT_SETTINGS_PATH /Users/Charlie/Dropbox/sites/NZPost/app/app/app-Info.plist    setenv PRODUCT_TYPE com.apple.product-type.application    setenv PROFILING_CODE NO    setenv PROJECT app    setenv PROJECT_DERIVED_FILE_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/DerivedSources    setenv PROJECT_DIR /Users/Charlie/Dropbox/sites/NZPost/app    setenv PROJECT_FILE_PATH /Users/Charlie/Dropbox/sites/NZPost/app/app.xcodeproj    setenv PROJECT_NAME app    setenv PROJECT_TEMP_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build    setenv PUBLIC_HEADERS_FOLDER_PATH app.app/Headers    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_GIT_FROM_RESOURCES YES    setenv REMOVE_HG_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REZ_COLLECTOR_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/ResourceManagerResources    setenv REZ_OBJECTS_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/ResourceManagerResources/Objects    setenv REZ_SEARCH_PATHS "\"/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build\" "    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPTS_FOLDER_PATH app.app/Scripts    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk    setenv SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk    setenv SDK_NAME iphonesimulator6.0    setenv SDK_PRODUCT_BUILD_VERSION 10A403    setenv SED /usr/bin/sed    setenv SEPARATE_STRIP NO    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHALLOW_BUNDLE YES    setenv SHARED_DERIVED_FILE_DIR /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/DerivedSources    setenv SHARED_FRAMEWORKS_FOLDER_PATH app.app/SharedFrameworks    setenv SHARED_PRECOMPS_DIR /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SHARED_SUPPORT_FOLDER_PATH app.app/SharedSupport    setenv SKIP_INSTALL NO    setenv SOURCE_ROOT /Users/Charlie/Dropbox/sites/NZPost/app    setenv SRCROOT /Users/Charlie/Dropbox/sites/NZPost/app    setenv STRINGS_FILE_OUTPUT_ENCODING binary    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE all    setenv SUPPORTED_DEVICE_FAMILIES "1 2"    setenv SUPPORTED_PLATFORMS "iphonesimulator iphoneos"    setenv SYMROOT /Users/Charlie/Dropbox/sites/NZPost/app/build    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Applications/Xcode.app/Contents/Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Applications/Xcode.app/Contents/Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Applications/Xcode.app/Contents/Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Applications/Xcode.app/Contents/Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETED_DEVICE_FAMILY 1,2    setenv TARGETNAME app    setenv TARGET_BUILD_DIR /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build    setenv TARGET_NAME app    setenv TARGET_TEMP_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build    setenv TEMP_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build    setenv TEMP_FILES_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build    setenv TEMP_FILE_DIR /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build    setenv TEMP_ROOT /Users/Charlie/Dropbox/sites/NZPost/app/build    setenv TEST_AFTER_BUILD NO    setenv TOOLCHAINS com.apple.dt.toolchain.XcodeDefault    setenv UID 501    setenv UNLOCALIZED_RESOURCES_FOLDER_PATH app.app    setenv UNSTRIPPED_PRODUCT NO    setenv USER Charlie    setenv USER_APPS_DIR /Users/Charlie/Applications    setenv USER_LIBRARY_DIR /Users/Charlie/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS i386    setenv VERBOSE_PBXCP NO    setenv VERSIONPLIST_PATH app.app/version.plist    setenv VERSION_INFO_BUILDER Charlie    setenv VERSION_INFO_FILE app_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:app  PROJECT:app-\""    setenv WRAPPER_EXTENSION app    setenv WRAPPER_NAME app.app    setenv WRAPPER_SUFFIX .app    setenv XCODE_APP_SUPPORT_DIR /Applications/Xcode.app/Contents/Developer/Library/Xcode    setenv XCODE_PRODUCT_BUILD_VERSION 4G182    setenv XCODE_VERSION_ACTUAL 0450    setenv XCODE_VERSION_MAJOR 0400    setenv XCODE_VERSION_MINOR 0450    setenv YACC yacc    /bin/sh -c /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/Script-304B58A110DAC018002A0835.sh36"41294851-EE4F-4B78-9609-520CD231424B-
+
+CProcessInfoPlistFile /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Info.plist app/app-Info.plist
+s370309945.428718
+e370309945.432374
+r1
+xProcessInfoPlistFile
+x/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Info.plist
+xapp/app-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection26"Process app/app-Info.plistb1e16d397b12b641^57b36e397b12b641^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/app-Info.plist0000000000000000^822"ProcessInfoPlistFile cordova/../build/app.app/Info.plist app/app-Info.plist    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    builtin-infoPlistUtility app/app-Info.plist -genpkginfo /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app/Info.plist36"323BD100-50E2-447F-B471-1DC61B8FB652-
+
+CProcessPCH /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-clhedxncxzqjflgubhevjzzdwofm/app-Prefix.pch.pth app/app-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s370309949.825133
+e370309950.404571
+r1
+xProcessPCH
+x/var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-clhedxncxzqjflgubhevjzzdwofm/app-Prefix.pch.pth
+xapp/app-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection29"Precompile app/app-Prefix.pch4469d33d7b12b641^5b96673e7b12b641^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/app-Prefix.pch0000000000000000^3426"ProcessPCH /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-clhedxncxzqjflgubhevjzzdwofm/app-Prefix.pch.pth app/app-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=4.2 -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-generated-files.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-own-target-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-all-target-headers.hmap -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-project-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/include -I/Users/Charlie/Dropbox/sites/phonegap-phonegap-26d211b/lib/ios/CordovaLib/Classes -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources/i386 -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources -F/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build --serialize-diagnostics /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-clhedxncxzqjflgubhevjzzdwofm/app-Prefix.pch.dia -c /Users/Charlie/Dropbox/sites/NZPost/app/app/app-Prefix.pch -o /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-clhedxncxzqjflgubhevjzzdwofm/app-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-clhedxncxzqjflgubhevjzzdwofm/app-Prefix.pch.d36"A04E76BB-8179-4FDE-8C79-7D2A464BED50-
+
+CProcessPCH++ /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-bsceepwxyejfbhcsndajxsdpdeha/app-Prefix.pch.pth app/app-Prefix.pch normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370309949.825127
+e370309950.529505
+r1
+xProcessPCH++
+x/var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-bsceepwxyejfbhcsndajxsdpdeha/app-Prefix.pch.pth
+xapp/app-Prefix.pch
+xnormal
+xi386
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection29"Precompile app/app-Prefix.pchda75d33d7b12b641^d68d873e7b12b641^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/app-Prefix.pch0000000000000000^3560"ProcessPCH++ /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-bsceepwxyejfbhcsndajxsdpdeha/app-Prefix.pch.pth app/app-Prefix.pch normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++-header -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Warc-abi -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=4.2 -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-generated-files.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-own-target-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-all-target-headers.hmap -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-project-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/include -I/Users/Charlie/Dropbox/sites/phonegap-phonegap-26d211b/lib/ios/CordovaLib/Classes -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources/i386 -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources -F/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build --serialize-diagnostics /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-bsceepwxyejfbhcsndajxsdpdeha/app-Prefix.pch.dia -c /Users/Charlie/Dropbox/sites/NZPost/app/app/app-Prefix.pch -o /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-bsceepwxyejfbhcsndajxsdpdeha/app-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-bsceepwxyejfbhcsndajxsdpdeha/app-Prefix.pch.d36"063CE3CE-1C26-4245-9C68-EE11D263F043-
+
+CProcessPCH++ /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-gonsmhaqkrnzrjbjytzqzzdxxbmp/app-Prefix.pch.pth app/app-Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370309949.826100
+e370309949.880372
+r1
+xProcessPCH++
+x/var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-gonsmhaqkrnzrjbjytzqzzdxxbmp/app-Prefix.pch.pth
+xapp/app-Prefix.pch
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection29"Precompile app/app-Prefix.pch239fd33d7b12b641^7460e13d7b12b641^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/Charlie/Dropbox/sites/NZPost/app/app/app-Prefix.pch0000000000000000^3160"ProcessPCH++ /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-gonsmhaqkrnzrjbjytzqzzdxxbmp/app-Prefix.pch.pth app/app-Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++-header -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -mios-simulator-version-min=4.2 -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-generated-files.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-own-target-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-all-target-headers.hmap -iquote /Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/app-project-headers.hmap -I/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/include -I/Users/Charlie/Dropbox/sites/phonegap-phonegap-26d211b/lib/ios/CordovaLib/Classes -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources/i386 -I/Users/Charlie/Dropbox/sites/NZPost/app/build/app.build/Debug-iphonesimulator/app.build/DerivedSources -F/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build --serialize-diagnostics /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-gonsmhaqkrnzrjbjytzqzzdxxbmp/app-Prefix.pch.dia -c /Users/Charlie/Dropbox/sites/NZPost/app/app/app-Prefix.pch -o /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-gonsmhaqkrnzrjbjytzqzzdxxbmp/app-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/vv/9lzl2nns7913_28gskzhxmxc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/app-Prefix-gonsmhaqkrnzrjbjytzqzzdxxbmp/app-Prefix.pch.d36"95F60C07-1E1D-4B27-A6C8-42005728D760-
+
+CTouch /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app
+s370309954.929578
+e370309954.933285
+r1
+xTouch
+x/Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Touch /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app9e0cee427b12b641^4aecee427b12b641^---0#0#0#--590"Touch cordova/../build/app.app    cd /Users/Charlie/Dropbox/sites/NZPost/app    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/Charlie/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/Charlie/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"    /usr/bin/touch -c /Users/Charlie/Dropbox/sites/NZPost/app/cordova/../build/app.app36"7DDAC9DE-E7C1-4E5D-BCF2-9D8952FCA7C0-
+

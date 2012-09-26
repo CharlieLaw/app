@@ -76,11 +76,11 @@
 						
 						window.plugins.barcodeScanner.scan(							
 							function(result) {
-								console.log(result);
 								if (result.cancelled)
 									alert("the user cancelled the scan")
 								else
-									alert("we got a barcode: " + result.text)
+									processTrackingCode(result.text)
+
 							},
 							function(error) {
 								console.log(error);
@@ -95,10 +95,6 @@
 				};
 		    },
 
-		    blah: function() {
-		    	alert('do')
-		    },
-
 		    render: function(){
 				var tmpl = _.template("<a href='#' class='<% print(classname); %>'><% print(title); %></a>");
 				var tmplData = tmpl({classname: this.model.classname, title: this.model.title});
@@ -107,10 +103,3 @@
 		    }
 
 		});
-
-var blah = function() {
-	alert('hello')
-}
-var blah2 = function() {
-	alert('goodbay')
-}

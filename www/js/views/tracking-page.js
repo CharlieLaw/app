@@ -144,82 +144,52 @@
 
 				//Get the users tracking result based on their input
 					var tCode = $trackingNo.val();
-					//var trackUrl = 'http://api.nzpost.co.nz/tracking/track?license_key='+this.model.get('apiKey')+'&tracking_code='+tCode+'&mock='+this.model.get('mockValue')+'&format=jsonp&callback=?'; // Pass in the Dynamic URL based on the users input
-
-					/*
-						Loop over the collection to check the code entered is not a dupliate
-					 	If it is a duplicate add a classname to hightlight class name
-					 	If is not a duplicate then do the AJAX call
-					*/
-					var matchingCode;
-					this.collection.each(function(model){
-						
-						if ( model.get("track_code") === tCode ) {
-
-							matchingCode = model;							
-							console.log(matchingCode)
-							model.set('highlight', 'highlight high-out');
-							setTimeout(function(){
-								model.set('highlight', 'high-out')
-							},1000);
-						}
-					});
-
-					if (!IsObject(matchingCode)) {
-			            var item = nzp.trackingPageCollection.create({track_code: tCode});
-
-						$.ajax({
-							dataType: 'jsonp',
-							url: item.url(),
-							//timeout: 1000, 
-							success: function(data) {
-								console.log(data);
-
-								var userCode = tCode.toUpperCase();
-								if(data[userCode] != undefined) {
-
-									if(data[userCode].track_code != undefined) {								
-										console.log('Sucessful code')
-										data[tCode].track_code = tCode;
-										item.set(data[tCode]); // Add a code to the collection																		
-									} else {
-										console.log(data[userCode].error_code);
-										item.save({error_code:data[userCode].error_code, detail_description: data[userCode].detail_description, short_description: data[userCode].short_description, spinner: ''}); // Save the item to the collection and set its spinner to blank            				    										
-									}
-
-//{"apiKey":"b74c4cd0-b123-012f-7fbc-000c294e04ef","mockValue":1,"highlight":null,"user_added_name":"","short_description":"Error - We don't appear to have a record of that item number (ADADFSFASDAFDSFDSAFSDA). However the item details may not have been received into our tracking system yet. Please try again later or call 0800 501501 should you require further assistance.","spinner":"","timestamp":1348190952602,"track_code":"adadfsfasdafdsfdsafsda","id":"0ac21678-ce77-825e-13ac-f34d53c082ac","error_code":"N","detail_description":"<P>Sorry, but your tracking number is not valid. Please ensure your tracking numbers are:</P><UL><LI>Accurately typed</LI><LI>In the format XX123456789XX</LI><UL><P>If you have any questions please check out our <A href=\"http://www.nzpost.co.nz/faq\">frequently asked questions.</A></P>"}									
-/*
-									if(data[userCode].error_code != undefined) {
-										console.log(data[userCode].error_code);
-										item.save({detail_description: data[userCode].detail_description, short_description: data[userCode].short_description, spinner: ''}); // Save the item to the collection and set its spinner to blank            				    										
-									};
-									}	else {
-										  console.log('code undefined');
-										  console.log(data);
-										  item.save({detail_description: data[userCode].detail_description, short_description: data[userCode].short_description, spinner: ''}); // Save the item to the collection and set its spinner to blank            				    
-									}
-*/									
-								}
-							}/*,
-							
-							// NOTE, JSONP HAS NO ERROR CALLBACK
-
-							error: function(response) {
-								//if (response.statusText == 'timeout') {
-									console.log('Timed out')
-									
-									//item.save({
-									//	short_description: 'Unable to reach the server at the moment.  Please try again later.', 
-									//	detail_description: 'We were unable to connect to the server during your request.  Delete this code and try again.',
-									//	spinner: ''
-									//});									
-							//	} else {
-									console.log(response.statusText)
-							//	}
-							//	return false;
-							}*/
-						});
-					};
-			};
+					processTrackingCode(tCode);
+				};
 		}
 	});
+
+function processTrackingCode(tCode) {
+	//var trackUrl = 'http://api.nzpost.co.nz/tracking/track?license_key='+this.model.get('apiKey')+'&tracking_code='+tCode+'&mock='+this.model.get('mockValue')+'&format=jsonp&callback=?'; // Pass in the Dynamic URL based on the users input
+
+	/*
+		Loop over the collection to check the code entered is not a dupliate
+	 	If it is a duplicate add a classname to hightlight class name
+	 	If is not a duplicate then do the AJAX call
+	*/
+	var matchingCode;
+	nzp.trackingPageCollection.each(function(model){
+		
+		if ( model.get("track_code") === tCode ) {
+			matchingCode = model;							
+			model.set('highlight', 'highlight high-out');
+			setTimeout(function(){
+				model.set('highlight', 'high-out')
+			},1000);
+		}
+	});
+
+	if (!IsObject(matchingCode)) {
+        var item = nzp.trackingPageCollection.create({track_code: tCode});
+
+		$.ajax({
+			dataType: 'jsonp',
+			url: item.url(),
+			//timeout: 1000, 
+			success: function(data) {
+				var userCode = tCode.toUpperCase();
+				if(data[userCode] != undefined) {
+
+					if(data[userCode].track_code != undefined) {								
+						console.log('Sucessful code')
+						data[tCode].track_code = tCode;
+						item.set(data[tCode]); // Add a code to the collection																		
+					} else {
+						item.save({error_code:data[userCode].error_code, detail_description: data[userCode].detail_description, short_description: data[userCode].short_description, spinner: ''}); // Save the item to the collection and set its spinner to blank            				    										
+					}
+				}
+			}
+		});
+	};
+
+}
