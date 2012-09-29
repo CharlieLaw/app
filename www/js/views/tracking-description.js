@@ -31,9 +31,9 @@
 		    },
 
 			submitForm: function(e) {
+					e.preventDefault();
 					var newName = nzp.$packageName.val();					// Get the text entered by the user
 					if (newName == "") {				
-					 	//nzp.$body.addClass('noheader')
 					 	this.model.save({user_added_name: ''});
 					 	return false;									// No value entered
 					 } else {
@@ -43,7 +43,8 @@
 
 					}
 		 			//return false;
-		 		},	    
+		 	}
+
 		});	    
 
 
@@ -100,11 +101,12 @@
 
 	 		events: {
 	    		"click #tracking-delete": "deleteModel",
-	    		"click #tracking-edit"  : "showForm"
+	    		"click #tracking-edit"  : "showForm",
+				"click #tracking-email" : "processEmail" 
 			},
 
 			initialize:function() {
-				_.bindAll(this, 'render', 'deleteModel', 'showForm');				
+				_.bindAll(this, 'render', 'deleteModel', 'showForm', 'processEmail');				
 			},
 
 		    render:function() {
@@ -126,13 +128,72 @@
 
 		// Change the value of the nice name value and save it to local storage
 			showForm:function(e) {
-	 			e.preventDefault();
-	 			//alert(window.scrollTo(0,45))
-	 			//$packageName = this.$('#tracking-updated-name');
-	 			console.log(nzp.$packageName)
-	 			
+	 			e.preventDefault();	 			
 	 			nzp.$body.toggleClass('showform');
 				nzp.$packageName.focus();
-	 		}
+	 		},
 
+			processEmail: function(e) {
+		 		e.preventDefault();
+		 		var emailHtml = new nzp.TrackingEmail({
+		 			model: this.model		 		
+		 		})
+		 		emailHtml.render();		 		
+		 	}		 		
 	});
+
+
+	// The individual tracked items finer details
+	nzp.TrackingEmail = Backbone.View.extend({			
+
+ 			template: _.template($('#tmp-tracking-email').html()),
+
+ 			//el: 'div',
+
+ 			initialize: function() {
+ 				_.bindAll(this, 'render')
+ 			},
+
+ 			render: function() {
+ 				
+
+				if (this.model.toJSON().events != undefined && this.model.toJSON().events.length > 0) {
+
+					// Email title
+						var title = 'New Zealand Post tracking details for: ' + this.model.toJSON().track_code;
+				
+					// Find final event
+						var events = this.model.toJSON().events;
+
+					// Create Object to pass to template
+		 				var bodyData = {
+		 					'track_code'		: this.model.toJSON().track_code,
+		 					'full_desc'			: this.model.toJSON().detail_description,
+		 					'lastDate' 			: events[events.length-1].date,
+		 					'lastDescription'	: events[events.length-1].description,
+		 					'lastTime'			: events[events.length-1].time
+		 				};
+
+				} else {
+	 				
+		 			// Create Object to pass to template
+		 				var bodyData = {
+		 					'track_code'		: this.model.toJSON().track_code,
+		 					'full_desc'			: this.model.toJSON().detail_description
+			 			};
+				}; 
+
+				// Use template for HTML content	
+					this.$el.html(this.template(bodyData));
+					var bodyHtml = this.$el.html(); // Body text in plain html not Jquery object 				
+
+				// Values to create email
+					var args = {
+			 			subject: title,
+			 			body: bodyHtml,
+			 			bIsHTML: true
+			 		};		 				 		
+			
+			 		Cordova.exec(null, null, "EmailComposer", "showEmailComposer", [args]);			
+ 			}
+	})

@@ -70,26 +70,7 @@
 					  nzp.$page.removeClass("map");
 					  nzp.$body.removeClass("showform");
             		  $('.tabbar').remove(); // if the tabbar is presenet remove it
-					  break;
-					case 'scan':
-					//window.plugins.barcodeScanner.scan(blah, blah2);
-						
-						window.plugins.barcodeScanner.scan(							
-							function(result) {
-								if (result.cancelled)
-									alert("the user cancelled the scan")
-								else
-									processTrackingCode(result.text)
-
-							},
-							function(error) {
-								console.log(error);
-								alert("scanning failed: " + error)
-							}
-
-						 )
-					  //alert('Search button clicked');
-					  break;
+					  break;					
 					default:
 					  nzp.router.navigate('', true);
 				};

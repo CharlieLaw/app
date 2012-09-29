@@ -34,11 +34,30 @@
 
  
 <script>
+  <!-- Bootsraped data for load -->
   var navigationData = [
       {title: 'Locator', slug: 'locator', desc:'Find your clostest Postbox, Post Office & KiwiBank'},      
       {title: 'Tracking', slug: 'tracking', desc:'Follow your packages journey'},
       {title: 'Contact', slug: 'contact', desc:'Give us a call'}
-  ]; 
+  ];
+  
+  var buttonsData = [       
+    {title: 'Home', slug:'home', classname: 'btn-head btn-head-home'},
+    {title: 'Menu', slug:'menu', classname: 'btn-head btn-head-menu'},
+    {title: 'Back', slug:'back', classname: 'btn-head btn-head-back'}
+  ];   
+  
+  var DirectionTabsData = [       
+    {id:0, title: 'Driving', slug:'driving'},
+    {id:1, title: 'Walking', slug:'walking'}
+  ];
+
+  var AllMarkersTabsData = [        
+    {id:0, title: 'All', slug:'postall'}, 
+    {id:1, title: 'ATM', slug:'atm'},
+    {id:2, title: 'Postbox Lobby', slug:'postboxlobby'},
+    {id:3, title: 'Postshop', slug:'postshop'}  
+  ];  
 </script>
 
 
@@ -262,12 +281,23 @@
             <ul id="tracking-actions">
               <li><a href="#" id="tracking-delete" class="btn btn-primary">Delete</a></li>            
                 <li><a href="#" id="tracking-edit" class="btn btn-primary">Name</a></li>
-                <li><a  class="btn btn-primary" href="mailto:chalrie.law%40nzpost.co.nz?subject=New%20Zealand%20Post%20tracking%20details%20for%20XXX&body=Tracking%20number%3A%20XXX%0ADate%3A%20XXX%0ATime%3A%20XXX%0AStatus%3A%20XXX%0A%0A%0AThe%20latest%20tracking%20information%20for%20this%20item%20can%20be%20viewed%20here%3A%20XXX%0A%0AIf%20you%20have%20an%20internet%20capable%20mobile%20device%2C%20you%20can%20view%20it%20here%3A%20XXX%0A%0AIf%20you%20have%20an%20iPhone%20or%20iPod%20Touch%20you%20can%20download%20the%20New%20Zealand%20Post%20iPhone%20application%20from%20here%3A%20XXX%20...%20and%20then%20start%20tracking%20the%20package%20with%20this%20link%3A%20XXX%0A%0AThe%20latest%20tracking%20information%20for%20this%20item%20can%20be%20viewed%20here%3A%0Ahttp%3A%2F%2Fwww.nzpost.co.nz%2Ftools%2Ftracking%3Ftrackid%3DXXX%0A%0AIf%20you%20have%20an%20internet%20capable%20mobile%20device%2C%20you%20can%20view%20it%20here%3A%20%0Ahttp%3A%2F%2Fm.nzpost.co.nz%2Ft%3Fid%3DXXX%0A%0AIf%20you%20have%20an%20iPhone%20or%20iPod%20Touch%2C%20you%20can%20download%20the%20New%20Zealand%20Post%20iPhone%20application%20from%20here%3A%0Ahttp%3A%2F%2Fnzpost.co.nz%2FiPhone%2FApp%0A...%20and%20then%20start%20tracking%20the%20package%20with%20this%20link%3A%0ANZPost%3A%2F%2Ftt%2F%3Fid%3DXXX%0A" id="tracking-email">Email</a></li>
+                <li><a href="#" id="tracking-email" class="btn btn-primary">Email</a></li>
             </ul>
           <% } %>
 
       </script>
 
+
+      <script id="tmp-tracking-email" type="text/template">
+        <p>Tracking number: <%= track_code %><br />
+        <% if (typeof(lastDate) != "undefined") { %>Date: <%= lastDate %><br /><% } %>
+        <% if (typeof(lastTime) != "undefined") { %>Time: <%= lastTime %><br /><% } %>
+        <% if (typeof(lastDescription) != "undefined") { %>Status: <%= lastDescription %></p><% } %>
+        <% if (typeof(full_desc) != "undefined") { %><p><%= full_desc %></p><% } %>        
+        <p>The latest tracking information for this item can be viewed here: <a href="http://www.nzpost.co.nz/tools/tracking?trackid=<%= track_code %>">http://www.nzpost.co.nz/tools/tracking?trackid=<%= track_code %></a></p>
+        <p>If you have an internet capable mobile device, you can view it here: <a href="http://m.nzpost.co.nz/t?id=<%= track_code %>">http://m.nzpost.co.nz/t?id=<%= track_code %></a></p>
+        <p>If you have an iPhone or iPod Touch you can download the New Zealand Post iPhone application from here: <a href="http://nzpost.co.nz/iPhoneApp">http://nzpost.co.nz/iPhoneApp</a> and enter this tracking code in the search field</p>  
+      </script>
 
   <!--/ TRACKING -->
 
@@ -278,8 +308,8 @@
 
       </script>
 
-      <script id="navTemplate" type="text/template">
-        <a href="" class="nav-<%= slug %> menu-item" data-page="<%= slug %>"><h2><%= title %></h2><p><%= desc %></p></a>
+      <script id="tmp-nav" type="text/template">
+        <a href="" class="fc nav-<%= slug %> menu-item" data-page="<%= slug %>"><h2><%= title %></h2><p><%= desc %></p></a>
       </script>
 
       <script id="item-template" type="text/template">
@@ -302,20 +332,18 @@
 
 
       <script id="hiddenMenu" type="text/template"></script>
-    <!-- Data -->
-      <script src="js/data/button.json"></script>
-      <script src="js/data/tabs.json"></script>
+
     <!-- Libs -->
       <script src="js/libs/phonegap/cordova-2.1.0.js"></script> 
-      
-      
 
       <script src="js/libs/h5mbp/helper.js"></script>
       <script src="js/libs/jquery/jquery.js"></script>
       <script src="js/libs/underscore/underscore.js"></script>
       <script src="js/libs/backbone/backbone.js"></script>
       <script src="js/libs/backbone/backbone.localStorage.js"></script>
+      <script src="js/plugins/EmailComposer.js"></script>      
       <script src="js/libs/fastclick/fastclick.js"></script>
+      <script src="js/plugins/barcodescanner.js"></script>  
          
       
 
@@ -325,8 +353,6 @@
       <script src="js/models/contact-page.js"></script>
       <script src="js/models/header.js"></script>
       <script src="js/models/home-page.js"></script>
-      <script src="js/models/locator-page.js"></script>
-      <!-- <script src="js/models/locator-details-single-item.js"></script> -->
       <script src="js/models/navigation.js"></script>
       <script src="js/models/tracking-page.js"></script>
       <script src="js/models/place.js"></script>
@@ -336,9 +362,7 @@
       <script src="js/collections/contact-page.js"></script>
       <script src="js/collections/header.js"></script>
       <script src="js/collections/home-page.js"></script>
-      <script src="js/collections/locator-page.js"></script>
       <script src="js/collections/navigation.js"></script>
-      <script src="js/collections/nearest-places.js"></script>
       <script src="js/collections/ratefinder-page.js"></script>
       <script src="js/collections/tracking-page.js"></script>
       <script src="js/collections/places.js"></script>
@@ -347,14 +371,12 @@
       <script src="js/views/button.js"></script>
       <script src="js/views/tab.js"></script>
       <script src="js/views/contact-page.js"></script>
-      <!-- <script src="js/views/flyout-menu.js"></script>-->
-      <!--<script src="js/views/header-title.js"></script>-->
       <script src="js/views/header.js"></script>
       <script src="js/views/home-page.js"></script>
       <script src="js/views/locator-page.js"></script>
       <script src="js/views/locator-details.js"></script>
-      <script src="js/views/locator-map.js"></script>
-      <script src="js/views/locator-all-map.js"></script>
+      <script src="js/views/map-directions.js"></script>
+      <script src="js/views/map-all.js"></script>
       <script src="js/views/navigation.js"></script>
       <script src="js/views/ratefinder-page.js"></script>
       <script src="js/views/tracking-page.js"></script>
@@ -371,7 +393,7 @@
       
         <script type="text/javascript">
         // Set to true if loading in phoneGap
-           var phoneGap = true; 
+           var phoneGap = false; 
            if(phoneGap) {
               console.log('phonegap')
               app.initialize();
@@ -384,6 +406,7 @@
               }(jQuery));
            }                       
         </script>
- <script src="js/plugins/barcodescanner.js"></script>      
+    
+
   </body>
 </html>

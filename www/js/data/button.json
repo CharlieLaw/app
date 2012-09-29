@@ -1,5 +1,5 @@
-var buttonsData = [	    	
-	{title: 'Home', slug:'home', classname: 'btn-head btn-head-home'},
-	{title: 'Menu', slug:'menu', classname: 'btn-head btn-head-menu'},
-	{title: 'Back', slug:'back', classname: 'btn-head btn-head-back'}
-]
+// var buttonsData = [	    	
+// 	{title: 'Home', slug:'home', classname: 'btn-head btn-head-home'},
+// 	{title: 'Menu', slug:'menu', classname: 'btn-head btn-head-menu'},
+// 	{title: 'Back', slug:'back', classname: 'btn-head btn-head-back'}
+// ]

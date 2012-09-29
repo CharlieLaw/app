@@ -18,7 +18,10 @@
     </author>
 
     <preference name="orientation" value="portrait" />    
-
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    
     <gap:plugin name="CDVBarcodeScanner" />
+    <gap:plugin name="EmailComposer" />
 
 </widget>

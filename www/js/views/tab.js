@@ -44,7 +44,7 @@ clicked: function(e){
 
 	// If the tab is used for switching travel modes, calculate the route
 	if (this.options.parentview == 'travelroute') {
-		var tmode = this.model.get("slug").toUpperCase();
+		var tmode = this.model.get("slug").toUpperCase();		
 		nzp.calcRoute(tmode);
 	//if( !this.$el.hasClass("tab-current") ) {
 	//	nzp.calcMarkers(this.model.get("title")); // Function sits in the locator-all-map.js

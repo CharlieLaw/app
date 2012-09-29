@@ -29,7 +29,7 @@
 
     	tagName: "li",
     	
-    	template: $("#navTemplate").html(),
+    	template: $("#tmp-nav").html(),
 
 	    render: function(){			       	        
 	        var tmpl = _.template(this.template);
@@ -47,31 +47,24 @@
 
 	        // Show spinner
 				nzp.$loading.addClass('show');
-
-			//console.log(this)	
-			/*setTimeout(function() {
-				nzp.$body.removeClass('active');
-				nzp.$loading.removeClass('show');														
-			}, 1000)*/
-
-
+				
 			// Change the data attribute so show and hide stuff
-			switch(this.model.slug) {		
-				case 'locator':						  
-				  nzp.router.navigate('locator', true);	
-				  break;
-				case 'ratefinder':
-				  nzp.router.navigate('ratefinder', true);
-				  break;
-				case 'tracking':						  						  
-				  nzp.router.navigate('tracking', true);
-				  break;
-				case 'contact':											  
-				  nzp.router.navigate('contact', true);
-				  break;
-				default:
-					nzp.router.navigate('', true);
-			};
+				switch(this.model.slug) {		
+					case 'locator':						  
+					  nzp.router.navigate('locator', true);	
+					  break;
+					case 'ratefinder':
+					  nzp.router.navigate('ratefinder', true);
+					  break;
+					case 'tracking':						  						  
+					  nzp.router.navigate('tracking', true);
+					  break;
+					case 'contact':											  
+					  nzp.router.navigate('contact', true);
+					  break;
+					default:
+						nzp.router.navigate('', true);
+				};
 
 			//setTimeout(function() {			
 				nzp.$body.removeClass('active');

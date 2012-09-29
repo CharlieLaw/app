@@ -1,1 +1,0 @@
-/* Tracking Page  */nzp.TrackingPageCollection=Backbone.Collection.extend({model:nzp.TrackingPage,localStorage:new Backbone.LocalStorage("tracking"),comparator:function(e,t){return t.get("timestamp")-e.get("timestamp")},clear:function(){this.destroy()}});

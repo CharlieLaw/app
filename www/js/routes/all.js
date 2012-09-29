@@ -132,7 +132,7 @@ nzp.Router = Backbone.Router.extend({
 				nzp.$page.empty();												
 
 			// Set page title, body class & previuos page								
-				nzp.headerTitle.set({title: 'Locator'});								
+				nzp.headerTitle.set({title: 'NZ Post Nearby'});								
 				nzp.$body.attr('id', 'locator');
 
 			// Get the users current location	
@@ -214,6 +214,8 @@ nzp.Router = Backbone.Router.extend({
 
 			// Empty the page before putting new content in				
 				nzp.$page.empty();												
+				nzp.$page.removeClass("map");
+				$('.tabbar').remove(); // if the tabbar is presenet remove it
 
 			// Set page title, body class & previuos page								
 				nzp.headerTitle.set({title: 'Details'});								
@@ -249,7 +251,7 @@ nzp.Router = Backbone.Router.extend({
 									nzp.router.placeDetails(collection.models[0]);
 							}, 
 							error: function(collection, response) {
-								console.log('Not firing on error, must investigate')
+								//console.log('Not firing on error, must investigate')
 								//return console.log('Why not firing');
 								nzp.$page.html('<div class="msg page"><p>No place found.</p><p>Please check the URL is correct</p></div>');
 							}							
@@ -287,38 +289,52 @@ nzp.Router = Backbone.Router.extend({
 ********************************************************************************************************/
 
 
-		nearbyPage: function(place_type){
-			var self = this;
+	nearbyPage: function(place_type){
+		var self = this;
+		
+		nzp.nearby_type = unescape(place_type);
+	
+		if (nzp.placesCollection.isEmpty()){
 			
-			nzp.nearby_type = unescape(place_type);
-			//console.log(nzp.nearby_type)
-			if (nzp.placesCollection.isEmpty()){
-				
-				getLocation(function(pos){				
-					nzp.placesCollection.lat = pos.coords.latitude;
-					nzp.placesCollection.lng = pos.coords.longitude;
+			getLocation(function(pos){				
+				nzp.placesCollection.lat = pos.coords.latitude;
+				nzp.placesCollection.lng = pos.coords.longitude;
 
-					nzp.placesCollection.fetch({
-						success: self.showNearby
-					});
+				nzp.placesCollection.fetch({
+					success: self.showNearby
 				});
+			});
 
-			} else {
-				this.showNearby(nzp.placesCollection);
-			};
+		} else {
+			this.showNearby(nzp.placesCollection);
+		};
 
-		},
+	},
 
     showNearby: function(collection){      
       nzp.$page.empty();
 
-      var setMap = new ShowMapAllView({
+		// Set page title, body class & previuos page								
+			nzp.headerTitle.set({title: nzp.nearby_type});								
+			nzp.$body.attr('id', 'map-all');
+			nzp.router.previousPage = 'locator';		
+
+
+      var setMap = new mapAll({
         collection: collection
       });
 
-      createTab = new nzp.TabCollection(AllMarkersTabsData);
-      var createTabView = new nzp.TabView({collection: createTab, el:'<ul id="posttype" class="tabbar tabbar-posttype grad-mask">', tabtype: 'allmarkers'}); // Add data models to the collection
-        nzp.$wrapper.append(createTabView.render().el)
+      createTab = new nzp.TabCollection(AllMarkersTabsData);      
+      var createTabView = new nzp.TabView({
+      	collection: createTab, 
+      	el:'<ul id="posttype" class="tabbar tabbar-posttype grad-mask">', 
+      	tabtype: 'allmarkers'
+      }); // Add data models to the collection
+      
+      
+      nzp.$wrapper.append(createTabView.render().el)
+      
+      
 
       setMap.render();
       //nzp.router.previousPage = 'locator';
@@ -330,10 +346,6 @@ nzp.Router = Backbone.Router.extend({
       });
       selectedTab.set("highlighted", true);
 
-		// Set page title, body class & previuos page								
-			nzp.headerTitle.set({title: nzp.nearby_type});								
-			nzp.$body.attr('id', 'locator');
-			nzp.router.previousPage = 'locator';		
 
 		// Attach fastclick to wrapper element	
 			var clickPage = document.getElementById('posttype');
@@ -381,13 +393,12 @@ nzp.Router = Backbone.Router.extend({
 		getLocation(function(pos){
 			
 			nzp.$page.empty();
-
 			// Set page title and body class
 				nzp.headerTitle.set({title: nzp.tabTitle});
-				nzp.$body.attr('id', 'locator');
+				nzp.$body.attr('id', 'map-directions');
 
 			// Instantiate new map and render it
-				var setMap = new nzp.MapPageView({
+				var setMap = new nzp.MapDirections({
 					model: place
 				});
 				setMap.coords =  pos.coords;
@@ -563,6 +574,9 @@ nzp.Router = Backbone.Router.extend({
 				});
 
 				if (model){
+					
+
+					//console.log(model)
 					// var trackingPageView = new TrackingPageDetails({
 					// 	model: model
 					// }).render();

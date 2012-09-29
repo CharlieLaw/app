@@ -1,4 +1,8 @@
 //(function ($) {
+
+// Attache fastclick to the html element
+// this will bubble up to allow event delegation
+// If the body does not have a map class then carry out with the fastclick, otherwise no fastclick	
 	
 nzp.AppView = Backbone.View.extend({
 	
@@ -16,6 +20,10 @@ nzp.AppView = Backbone.View.extend({
 
 		_.bindAll(this, "render");		
 	},
+
+  	//events: {
+		//"click a": "fastClicked"
+	//},	
 
 	render: function() {
 
@@ -53,12 +61,31 @@ nzp.AppView = Backbone.View.extend({
 			nzp.placesCollection = new nzp.Places;
 		
 		// Fast Click to remove 300ms delay			
-			new FastClick(document.getElementById('header')); // This needs disabled for the map page 						
+			//new FastClick(document.getElementById('header')); // This needs disabled for the map page 						
 		
+			//var clickPage = document.getElementsByTagName('body')[0];
+			//console.log(clickPage)
+			//if(clickPage.) {
+			//	new FastClick(clickPage);	
+			// };
+			
+			//var p = document.getElementById('pages')
+			//new FastClick(p)
+
 		// Fire router & history 
 			nzp.router = new nzp.Router;
 			Backbone.history.start();	
 	}, 
+
+	
+	fastClicked: function(e) {
+		e.preventDefault();
+		//var $target = $(e.target)
+		//if ($target.hasClass('fc')) {		  
+		  new FastClick(this.$el);
+			//console.log(e.target)
+		//}
+	},
 
 	// Manage view transitions without fear of the zombies
 	// http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/

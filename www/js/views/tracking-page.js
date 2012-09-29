@@ -81,7 +81,7 @@
 			// Rendered at the start to show all items in Local storage
 			// 
 			addOne: function(trackItem) {
-				console.log('add one')
+				//console.log('add one')
 				var view = new nzp.TrackingItemView({model: trackItem});				
 				// This is prepended with the default values, 
 				// Once a sucessful ajax call has been made some defaults are changed and saved (getPackage ajax call)
@@ -164,7 +164,8 @@
 				 	If it is a duplicate add a classname to hightlight class name
 				 	If is not a duplicate then do the AJAX call
 				*/
-				$trackingNo.blur();
+				$trackingNo.blur(); // Hides keyboard after form submission
+				
 				var matchingCode;
 				this.collection.each(function(model){
 					
@@ -177,26 +178,39 @@
 					}
 				});
 
-				if (!IsObject(matchingCode)) {
-			        var item = nzp.trackingPageCollection.create({track_code: tCode});
+				if (!IsObject(matchingCode)) {			        
+			        // Get defaults			        
+				        var item = nzp.trackingPageCollection.create({
+				        	track_code: tCode
+				        }); 
+					
+					// Request an item based on the tracking code which will be passed in the defaults					
+						$.ajax({
+							dataType: 'jsonp',
+							url: item.url(),
+							success: function(data) {
+								var userCode = tCode.toUpperCase();
+								if(data[userCode] != undefined) {
 
-					$.ajax({
-						dataType: 'jsonp',
-						url: item.url(),
-						success: function(data) {
-							var userCode = tCode.toUpperCase();
-							if(data[userCode] != undefined) {
-
-								if(data[userCode].track_code != undefined) {								
-									console.log('Sucessful code')
-									data[tCode].track_code = tCode;
-									item.set(data[tCode]); // Add a code to the collection																		
-								} else {
-									item.save({error_code:data[userCode].error_code, detail_description: data[userCode].detail_description, short_description: data[userCode].short_description, spinner: ''}); // Save the item to the collection and set its spinner to blank            				    										
+									if(item.toJSON().track_code != undefined) {								
+										item.save({
+											detail_description: data[userCode].detail_description, 
+											short_description:  data[userCode].short_description, 
+											events:             data[userCode].events,
+	 										spinner:            ''
+										}); // Save the item to the collection and set its spinner to blank            				    										
+									} else {
+										console.log('unsucessful code')
+										item.save({
+											error_code:         data[userCode].error_code, 
+											detail_description: data[userCode].detail_description, 
+											short_description:  data[userCode].short_description, 
+											spinner:            ''
+										}); // Save the item to the collection and set its spinner to blank            				    										
+									}
 								}
 							}
-						}
-					});
+						});
 				};
 
 			}			
