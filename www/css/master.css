@@ -297,7 +297,7 @@ h3,
   width: 50%;
 }
 .tabbar-posttype li {
-  width: 25%;
+  width: 20%;
 }
 .tabbar a {
   color: #fff;
@@ -336,6 +336,9 @@ h3,
 }
 .tab-driving span {
   background-position: -200px -113px;
+}
+.tab-atm span {
+  background-position: -256px 0px;
 }
 .tab-current {
   background: #434343;

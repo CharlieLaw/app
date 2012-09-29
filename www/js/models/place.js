@@ -21,45 +21,75 @@
         var currentTime = new Date();
 
      // FInd out what day it is
-         var today = currentTime.getDay();
+         var today = currentTime.getDay() == 0 ? currentTime.getDay() +1 : currentTime.getDay();
+         
          var cHour = currentTime.getHours();
          var cMin = currentTime.getMinutes();
          var fullTime = cHour+':'+cMin
-      
+          
       // Post days array starts on Monday                  
          return {day: today-1, timeRigtNow: fullTime};
     },
     
     // This function works out whether the postal service is open or closed
     checkClosed: function(today) {
-                
-          var getHours = this.get("hours")[today];
-                    
+            
+            //console.log(this.toJSON().hours)    
+          var getHours = this.toJSON().hours[today];
+         // console.log(this.toJSON().hours[today]) 
+         //console.log(getHours)
+         // console.log(getHours)          
           // If today has any opening / closing hours associated with it
-            if (getHours.close != undefined) {                           
-
-              // Get the closing time for today
-                var closingTime = getHours.close; 
-                var openTime = getHours.open; 
-                var todaysClosingTime = toDate(closingTime,"h:m");
-
-              // Get current time   
-                var currentTime = this.times().timeRigtNow;
-                var curTime = toDate(currentTime,"h:m")
-
-              // Return whether the place is open or not    
-                if (curTime > todaysClosingTime) {
-                  return false                  
-                } else {
-                  return true;
+            if ( getHours != undefined ) {                           
+                if(getHours.close != undefined) {
+                 // console.log('a')    
                   
-                };                
+                  // Get the closing time for today
+                    var closingTime = getHours.close; 
+                    var openTime = getHours.open; 
+                    var todaysOpeningTime = toDate(openTime,"h:m");
+                    var todaysClosingTime = toDate(closingTime,"h:m");
+                     //console.log(todaysOpeningTime) 
+                  // Get current time   
+                    var currentTime = this.times().timeRigtNow;
+                    var curTime = toDate(currentTime,"h:m")
+                    //console.log(curTime)
+                  // Return whether the place is open or not    
+                    if (curTime > todaysClosingTime || curTime < todaysOpeningTime) {
+                      return false                  
+                    } else {
+                      return true;                      
+                    };                
+                // Closed is defined      
+                } else if(getHours.closed != undefined) {                
+                 console.log('b') ;   
+                 return true;
+                // Array is defined but no values 
+                } else {
+                 console.log('c') ;   
+                 return true;
+                }
           // Else if no hours were defined but closed was      
-            } else if (getHours.closed != undefined) {                              
-                return false;
             } else {
+                //console.log('d');
                 return true;                
+
+              /*if (getHours.closed != undefined) {                              
+                console.log('c');
+                return false;
+              } else {
+                console.log('d');
+                return true;                
+              }*/
             }
+
+            //if (getHours.closed != undefined) {                              
+            //   console.log('c');
+            //     return false;
+            // } else {
+            //   console.log('d');
+            //     return true;                
+            // }
     },
 
     createMarker:function(){
@@ -71,8 +101,11 @@
         //console.log(this.getDay())
         //console.log(this.times())
       //var today = ;
+     // console.log(this.times().day)
+     //console.log(this.times().day)
+
       var isOpenNow = this.checkClosed( this.times().day ); 
-      
+      //console.log(isOpenNow)
       // If the place is open right now then display the full logo
         if (isOpenNow) {
           //console.log('open')
@@ -211,18 +244,25 @@
         var today = this.times().day;
         // If the place is open show the opening times, however for ATM's dont show anything as they are always open
         if(isOpenNow) {
-          if (this.toJSON().type.toLowerCase() === 'atm' ) {
+          if (this.toJSON().type.toLowerCase() === 'atm' ||  this.toJSON().type.toLowerCase() === 'postbox' ) {
             var closedInfo = '';
           } else {
             var closedInfo = 'Open form '+this.get("hours")[today].open+' - '+this.get("hours")[today].close + ' today'   
           }         
         // If its closed descide show whether its been closed all day or closed at a certian time
         } else {
-          if (this.get("hours")[today].closed != undefined) {
-            var closedInfo = 'Closed all day';  
-          } else {
-            var closedInfo = 'Closed at ' + this.get("hours")[today].close + ' today';
-          }                
+          console.log(this)
+
+          if (this.get("hours").length == 0) {
+            var closedInfo = 'No opening time information available';      
+          }
+
+
+          // if (this.get("hours")[today].closed != undefined) {
+          //   var closedInfo = 'Closed all day';  
+          // } else {
+          //   var closedInfo = 'Closed at ' + this.get("hours")[today].close + ' today';
+          // }                
         }
 
       // Work out more info URL
@@ -241,10 +281,10 @@
         var header = this.get("type");
         var address = this.get("address");
         infoWindowHtml                                += '<div class="bubble">';
-        if ( header.length > 0 )     { infoWindowHtml += '<h2>'+header+'</h2>'};          
-        if ( address.length > 0 )    { infoWindowHtml += '<ul><li>'+address+'</li>'};  
-        if ( distanceKM.length > 0 ) { infoWindowHtml += '<li>Distance: '+distanceKM+'km</li>'};  
-        if ( closedInfo.length > 0 ) { infoWindowHtml += '<li>'+closedInfo+'</li>' };        
+        if ( header != undefined &&  header.length > 0 )     { infoWindowHtml += '<h2>'+header+'</h2>'};          
+        if ( address != undefined &&  address.length > 0 )    { infoWindowHtml += '<ul><li>'+address+'</li>'};  
+        if ( distanceKM != undefined &&  distanceKM.length > 0 ) { infoWindowHtml += '<li>Distance: '+distanceKM+'km</li>'};  
+        if ( closedInfo != undefined && closedInfo.length > 0 ) { infoWindowHtml += '<li>'+closedInfo+'</li>' };        
         infoWindowHtml                                += '<li><a href="'+url+'">More info...</a></li></ul></div>';
         var bubbleHtml = infoWindowHtml;        
         

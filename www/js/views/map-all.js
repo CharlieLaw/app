@@ -78,7 +78,7 @@ var mapAll = Backbone.View.extend({
 //				console.log('to lowercase ' + selectedTab.toLowerCase())
 //				console.log('item ' + item.get('location_type').toLowerCase())
 				if (selectedTab.toLowerCase() == item.get('location_type').toLowerCase() || selectedTab === 'All') {
-					console.log('found match')
+					//console.log('found match')
 					markers[index].setVisible(true);
 				} else {
 					markers[index].setVisible(false);
