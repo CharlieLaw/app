@@ -320,7 +320,9 @@ nzp.Router = Backbone.Router.extend({
 			nzp.router.previousPage = 'locator';		
 
 
+	  var place = new nzp.Place();
       var setMap = new mapAll({
+        model: place,
         collection: collection
       });
 
@@ -396,7 +398,7 @@ nzp.Router = Backbone.Router.extend({
 			// Set page title and body class
 				nzp.headerTitle.set({title: nzp.tabTitle});
 				nzp.$body.attr('id', 'map-directions');
-
+				
 			// Instantiate new map and render it
 				var setMap = new nzp.MapDirections({
 					model: place

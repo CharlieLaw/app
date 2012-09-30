@@ -51,10 +51,10 @@ nzp.Places = Backbone.Collection.extend({
       _(this.postbox()).first(),
       _(this.postShops()).first(),
       _(this.atm()).first(),
-      _(this.bbc()).first(),
+     // _(this.bbc()).first(),
     ];
 
-    console.log(places)
+    //console.log(places)
     return _(places).compact(); //remove any undefined values
   }
 });
