@@ -9,7 +9,7 @@
   color: #FFF;
   cursor: pointer;
   display: inline-block;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 10px;
 }
 .btn-primary {
@@ -40,7 +40,7 @@
   width: 40px;
 }
 .btn-head-menu {
-  background: url(../img/menu-icon.png) no-repeat 9px 8px, -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  background: url(../img/sprite.png) no-repeat -248px -107px, -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
   background-color: #fff;
   right: 0;
   text-indent: -9999em;

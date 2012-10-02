@@ -11,10 +11,6 @@
 		className: 'page home-items list list-arrows',
 		id: 'home-page',
 
-		// events: {
-		// 	"click": "fastClick"
-		// },
-
 		initialize: function() {
 			_.bindAll(this, "render");        			
 		},
@@ -31,16 +27,6 @@
 
 		onClose: function(){
     		this.model.unbind("change", this.render);
-  		}//,
-
-  		// fastClick: function(e) {
-  		// 	e.preventDefault();
-  		// 	console.log(this)
-  		// }
-
-		// var clickPage = document.getElementById('home-page');
-		// if(clickPage) {
-		// 	new FastClick(clickPage);	
-		// };			
+  		}
 
 	});

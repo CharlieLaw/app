@@ -129,7 +129,7 @@ nzp.MapDirections = Backbone.View.extend({
 
 			var icons = {
 			  start: new google.maps.MarkerImage(
-			   './img/sprite.locator.png',   
+			   './img/sprite.png',   
 			   new google.maps.Size( 60, 60 ),
 			   new google.maps.Point( 0, 102 ),
 			   new google.maps.Point( 30, 30 )

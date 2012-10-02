@@ -13,8 +13,9 @@
       return new google.maps.LatLng(this.get("lat"),this.get("lng"));
     },
  
-    createMarker:function(){
-      
+
+    createMarker:function(){      
+      /*
       // Find what day it is and whether the place is open or not
         var today = times().day;
         var isOpenNow = checkClosed( today, this ); 
@@ -23,31 +24,31 @@
         if (isOpenNow) {
           switch(this.get("type").toLowerCase()){
             case 'postshop':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(0,25),
                   new google.maps.Point(10, 34));
               break;
             case 'postbox':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(80,25),
                   new google.maps.Point(10, 34));
             break;
             case 'postbox lobby':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(40,25),
                   new google.maps.Point(10, 34));
             break;
             case 'atm':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(256,25),
                   new google.maps.Point(10, 34));
             break;
             default:
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(0,25),
                   new google.maps.Point(10, 34));
@@ -57,38 +58,38 @@
 
           switch(this.get("type").toLowerCase()){
             case 'postshop':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(0,64),
                   new google.maps.Point(10, 34));
               break;
             case 'postbox':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(80,64),
                   new google.maps.Point(10, 34));
             break;
             case 'postbox lobby':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(40,64),
                   new google.maps.Point(10, 34));
             break;
             case 'atm':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(256,64),
                   new google.maps.Point(10, 34));
             break;
             default:
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(0,64),
                   new google.maps.Point(10, 34));
           }
 
-      }
-    
+      }*/
+    var pinImage = createMarker(this);
     // Creating a marker and putting it on the map
       var marker = new google.maps.Marker({
         position: this.getLatLng(),

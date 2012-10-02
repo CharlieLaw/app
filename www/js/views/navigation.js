@@ -65,11 +65,12 @@
 					default:
 						nzp.router.navigate('', true);
 				};
-
-			//setTimeout(function() {			
+			  
+				nzp.$page.removeClass("map");
+				nzp.$body.removeClass("showform");
+				$('.tabbar').remove(); // if the tabbar is presenet remove it			
 				nzp.$body.removeClass('active');
 				nzp.$loading.removeClass('show');														
-			//}, 1000)
 
 	    }
 	    

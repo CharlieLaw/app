@@ -28,74 +28,31 @@ nzp.Router = Backbone.Router.extend({
 
 
 		routes: {
-			  //  		   '' : 'home',
-			  // 'index.html': 'home',
-
-			   		   '' : 'home',
-			  'index.html': 'home',
-			     'locator': 'locator',
-			  //'ratefinder': 'ratefinder',
-			    'tracking': 'trackingList',
-		    'tracking/:id': 'trackingDetails',
-			     'contact': 'contact',
-			     'mappage': 'mappage',
-			 'locator/closest/:id': "locatorDetails",
-			 'locator/closest/:id/:travel_mode': "directionsPage",
-		     'locator/nearby/:place_type' : "nearbyPage",
-		     'locatorrefresh': 'locatorRefresh'
+						   		   '' : 'home',
+						  'index.html': 'home',
+						     'locator': 'locator',			  
+						    'tracking': 'trackingList',
+					    'tracking/:id': 'trackingDetails',
+						     'contact': 'contact',
+						     'mappage': 'mappage',
+	  	 	 	 'locator/closest/:id': "locatorDetails",
+ 	'locator/closest/:id/:travel_mode': "directionsPage",
+		 'locator/nearby/:place_type' : "nearbyPage",
+		    		  'locatorrefresh': 'locatorRefresh'
 		},
 
-
-
-		initialize: function(options) {
-			
+		initialize: function(options) {	
 		},
 
 /********************************************************************************************************
 	Site home page
 ********************************************************************************************************/
 
-		/*
-		home: function() {
-			// Empty the page before putting new content in				
-				nzp.$page.empty();		
-			
-			// Set page title, body class & previuos page								
-				nzp.headerTitle.set({title: 'New Zealand Post'});				
-				nzp.$body.attr('id', 'home');
-
-
-			// Instantiate the home page using the navigation data
-
-			// Check if the navigation data is stored in local storage 
-				nzp.homePage = new nzp.Nav(navigationData);
-
-				if(nzp.homePageView == undefined) {
-					console.log('using collection')
-					nzp.homePageView = new nzp.HomePageView({
-						model: nzp.homePage
-					});					
-				}
-				nzp.homePageView.render();				
-				nzp.$page.append(nzp.homePageView.el);
-			
-			// Attach fastclick to wrapper element	
-				var clickPage = document.getElementById('home-page');
-				if(clickPage) {
-					new FastClick(clickPage);	
-				};
-
-			//setTimeout(function() {
-				nzp.$loading.hide();
-			//}, 500)
-					
-
-		},*/
-
+		
 		home: function() {
 
 			// Empty the page before putting new content in				
-				nzp.$page.empty();		
+				//nzp.$page.empty();		
 			
 			// Set page title, body class & previuos page								
 				nzp.headerTitle.set({title: 'New Zealand Post'});				
@@ -108,7 +65,7 @@ nzp.Router = Backbone.Router.extend({
 				});					
 					
 			// Show page, passed via the event application object	
-				nzp.appView.showView(homePageView)
+				nzp.appView.showView(homePageView);
 			
 			// Attach fastclick to wrapper element	
 				var clickPage = document.getElementById('home-page');
@@ -129,7 +86,7 @@ nzp.Router = Backbone.Router.extend({
 		locator:function () {
 			
 			// Empty the page before putting new content in				
-				nzp.$page.empty();												
+				//nzp.$page.empty();												
 
 			// Set page title, body class & previuos page								
 				nzp.headerTitle.set({title: 'NZ Post Nearby'});								
@@ -194,12 +151,14 @@ nzp.Router = Backbone.Router.extend({
 				if(nzp.placesCollection.length == 0 || nzp.refreshMe == true) {
 					nzp.placesCollection.fetch({
 						success: function(collection, response) {								
+							//console.log('route 1');
 							nzp.appView.showView(nzp.placeListView);
 							nzp.appView.hideSpinner();
 							nzp.refreshMe = false; // Set back to false in case this was a refresh event							
 						}
 					});
-				} else {													
+				} else {	
+					//console.log('route 2');												
 					//nzp.$page.html(nzp.placeListView.render().el);
 					nzp.appView.showView(nzp.placeListView);					
 					nzp.appView.hideSpinner();
@@ -243,16 +202,13 @@ nzp.Router = Backbone.Router.extend({
 					});
 					
 					// Fetch the itme with matching ID
-						singleItemCollection.fetch({
-							
+						singleItemCollection.fetch({							
 							success: function(collection, response) {								
 								// Add item to collection
 									nzp.placesCollection.add(collection.models[0]);
 									nzp.router.placeDetails(collection.models[0]);
 							}, 
 							error: function(collection, response) {
-								//console.log('Not firing on error, must investigate')
-								//return console.log('Why not firing');
 								nzp.$page.html('<div class="msg page"><p>No place found.</p><p>Please check the URL is correct</p></div>');
 							}							
 						}, this);
@@ -280,8 +236,9 @@ nzp.Router = Backbone.Router.extend({
 		placeDetails: function(c) {
 			var locatorDetails2 = new nzp.LocatorDetailView({
 				collection: c
-			}).render();
-			nzp.$page.append(locatorDetails2.el);
+			})//.render();
+			nzp.appView.showView(locatorDetails2);
+			//nzp.$page.append(locatorDetails2.el);
 		},
 
 /********************************************************************************************************
@@ -333,16 +290,13 @@ nzp.Router = Backbone.Router.extend({
       	tabtype: 'allmarkers'
       }); // Add data models to the collection
       
-      
+      // Cant use event aggregator as it appends to differnt element
       nzp.$wrapper.append(createTabView.render().el)
       
       
 
       setMap.render();
-      //nzp.router.previousPage = 'locator';
-      //headerTitle.set({title: nzp.nearby_type});
-      //nzp.$body.attr('id', 'locator');
-      //console.log(nzp.nearby_type)
+
       var selectedTab = createTab.find(function(tab){
         return tab.get("title") == nzp.nearby_type;
       });
@@ -376,7 +330,6 @@ nzp.Router = Backbone.Router.extend({
 		// If place is undefined fetch the colllection, then show the place
 			if (place == undefined){
 				place = new nzp.Place({id: id});
-				//console.log(place)
 				place.fetch({
 					success: this.showPlace
 				});
@@ -440,9 +393,9 @@ nzp.Router = Backbone.Router.extend({
 
 		trackingList: function() {
 
-			// Empty the page before putting new content in
+			// Empty the page before putting new content in				
 				nzp.$page.empty();
-
+				
 			// Set page title and body class
 				nzp.headerTitle.set({title: 'Tracking'});								
 				nzp.$body.attr('id', 'tracking');	
@@ -454,7 +407,10 @@ nzp.Router = Backbone.Router.extend({
 					collection: nzp.trackingPageCollection,
 					el: '<div id="tracking-page" class="page">'
 				}).render();
-				nzp.$page.html(trackingFormView.el);
+				nzp.appView.showView(trackingFormView, true);
+
+
+				//nzp.$page.html(trackingFormView.el);
 
 			// Initalise the <ul> which contain all of the <li> tracking codes
 		        	
@@ -473,73 +429,15 @@ nzp.Router = Backbone.Router.extend({
 									});
 									
 									nzp.$page.append(nzp.trackingPageView.render().el);
-									
+									//nzp.appView.showView(nzp.trackingPageView);
+
 									if(nzp.trackingPageCollection.length > 0) {
 										nzp.trackingPageCollection.models[0].save({spinner: ''});
 									}
 
 								}			        		
 			        	}
-			        }, this);
-
-		    	
-		        //console.log(nzp.trackingPageCollection.length)
-
-/*if(nzp.trackingPageCollection.length === 0) {
-
-} else {
-	if (nzp.trackingPageView == undefined){
-		var trackingPage = new nzp.TrackingPage();
-		nzp.trackingPageView = new TrackingPageView({
-			model: trackingPage,
-			collection: nzp.trackingPageCollection
-		});
-    }
-    nzp.$page.append(this.trackingPageView.render().el)
-}*/
-
-
-	/*
-	
-	This is incorrect, fetch the collection
-	check it length
-	if its 0 then instantiate a new view
-	if ite more than 0 then get those items and display it
-
-	*/
-				
-		        
-
-
-
-
-
-
-/*	
-
-		        if (this.trackingPageView == undefined){
-		    		var trackingPage = new nzp.TrackingPage();
-					this.trackingPageView = new TrackingPageView({
-						model: trackingPage,
-						collection: nzp.trackingPageCollection
-					});
-		        }
-		     // If the collection is already there then just append to the page, no need to fetch again   
-		     	
-		     	//console.log(nzp.trackingPageCollection)
-				if(nzp.trackingPageCollection.length === 0) {
-					nzp.trackingPageCollection.fetch({
-					}); // Fetch items from Local Storage			
-				} else {
-					console.log(this.trackingPageView.render().el)
-					nzp.$page.append(this.trackingPageView.render().el)
-					//setTimeout(function() {
-					//	view.model.save({spinner: ''});
-					//}, 1000);						
-				};
-
-*/				
-				
+			        }, this);			
 			
 			// Set previous page
 				this.previousPage = '';
@@ -549,8 +447,9 @@ nzp.Router = Backbone.Router.extend({
 				if(clickPage) {
 					new FastClick(clickPage);	
 				};
-
-
+				
+			
+				
 		},
 
 		trackingDetails: function(id) {
@@ -577,11 +476,6 @@ nzp.Router = Backbone.Router.extend({
 
 				if (model){
 					
-
-					//console.log(model)
-					// var trackingPageView = new TrackingPageDetails({
-					// 	model: model
-					// }).render();
 					nzp.trackingDetailsForm = new nzp.TrackingDetailsForm({
 						model: model						
 					});
@@ -599,6 +493,7 @@ nzp.Router = Backbone.Router.extend({
 					nzp.$page.html(allContent);
 
 
+
 				} else {
 					nzp.$page.html('<div class="msg page"><p>This record does not match the ones you have stored.</p><p>Please check the URL is correct</p></div>');
 				};
@@ -608,52 +503,15 @@ nzp.Router = Backbone.Router.extend({
 			};
 
 
-
-			// Attach fastclick to wrapper element	
-/*			var clickPage = document.getElementById('tracking-details');			
-			if(clickPage) {
-				new FastClick(clickPage);			
-			};				*/
-
 		},
 
 
-		
-
-
-		//mappage: function() {
-			//nzp.$page.empty(); 								// Empty the page before putting new content in
-
-
-			// Set page title, body class & previuos page								
-				//nzp.headerTitle.set({title: 'Map'});				
-				//nzp.$body.attr('id', 'map')				
-				//nzp.$page.html(MapPageView.el);		
-				//this.previousPage = 'locator';			// Append the results to the page
-		//},
-
-
-		// ratefinder: function() {
-		// 	nzp.$page.empty(); 								// Empty the page before putting new content in
-		// 	nzp.$page.html('<p>Rate Finder</p>');
-
-		// 	nzp.$page.html(nzp.MapPageView.el);	
-
-		// 	// Set page title, body class & previuos page								
-		// 		nzp.headerTitle.set({title: 'Rate Finder'});				
-		// 		nzp.$body.attr('id', 'ratefinder')				
-				
-		// 		this.previousPage = '';				// Append the results to the page
-
-		// },
-
-
-
 		contact: function() {
-			nzp.$page.empty(); 								// Empty the page before putting new content in
+			//nzp.$page.empty(); 								// Empty the page before putting new content in
 			var contactPageView = new nzp.ContactPageView({});
 			
-			nzp.$page.html(contactPageView.el);
+			//nzp.$page.html(contactPageView.el);
+			nzp.appView.showView(contactPageView);
 
 			/* Set page title and body class */
 				nzp.headerTitle.set({title: 'Contact'});
@@ -665,115 +523,6 @@ nzp.Router = Backbone.Router.extend({
 				if(clickPage) {
 					new FastClick(clickPage);	
 				};				
-
 		}
-
-
-		/*
-		trackingList: function() {
-
-			// Empty the page before putting new content in
-				$page.empty();
-
-			// Create a new instance of the trackinPage Model.
-				// var trackingPage = new TrackingPage();
-				// var trackingPageCollection = new TrackingPageCollection({model: trackingPage});
-				// var trackingPageView = new TrackingPageView({
-				// 	model: trackingPage,
-				// 	collection: trackingPageCollection,
-				// 	el: '<div id="tracking-page" class="page">'
-				// }).render();
-
-				var trackingPage = new TrackingPage();
-				var trackingPageView = new TrackingPageView({
-					model: trackingPage,
-					el: '<div id="tracking-page" class="page">'
-				}).render();
-
-
-			// After all the processing insert the HTML into the page div
-				$page.html(trackingPageView.el);
-
-			// Set page title and body class
-				headerTitle.set({title: 'Tracking'});
-				$body.attr('id', 'tracking');
-				this.previousPage = '';
-
-
-		},*/
-
-
- 		/*
-		trackingDetails: function(id) {
-
-			// Get items in Local Storage
-				var savedCodes = LocalStorageCodes.findAll();				// Retrieve all Local Storage codes for tracking
-
-
-			//	RETRIEVE ITEM FROM LOCAL STORAGE
-			//		Loop over each item to check if the tracking code matches the value in the URL
-			//		This is required to get the correct model to pass through to the display details from storage method
-			//		It insures that the user will land on the detials page if they put the URL in directly or by clickin a list item link
-
-				var noMatch = true;
-				if(savedCodes.length > 0) {
-					_.each(savedCodes, function (item) {
-						if( id === item.track_code) {
-
-							// Take the ID and use it to find the correct model
-								var friendlyRouteId = 'tracking-'+item.id;
-								var localModel = JSON.parse(localStorage.getItem(friendlyRouteId));
-								var displayDetails = new DisplayDetailsFromStorage({
-									model: localModel
-								}).render();
-
-							// Set page title and body class
-								headerTitle.set({title: id});
-								$body.attr('id', 'tracking');
-								this.previousPage = 'tracking';
-
-							// Set no match to flase as we have found a match
-								noMatch = false;
-
-						}
-					}, this);
-				} else {
-					console.log('no items in local storage, fetch from server')
-				}
-
-				if(noMatch){
-					$page.html('<div class="page"><p>No items matched from local storage, would you like to check the remote server</p></div>')
-
-					// Set page title and body class
-						headerTitle.set({title: 'Item not found'});
-						$body.attr('id', 'tracking');
-						this.previousPage = 'tracking';
-
-				}
-				//console.log(noMatch)//else {
-				// What about when an item is not in local storage but we have other items
-				// What about when we have no itmes in local storage at all
-
-
-
-
-
-		//	var trackingPage = new TrackingPage();
-		//	var trackingPage = new TrackingPageView2({
-		//		model: trackingPage,
-		//		el: '<div id="tracking-details" class="page">',
-		//		tid: id
-		//	});
-		//	$page.html(trackingPage.render().el);
-
-
-
-		},
-		*/
-
-
-
-
-
 
 	});

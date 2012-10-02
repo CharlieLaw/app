@@ -90,8 +90,16 @@ nzp.AppView = Backbone.View.extend({
 	// Manage view transitions without fear of the zombies
 	// http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/
 
-	showView: function(view) {
+	showView: function(view, spinner) {
  		
+ 		if(spinner) {
+ 			/*
+ 			nzp.$loading.show();
+			setTimeout(function() {
+				nzp.$loading.hide();
+			}, 300); */
+ 		};
+ 				
 		if (this.currentView){
 			this.currentView.close();
 		}
@@ -99,8 +107,22 @@ nzp.AppView = Backbone.View.extend({
 		this.currentView = view;
 		this.currentView.render();
 
-		nzp.$page.html(this.currentView.el);
+		nzp.$page.html(this.currentView.el);		
+		
 	},
+
+	// showViewWrapper: function(view) {
+ 		
+	// 	if (this.currentView){
+	// 		this.currentView.close();
+	// 	}
+
+	// 	this.currentView = view;
+	// 	this.currentView.render();
+
+	// 	nzp.$wrapper.html(this.currentView.el);
+	// },
+
 
 	hideSpinner: function() {
 		setTimeout(function() {
@@ -205,9 +227,12 @@ var app = {
 
 Backbone.View.prototype.close = function(){
   this.remove();
+  //console.log('remove');
   this.unbind();
-  if (this.onClose){
+  //console.log('unbind');
+  if (this.onClose){    
     this.onClose();
+    //console.log('closing')
   }
 }
 		

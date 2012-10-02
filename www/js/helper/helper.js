@@ -134,77 +134,77 @@ var createMarker = function(model){
         var isOpenNow = checkClosed( today, model ); 
       
       // If the place is open right now then display the full logo
-        //if (isOpenNow) {
+        if (isOpenNow) {
           switch(model.get("type").toLowerCase()){
             case 'postshop':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(0,25),
                   new google.maps.Point(10, 34));
               break;
             case 'postbox':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(80,25),
                   new google.maps.Point(10, 34));
             break;
             case 'postbox lobby':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(40,25),
                   new google.maps.Point(10, 34));
 
             break;
             case 'atm':
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(256,25),
                   new google.maps.Point(10, 34));            
             break;
             default:
-            var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
                   new google.maps.Size(24, 36),
                   new google.maps.Point(0,25),
                   new google.maps.Point(10, 34));
           };
           return pinImage;
-      // Otherwise display the greyed out logo 
-      //   } else {
+      //Otherwise display the greyed out logo 
+        } else {
 
-      //     switch(model.get("type").toLowerCase()){
-      //       case 'postshop':
-      //       var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
-      //             new google.maps.Size(24, 36),
-      //             new google.maps.Point(0,64),
-      //             new google.maps.Point(10, 34));
-      //         break;
-      //       case 'postbox':
-      //       var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
-      //             new google.maps.Size(24, 36),
-      //             new google.maps.Point(80,64),
-      //             new google.maps.Point(10, 34));
-      //       break;
-      //       case 'postbox lobby':
-      //       var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
-      //             new google.maps.Size(24, 36),
-      //             new google.maps.Point(40,64),
-      //             new google.maps.Point(10, 34));
-      //       break;
-      //       case 'atm':
-      //       var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
-      //             new google.maps.Size(24, 36),
-      //             new google.maps.Point(256,64),
-      //             new google.maps.Point(10, 34));
-      //       break;
-      //       default:
-      //       var pinImage = new google.maps.MarkerImage("./img/sprite.locator.png",
-      //             new google.maps.Size(24, 36),
-      //             new google.maps.Point(0,64),
-      //             new google.maps.Point(10, 34));
-      //     }
+          switch(model.get("type").toLowerCase()){
+            case 'postshop':
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
+                  new google.maps.Size(24, 36),
+                  new google.maps.Point(0,64),
+                  new google.maps.Point(10, 34));
+              break;
+            case 'postbox':
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
+                  new google.maps.Size(24, 36),
+                  new google.maps.Point(80,64),
+                  new google.maps.Point(10, 34));
+            break;
+            case 'postbox lobby':
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
+                  new google.maps.Size(24, 36),
+                  new google.maps.Point(40,64),
+                  new google.maps.Point(10, 34));
+            break;
+            case 'atm':
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
+                  new google.maps.Size(24, 36),
+                  new google.maps.Point(256,64),
+                  new google.maps.Point(10, 34));
+            break;
+            default:
+            var pinImage = new google.maps.MarkerImage("./img/sprite.png",
+                  new google.maps.Size(24, 36),
+                  new google.maps.Point(0,64),
+                  new google.maps.Point(10, 34));
+          }
 
-      //     return pinImage;
+          return pinImage;
 
-      // }
+      }
 }
 

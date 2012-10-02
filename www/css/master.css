@@ -14,7 +14,7 @@ body {
   font-size: 1.6rem;
   line-height: 1.25em;
   background-color: #444444;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   position: relative;
 }
@@ -90,6 +90,7 @@ p {
 a {
   color: #0499d8;
   text-decoration: none;
+  -webkit-tap-highlight-color: none;
 }
 h1,
 .h1 {
@@ -224,8 +225,8 @@ h3,
   font-size: 1.4rem;
   height: 80px;
   left: 50%;
-  margin-left: -40px;
-  margin-top: -50px;
+  margin-left: -50px;
+  margin-top: -70px;
   padding-top: 55px;
   position: absolute;
   text-align: center;
@@ -309,7 +310,7 @@ h3,
   text-decoration: none;
 }
 .tabbar span {
-  background: url(../img/sprite.locator.png) 0 0 no-repeat;
+  background: url(../img/sprite.png) 0 0 no-repeat;
   display: block;
   height: 24px;
   margin: 0 auto;
@@ -352,10 +353,6 @@ h3,
   color: #444444;
   font-size: 16px;
   font-size: 1.6rem;
-  margin-bottom: 10px;
-}
-.bubble li {
-  margin-bottom: 5px;
 }
 .locator-map-wrapper {
   position: absolute;
@@ -368,7 +365,7 @@ h3,
 }
 .locator-map b,
 .all-map b {
-  background-image: url(../img/map.png);
+  background: url(../img/sprite.png) -200px -170px no-repeat;
   display: block;
   height: 50px;
   width: 50px;
@@ -385,6 +382,9 @@ h3,
 #home .btn-head-home,
 #home .btn-head-back,
 #home .btn-head-menu {
+  display: none;
+}
+#home-page li:first-child {
   display: none;
 }
 #contact .page {
@@ -474,7 +474,7 @@ h3,
   -webkit-appearance: none;
 }
 .pg .tracking-form .btn-scan b {
-  background: url(../img/scan.png) 0 0 no-repeat;
+  background: url(../img/sprite.png) -256px -170px no-repeat;
   display: inline-block;
   height: 40px;
   width: 40px;
@@ -563,7 +563,7 @@ h3,
   margin: 0 auto;
 }
 #home #header h1 {
-  background: url(../img/logo.png) transparent 0 0 no-repeat;
+  background: url(../img/sprite.png) transparent 0 -170px no-repeat;
   text-indent: -9999em;
   min-width: 165px;
   min-height: 31px;
@@ -589,7 +589,7 @@ h3,
 			     -webkit-appearance: none; }
 	}*/
 .list-arrows b {
-  background: url(../img/sprite.status.png) 0 0 no-repeat;
+  background: url(../img/sprite.png) 0 -220px no-repeat;
   display: block;
   float: left;
   height: 12px;
@@ -597,10 +597,10 @@ h3,
   width: 12px;
 }
 .list-arrows .tracking-success b {
-  background-position: -24px 0;
+  background-position: -24px -220px;
 }
 .list-arrows .tracking-U b {
-  background-position: -36px 0;
+  background-position: -36px -220px;
 }
 .list-arrows div {
   overflow: auto;
@@ -623,6 +623,19 @@ h3,
   color: #fff;
   overflow: hidden;
   padding-top: 16px;
+}
+/****************************************************************************************************************
+	Contact Us
+****************************************************************************************************************/
+.phone-numbers {
+  margin-bottom: 1.25em;
+}
+.phone-numbers li {
+  margin-bottom: 0.4166666666666667em;
+}
+.phone-numbers strong {
+  display: inline-block;
+  width: 30%;
 }
 /****************************************************************************************************************
 	Utilities

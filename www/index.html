@@ -34,8 +34,9 @@
 
  
 <script>
-  <!-- Bootsraped data for load -->
+  /* Bootsraped data for load */
   var navigationData = [
+      {title: 'Home', slug: '/', desc:'Home page'},      
       {title: 'Locator', slug: 'locator', desc:'Find your clostest Postbox, Post Office & KiwiBank'},      
       {title: 'Tracking', slug: 'tracking', desc:'Follow your packages journey'},
       {title: 'Contact', slug: 'contact', desc:'Give us a call'}
@@ -300,6 +301,25 @@
         <p>If you have an iPhone or iPod Touch you can download the New Zealand Post iPhone application from here: <a href="http://nzpost.co.nz/iPhoneApp">http://nzpost.co.nz/iPhoneApp</a> and enter this tracking code in the search field</p>  
       </script>
 
+      <script id="tmp-contact" type="text/template">
+        <h2>Email</h2>
+          <p><a href="#" id="support-email">Email us</a></p>
+        <h2>Phone</h2>
+        <ul class="phone-numbers">
+          <li><strong>Within NZ: </strong> <a href="tel:0800 501 501">0800 501 501</a></li>         
+          <li><strong>Outside NZ</strong> <a href="tel:64 9 367 9710">+64 9 367 9710</a></li>
+        </ul>
+
+        <h2>Postal Address</h2>
+        <p>
+        Customer Service Centre<br />
+        New Zealand Post<br />
+        PO Box 39100<br />
+        Wellington Mail Centre<br />
+        Lower Hutt 5045
+        </p>
+
+       </script> 
   <!--/ TRACKING -->
 
 
@@ -345,7 +365,7 @@
       <script src="js/plugins/EmailComposer.js"></script>      
       <script src="js/libs/fastclick/fastclick.js"></script>
       <script src="js/plugins/barcodescanner.js"></script>  
-      
+      <script src="js/helper/helper.js"></script>   
       
 
     <!-- Models -->
@@ -387,7 +407,7 @@
     <!-- Init -->
       <script src="js/helper/geolocation.js"></script>
       <script src="js/helper/map.js"></script>
-      <script src="js/helper/helper.js"></script>   
+      
       <script src="js/app.js"></script>
       <script src="js/init.js"></script>
       
@@ -395,7 +415,7 @@
       
         <script type="text/javascript">
         // Set to true if loading in phoneGap
-           var phoneGap = true; 
+           var phoneGap = false; 
            if(phoneGap) {
               console.log('phonegap')
               app.initialize();

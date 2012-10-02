@@ -9,7 +9,7 @@
 
 	function getLocation(callback) {
 		if (navigator.geolocation) {
-		  navigator.geolocation.getCurrentPosition(callback, error, {maximumAge: 75000});
+		  navigator.geolocation.getCurrentPosition(callback, error);
 		} else {
 		  error('not supported');
 		}			
