@@ -11,23 +11,24 @@ nzp.AppView = Backbone.View.extend({
 	initialize: function(){		
 		
 	// Cache JQUery objects commonly used 			
-		nzp.$body 	 = this.$el;			
-		nzp.$loading = $('#loading');			
-		nzp.$wrapper = $('#wrapper');
+		nzp.$body 	  = this.$el;			
+		nzp.$loading  = $('#loading');			
+		nzp.$wrapper  = $('#wrapper');
 		nzp.$wrapper2 = $('#wrapper2');			
-		nzp.$header  = $('#header');
-		nzp.$page    = $('#pages');
+		nzp.$header   = $('#header');
+		nzp.$page     = $('#pages');
+		nzp.$offline  = $('#offline');
 
 		_.bindAll(this, "render");		
 	},
 
-  	//events: {
-		//"click a": "fastClicked"
-	//},	
+  	events: {
+		"click #close-offline": "closeOffline"
+	},	
 
 	render: function() {
 
-		checkOnLine();
+		//checkOnLine();
 
 		/* Header Area */
 			var header = new nzp.Header();
@@ -60,6 +61,8 @@ nzp.AppView = Backbone.View.extend({
 		// Location Page Collection
 			nzp.placesCollection = new nzp.Places;
 		
+
+
 		// Fast Click to remove 300ms delay			
 			//new FastClick(document.getElementById('header')); // This needs disabled for the map page 						
 		
@@ -77,15 +80,19 @@ nzp.AppView = Backbone.View.extend({
 			Backbone.history.start();	
 	}, 
 
-	
-	fastClicked: function(e) {
+	closeOffline: function(e) {
 		e.preventDefault();
+		nzp.$offline.hide();
+	},
+	
+	//fastClicked: function(e) {
+		//e.preventDefault();
 		//var $target = $(e.target)
 		//if ($target.hasClass('fc')) {		  
-		  new FastClick(this.$el);
+		 // new FastClick(this.$el);
 			//console.log(e.target)
 		//}
-	},
+	//},
 
 	// Manage view transitions without fear of the zombies
 	// http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/
@@ -186,6 +193,8 @@ var app = {
     onDeviceReady: function() {
         	nzp.appView = new nzp.AppView;
 			nzp.appView.render();
+			cb = window.plugins.childBrowser;
+
         //app.receivedEvent('deviceready');        
     }
    
@@ -196,12 +205,14 @@ var app = {
 
 
 
-
+// function isOffline() {
+// 	nzp.$offline.show();
+// };
 
 // Check if object is object
 	function IsObject(obj){
 	  return obj ? true : false;
-	}
+	};
 
 // Get time in correct format
   function toDate(dStr,format) {
@@ -213,23 +224,23 @@ var app = {
           return now;
         }else 
           return "Invalid Format";
-      }
+      };
 
 // Check if the user if on or offline
-	function checkOnLine() {
+	//function checkOnLine() {
 		//var statusElem = document.getElementsByTagName('html')[0]
-		checkIt();
-		setInterval(function () {
-			checkIt();
-		}, 30000);		
-	}
+		//checkStatus();
+		//setInterval(function () {
+		//	checkIt();
+		//}, 30000);		
+	//};
 
-	function checkIt() {
-		 if(navigator.onLine) {
-			nzp.$body.removeClass('offline').addClass('online');
-		  } else {
-			nzp.$body.removeClass('online').addClass('offline');
-		  };
+	function checkStatus() {
+	 if(navigator.onLine) {
+		return true
+	  } else {
+	  	return false
+	  };
 	}
 
 Backbone.View.prototype.close = function(){

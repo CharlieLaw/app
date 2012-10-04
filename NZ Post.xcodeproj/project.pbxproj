@@ -44,6 +44,10 @@
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CB1A67D01613D421009F2A6F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1A67CF1613D421009F2A6F /* MessageUI.framework */; };
 		CB1A67D31613E271009F2A6F /* EmailComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1A67D21613E271009F2A6F /* EmailComposer.m */; };
+		CBB94B9A161D723B00A36D6B /* ChildBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CBB94B95161D723A00A36D6B /* ChildBrowser.bundle */; };
+		CBB94B9B161D723B00A36D6B /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB94B97161D723A00A36D6B /* ChildBrowserCommand.m */; };
+		CBB94B9C161D723B00A36D6B /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB94B99161D723A00A36D6B /* ChildBrowserViewController.m */; };
+		CBB94B9E161D85DD00A36D6B /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB94B9D161D85DD00A36D6B /* ChildBrowserViewController.xib */; };
 		CBE187F3161268BF0086696B /* CDVBarcodeScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBE187F0161268BF0086696B /* CDVBarcodeScanner.mm */; };
 		CBE187F4161268BF0086696B /* zxing-all-in-one.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBE187F1161268BF0086696B /* zxing-all-in-one.cpp */; };
 		CBE187F6161269500086696B /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE187F5161269500086696B /* AssetsLibrary.framework */; };
@@ -114,6 +118,12 @@
 		CB1A67CF1613D421009F2A6F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CB1A67D11613E271009F2A6F /* EmailComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailComposer.h; sourceTree = "<group>"; };
 		CB1A67D21613E271009F2A6F /* EmailComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailComposer.m; sourceTree = "<group>"; };
+		CBB94B95161D723A00A36D6B /* ChildBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChildBrowser.bundle; sourceTree = "<group>"; };
+		CBB94B96161D723A00A36D6B /* ChildBrowserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserCommand.h; sourceTree = "<group>"; };
+		CBB94B97161D723A00A36D6B /* ChildBrowserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserCommand.m; sourceTree = "<group>"; };
+		CBB94B98161D723A00A36D6B /* ChildBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserViewController.h; sourceTree = "<group>"; };
+		CBB94B99161D723A00A36D6B /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
+		CBB94B9D161D85DD00A36D6B /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
 		CBE187F0161268BF0086696B /* CDVBarcodeScanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CDVBarcodeScanner.mm; sourceTree = "<group>"; };
 		CBE187F1161268BF0086696B /* zxing-all-in-one.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "zxing-all-in-one.cpp"; sourceTree = "<group>"; };
 		CBE187F2161268BF0086696B /* zxing-all-in-one.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "zxing-all-in-one.h"; sourceTree = "<group>"; };
@@ -272,6 +282,12 @@
 			children = (
 				CB1A67D11613E271009F2A6F /* EmailComposer.h */,
 				CB1A67D21613E271009F2A6F /* EmailComposer.m */,
+				CBB94B95161D723A00A36D6B /* ChildBrowser.bundle */,
+				CBB94B96161D723A00A36D6B /* ChildBrowserCommand.h */,
+				CBB94B97161D723A00A36D6B /* ChildBrowserCommand.m */,
+				CBB94B9D161D85DD00A36D6B /* ChildBrowserViewController.xib */,
+				CBB94B98161D723A00A36D6B /* ChildBrowserViewController.h */,
+				CBB94B99161D723A00A36D6B /* ChildBrowserViewController.m */,
 				CBE187F0161268BF0086696B /* CDVBarcodeScanner.mm */,
 				CBE187F1161268BF0086696B /* zxing-all-in-one.cpp */,
 				CBE187F2161268BF0086696B /* zxing-all-in-one.h */,
@@ -411,6 +427,8 @@
 				3088BBC1154F3926009F9C59 /* Default@2x~iphone.png in Resources */,
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				CBE187FC16126ACC0086696B /* Default-568h@2x.png in Resources */,
+				CBB94B9A161D723B00A36D6B /* ChildBrowser.bundle in Resources */,
+				CBB94B9E161D85DD00A36D6B /* ChildBrowserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +462,8 @@
 				CBE187F3161268BF0086696B /* CDVBarcodeScanner.mm in Sources */,
 				CBE187F4161268BF0086696B /* zxing-all-in-one.cpp in Sources */,
 				CB1A67D31613E271009F2A6F /* EmailComposer.m in Sources */,
+				CBB94B9B161D723B00A36D6B /* ChildBrowserCommand.m in Sources */,
+				CBB94B9C161D723B00A36D6B /* ChildBrowserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

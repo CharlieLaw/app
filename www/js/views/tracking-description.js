@@ -103,7 +103,7 @@
 	    		//"click #tracking-delete": "deleteModel",
 	    		//"click #tracking-edit"  : "showForm",
 				//"click #tracking-email" : "processEmail", 
-				"click" : "allEvents"
+				"click a" : "allEvents"
 			},
 
 			allEvents: function(e) {
@@ -120,14 +120,15 @@
 						  this.processEmail(e);
 						  break;   
 						default:
-							console.log('child browser plugin time 2')	
-						  //code to be executed if n is different from case 1 and 2
+							if(cb != null) {
+							    cordova.exec("ChildBrowserCommand.showWebPage", e.target.href );
+							}
 					}					
-				} else {
-					console.log(e.target.href)
-					//cordova.exec("ChildBrowserCommand.showWebPage", e.target.href );
-					console.log('child browser plugin time 1')	
-				}
+				} else {										
+					if(cb != null) {
+					    cordova.exec("ChildBrowserCommand.showWebPage", e.target.href );
+					};
+				};
 			},
 
 			initialize:function() {
@@ -139,9 +140,7 @@
 		        return this;
 		    },
 
-		    miracle: function(e) {
-		    	alert('micacle')
-		    },
+		    
 
  		// Remove model from collection
 	 		deleteModel:function(e) {

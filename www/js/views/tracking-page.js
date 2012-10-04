@@ -1,10 +1,18 @@
-/* Sample Tracking Codes
+/* ---------------------------------------------------------------------------------------------------------
+ 
+ 	Tracking List
+
+	Sample Tracking Codes
+	
 	UD190381395NZ
 	EE748286200CN
 	EP311788967NZ
 	CQ023933725US
 	EP501829835NZ
-*/
+ 	
+---------------------------------------------------------------------------------------------------------*/
+
+
 
 // Individual tracking item
 	nzp.TrackingItemView = Backbone.View.extend({
@@ -89,7 +97,6 @@
 			},
 
 			addAll: function() {			
-				console.log('add all')
 				$(this.el).html("");
 				if (nzp.trackingPageCollection.length == 0) {
 					nzp.$body.addClass('norefresh')
@@ -131,111 +138,135 @@
 
 		getPackage: function(e) {
 			e.preventDefault();			
-			// If the user has entered a value into the input box
+			var isOnline = checkStatus();
+			if (isOnline) {
+				// If the user has entered a value into the input box
 				if($trackingNo.val() != "") {				
 					var tCode = $trackingNo.val();
 					this.processTrackingCode(tCode);
 				};
+			} else {
+				nzp.$offline.show();
+			}
 		},
 
 		// Scan item using PhoneGap barcode plugin
 			scanItem: function(e) {
 				e.preventDefault();
-				var self = this;
-				window.plugins.barcodeScanner.scan(							
-					function(result) {
-						if (!result.cancelled) {
-							self.processTrackingCode(result.text)
-						}
-					},
-					function(error) {					
-						alert("Scanning failed: " + error)
-					}
-				)	
+				var isOnline = checkStatus();
+				if (isOnline) {
+		
+					// If the user has entered a value into the input box
+					if($trackingNo.val() != "") {				
+					
+
+						var self = this;
+						window.plugins.barcodeScanner.scan(							
+							function(result) {
+								if (!result.cancelled) {
+									self.processTrackingCode(result.text)
+								}
+							},
+							function(error) {					
+								alert("Scanning failed: " + error)
+							}
+						);
+
+					};
+
+				} else {
+					nzp.$offline.show();
+				};		
 			},
 
 			refreshItems: function(e) {
 
 				e.preventDefault();
 				
-				// Loop over tracking page collection
-				// Fire each item to the getDeliveryStatus function which will return the deliery status
-				// If the status is not sucess then proceed to create a string of tracking codes to process								
-				// Keep a record of the number of items 
-							
-				var refreshedItemsArray = [];
-				
-				// Loop over collection to build up string of tracking codes to refresh, these are passed in the URL
-				// Break at 10 as we can only process 10 codes max
-					if (this.collection.models.length > 9) {
-						alert('You can only refresh 10 items at once')
-					};
+				var isOnline = checkStatus();
+				if (isOnline) {
 
-					for(var i = 0; i < this.collection.models.length; i++) {
-						var model = this.collection.models[i];
-						var deliveryStatus = getDeliveryStatus(model.toJSON());	// Get the correct status						
-						if (deliveryStatus != "success") {							
-							var tCode = model.get('track_code');
-							var events = model.get("events");	
-							refreshedItemsArray.push('&tracking_code='+tCode);
-							model.set('spinner', 'list-spinner');							
+					// Loop over tracking page collection
+					// Fire each item to the getDeliveryStatus function which will return the deliery status
+					// If the status is not sucess then proceed to create a string of tracking codes to process								
+					// Keep a record of the number of items 
+								
+					var refreshedItemsArray = [];
+					
+					// Loop over collection to build up string of tracking codes to refresh, these are passed in the URL
+					// Break at 10 as we can only process 10 codes max
+						if (this.collection.models.length > 9) {
+							alert('You can only refresh 10 items at once')
 						};
-						if( i === 10 ) { return false };						
-					};
 
-				// Make an AJAX call of updated codes if its more than 0 and less than 10
-					if (refreshedItemsArray.length == 0 ) {
-						alert('You have no items to refresh');
-					} else {
-													
-						// If there are more than 10 refreshed items only use the first 10
-						// Convert Array to string and remove commas to send as part of URL
-																								
-							var myOldString = refreshedItemsArray.toString();
-							var refreshItems = myOldString.replace(/,/g, '');						
-							var multiUrl = 'http://api.nzpost.co.nz/tracking/track?license_key=b74c4cd0-b123-012f-7fbc-000c294e04ef&user_ip_address='+userip+'&'+refreshItems+'&mock=1&format=jsonp&callback=?';								
-																
+						for(var i = 0; i < this.collection.models.length; i++) {
+							var model = this.collection.models[i];
+							var deliveryStatus = getDeliveryStatus(model.toJSON());	// Get the correct status						
+							if (deliveryStatus != "success") {							
+								var tCode = model.get('track_code');
+								var events = model.get("events");	
+								refreshedItemsArray.push('&tracking_code='+tCode);
+								model.set('spinner', 'list-spinner');							
+							};
+							if( i === 10 ) { return false };						
+						};
 
-						// Request an item based on the tracking code which will be passed in the defaults					
-							$.ajax({
-								dataType: 'jsonp',
-								url: multiUrl,
-								success: function(data) {
-									
-									$.each(data, function(key, value) { 
+					// Make an AJAX call of updated codes if its more than 0 and less than 10
+						if (refreshedItemsArray.length == 0 ) {						
+							alert('You have no items to refresh');
+						} else {
+														
+							// If there are more than 10 refreshed items only use the first 10
+							// Convert Array to string and remove commas to send as part of URL
+																									
+								var myOldString = refreshedItemsArray.toString();
+								var refreshItems = myOldString.replace(/,/g, '');						
+								var multiUrl = 'http://api.nzpost.co.nz/tracking/track?license_key=b74c4cd0-b123-012f-7fbc-000c294e04ef&user_ip_address='+userip+'&'+refreshItems+'&mock=1&format=jsonp&callback=?';								
+																	
 
-										var currentShortDesc = value.short_description; 	// Returned short description										
+							// Request an item based on the tracking code which will be passed in the defaults					
+								$.ajax({
+									dataType: 'jsonp',
+									url: multiUrl,
+									success: function(data) {
 										
-										// Loop over the collection to find the matching model based on the unique tracking code	
-										nzp.trackingPageCollection.each(function(model, i){
-											
-											if( model.get('track_code').toUpperCase() == key.toUpperCase() ) {
-												
-												// If the code matches one in the collection, compare the short description
-												// If the short desc has changed then save the details, otherwise no change, just remove the spinner														
-												var deliveryStatus = getDeliveryStatus(value);	// Get the correct status if its changed
-												if(model.get('short_description') == currentShortDesc) {											
-													// No change has taken place, just hide the spinner													
-														model.save({
-															spinner:            ''
-														});
-												} else {
-													// The model has changed												
-														model.save({
-															error_code:         deliveryStatus, 
-															detail_description: value.detail_description, 
-															short_description:  value.short_description, 
-															events:             value.events,
-															spinner:            ''
-														}); 
-												};
-											};
-										});
-									});										
-								}
-							});
+										$.each(data, function(key, value) { 
 
-					};
+											var currentShortDesc = value.short_description; 	// Returned short description										
+											
+											// Loop over the collection to find the matching model based on the unique tracking code	
+											nzp.trackingPageCollection.each(function(model, i){
+												
+												if( model.get('track_code').toUpperCase() == key.toUpperCase() ) {
+													
+													// If the code matches one in the collection, compare the short description
+													// If the short desc has changed then save the details, otherwise no change, just remove the spinner														
+													var deliveryStatus = getDeliveryStatus(value);	// Get the correct status if its changed
+													if(model.get('short_description') == currentShortDesc) {											
+														// No change has taken place, just hide the spinner													
+															model.save({
+																spinner:            ''
+															});
+													} else {
+														// The model has changed												
+															model.save({
+																error_code:         deliveryStatus, 
+																detail_description: value.detail_description, 
+																short_description:  value.short_description, 
+																events:             value.events,
+																spinner:            ''
+															}); 
+													};
+												};
+											});
+										});										
+									}
+								});
+
+						};
+				} else {
+					nzp.$offline.show();
+				}		
 
 			},
 
@@ -332,8 +363,8 @@
 							item.events.sort(function(a, b) {
 								var dateA = Date.parse(a.date+', '+a.time); // merge the date & time
 								var dateB = Date.parse(b.date+', '+b.time); // depending on the format
-								console.log(dateA)
-								console.log(dateB)
+								//console.log(dateA)
+								//console.log(dateB)
 								if (!a.date && b.date)  {
 									return 1;
 								} else if (a.date && !b.date) {

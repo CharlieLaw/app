@@ -26,10 +26,14 @@
 	<array>
 		<string>http://*.gstatic.com</string>
 		<string>http://*.nzpost.co.nz/</string>
-		<string>http://*.googleapis.com</string>
+		<string>http://*.custhelp.com/</string>
+		<string>http://*.googleapis.com/</string>
+		<string>http://*google-analytics.com/</string>
 	</array>
 	<key>Plugins</key>
 	<dict>
+		<key>ChildBrowserCommand</key>
+		<string>ChildBrowserCommand</string>
 		<key>org.apache.cordova.barcodeScanner</key>
 		<string>CDVBarcodeScanner</string>
 		<key>EmailComposer</key>

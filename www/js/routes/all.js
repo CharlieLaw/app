@@ -68,10 +68,10 @@ nzp.Router = Backbone.Router.extend({
 				nzp.appView.showView(homePageView);
 			
 			// Attach fastclick to wrapper element	
-				var clickPage = document.getElementById('home-page');
-				if(clickPage) {
-					new FastClick(clickPage);	
-				};
+				// var clickPage = document.getElementById('home-page');
+				// if(clickPage) {
+				// 	new FastClick(clickPage);	
+				// };
 
 			// hide spinner
 				nzp.$loading.hide();
@@ -87,22 +87,28 @@ nzp.Router = Backbone.Router.extend({
 			
 			// Empty the page before putting new content in				
 				//nzp.$page.empty();												
+				var isOnline = checkStatus();
+				if (isOnline) {
+				
+					// Set page title, body class & previuos page								
+						nzp.headerTitle.set({title: 'NZ Post Nearby'});								
+						nzp.$body.attr('id', 'locator');
 
-			// Set page title, body class & previuos page								
-				nzp.headerTitle.set({title: 'NZ Post Nearby'});								
-				nzp.$body.attr('id', 'locator');
+					// Get the users current location	
+						getLocation(this.getLocation);
 
-			// Get the users current location	
-				getLocation(this.getLocation);
+					// Set previous page	
+						this.previousPage = '';										
 
-			// Set previous page	
-				this.previousPage = '';										
-
-			// Attach fastclick to wrapper element	
-				var clickPage = document.getElementById('locator-page');
-				if(clickPage) {
-					new FastClick(clickPage);	
-				};			
+					// Attach fastclick to wrapper element	
+						var clickPage = document.getElementById('locator-page');
+						if(clickPage) {
+							new FastClick(clickPage);	
+						};
+				} else {
+					nzp.$offline.show();
+					nzp.router.navigate('', {trigger:true});
+				}			
 		},
 
 		
@@ -171,65 +177,73 @@ nzp.Router = Backbone.Router.extend({
 
 		locatorDetails:function (id) {
 
-			// Empty the page before putting new content in				
-				nzp.$page.empty();												
-				nzp.$page.removeClass("map");
-				$('.tabbar').remove(); // if the tabbar is presenet remove it
+			var isOnline = checkStatus();
+			if (isOnline) {
 
-			// Set page title, body class & previuos page								
-				nzp.headerTitle.set({title: 'Details'});								
-				nzp.$body.attr('id', 'locator-details');
-		
-			/*				
-				No need for geo location as we get the location based on the ID					
-				The collection will exist as its initialised on page load, 
+				// Empty the page before putting new content in				
+					nzp.$page.empty();												
+					nzp.$page.removeClass("map");
+					$('.tabbar').remove(); // if the tabbar is presenet remove it
+
+				// Set page title, body class & previuos page								
+					nzp.headerTitle.set({title: 'Details'});								
+					nzp.$body.attr('id', 'locator-details');
+			
+				/*				
+					No need for geo location as we get the location based on the ID					
+					The collection will exist as its initialised on page load, 
+						
+					If the collection has a length then the user is browsing
+						Use the existing collection, grab the details from there and append to page
+					If the collection has no length then they have come directly to the URL	
+						Fetch a new item and add it to the collection
+
 					
-				If the collection has a length then the user is browsing
-					Use the existing collection, grab the details from there and append to page
-				If the collection has no length then they have come directly to the URL	
-					Fetch a new item and add it to the collection
+					so test its length to see if there's a match an item from the collection
+					or load a new item and add it to the collection
+				*/
 
-				
-				so test its length to see if there's a match an item from the collection
-				or load a new item and add it to the collection
-			*/
+					if (nzp.placesCollection.length == 0){				
+						
+						var singleItem = new nzp.Place({id: id});
+						var singleItemCollection = new nzp.PlacesSingle({
+							model: singleItem
+						});
+						
+						// Fetch the itme with matching ID
+							singleItemCollection.fetch({							
+								success: function(collection, response) {								
+									// Add item to collection
+										nzp.placesCollection.add(collection.models[0]);
+										nzp.router.placeDetails(collection.models[0]);
+								}, 
+								error: function(collection, response) {
+									nzp.$page.html('<div class="msg page"><p>No place found.</p><p>Please check the URL is correct</p></div>');
+								}							
+							}, this);
 
-				if (nzp.placesCollection.length == 0){				
-					
-					var singleItem = new nzp.Place({id: id});
-					var singleItemCollection = new nzp.PlacesSingle({
-						model: singleItem
-					});
-					
-					// Fetch the itme with matching ID
-						singleItemCollection.fetch({							
-							success: function(collection, response) {								
-								// Add item to collection
-									nzp.placesCollection.add(collection.models[0]);
-									nzp.router.placeDetails(collection.models[0]);
-							}, 
-							error: function(collection, response) {
-								nzp.$page.html('<div class="msg page"><p>No place found.</p><p>Please check the URL is correct</p></div>');
-							}							
-						}, this);
+					} else {
+			          	
+			          	// Find the item in the existing collection
+				          	var col = nzp.placesCollection.find(function(item) {
+								return item.get("id") == id;
+							});		
+							nzp.router.placeDetails(col);											
+					}
 
-				} else {
-		          	
-		          	// Find the item in the existing collection
-			          	var col = nzp.placesCollection.find(function(item) {
-							return item.get("id") == id;
-						});		
-						nzp.router.placeDetails(col);											
-				}
+				// Set previous page	
+					this.previousPage = 'locator';										
 
-			// Set previous page	
-				this.previousPage = 'locator';										
+				// Attach fastclick to wrapper element	
+					var clickPage = document.getElementById('locator-details-page');
+					if(clickPage) {
+						new FastClick(clickPage);	
+					};	
 
-			// Attach fastclick to wrapper element	
-				var clickPage = document.getElementById('locator-details-page');
-				if(clickPage) {
-					new FastClick(clickPage);	
-				};	
+			} else {
+				nzp.$offline.show();
+				nzp.router.navigate('', {trigger:true});			
+			};	
 
 		},	
 
@@ -247,23 +261,32 @@ nzp.Router = Backbone.Router.extend({
 
 
 	nearbyPage: function(place_type){
-		var self = this;
 		
-		nzp.nearby_type = unescape(place_type);
-	
-		if (nzp.placesCollection.isEmpty()){
-			
-			getLocation(function(pos){				
-				nzp.placesCollection.lat = pos.coords.latitude;
-				nzp.placesCollection.lng = pos.coords.longitude;
+		var isOnline = checkStatus();
+		if (isOnline) {
 
-				nzp.placesCollection.fetch({
-					success: self.showNearby
+			var self = this;
+			
+			nzp.nearby_type = unescape(place_type);
+		
+			if (nzp.placesCollection.isEmpty()){
+				
+				getLocation(function(pos){				
+					nzp.placesCollection.lat = pos.coords.latitude;
+					nzp.placesCollection.lng = pos.coords.longitude;
+
+					nzp.placesCollection.fetch({
+						success: self.showNearby
+					});
 				});
-			});
+
+			} else {
+				this.showNearby(nzp.placesCollection);
+			};
 
 		} else {
-			this.showNearby(nzp.placesCollection);
+			nzp.$offline.show();
+			nzp.router.navigate('', {trigger:true});			
 		};
 
 	},
@@ -317,26 +340,35 @@ nzp.Router = Backbone.Router.extend({
 
 
 	directionsPage: function(id,travel_mode){
-		nzp.$loading.show();
-		var place;		
-		// Get the currect travel mode (walking or driving)
-			nzp.travel_mode = travel_mode;      
-			
-		// If the place is already part of a collection use it from there
-			if (nzp.placesCollection){		
-				place = nzp.placesCollection.get(id);        
-			};
-		
-		// If place is undefined fetch the colllection, then show the place
-			if (place == undefined){
-				place = new nzp.Place({id: id});
-				place.fetch({
-					success: this.showPlace
-				});
+	
+		var isOnline = checkStatus();
+		if (isOnline) {
 
-			} else {						
-				this.showPlace(place)
-			};
+			nzp.$loading.show();
+			var place;		
+			// Get the currect travel mode (walking or driving)
+				nzp.travel_mode = travel_mode;      
+				
+			// If the place is already part of a collection use it from there
+				if (nzp.placesCollection){		
+					place = nzp.placesCollection.get(id);        
+				};
+			
+			// If place is undefined fetch the colllection, then show the place
+				if (place == undefined){
+					place = new nzp.Place({id: id});
+					place.fetch({
+						success: this.showPlace
+					});
+
+				} else {						
+					this.showPlace(place)
+				};
+
+		} else {
+			nzp.$offline.show();
+			nzp.router.navigate('', {trigger:true});
+		};			
 
 	},
 
@@ -432,7 +464,8 @@ nzp.Router = Backbone.Router.extend({
 								
 								$('#tracking-form').after(nzp.trackingPageView.render().el);
 								//nzp$.page.append(nzp.trackingPageView.render().el);
-								//nzp.appView.showView(nzp.trackingPageView);								
+								//nzp.appView.showView(nzp.trackingPageView);
+								//nzp.appView.showView(nzp.trackingPageView);
 								if(nzp.trackingPageCollection.length > 0) {
 									nzp.trackingPageCollection.models[0].save({spinner: ''});
 								}
@@ -448,10 +481,10 @@ nzp.Router = Backbone.Router.extend({
 				this.previousPage = '';
 
 			// Attach fastclick to wrapper element	
-				var clickPage = document.getElementById('tracking-page');
-				if(clickPage) {
-					new FastClick(clickPage);	
-				};
+				// var clickPage = document.getElementById('tracking-page');
+				// if(clickPage) {
+				// 	new FastClick(clickPage);	
+				// };
 				
 			
 				

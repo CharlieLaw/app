@@ -20,9 +20,10 @@
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
   </head>
 
-  <body id="home">
+  <body id="home" class="needsclick">
     
     <div id="loading"><span class="spinner show">Loading...</span></div>
+    <div id="offline"><div><p>You must be online to use this service</p><a href="#" class="btn btn-secondary" id="close-offline">Close</a></div></div>
     
     <header id="header" class="toolbar grad-mask"></header> 
     
@@ -37,7 +38,7 @@
               //var mockURL = '10.10.10.3';
               //var mockURL = '10.10.10.4';
 
-    userip = '10.10.10.3';
+    userip = '10.10.10.4';
     /*
     <?php
       $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
@@ -197,7 +198,6 @@
       <script id="tmp-tracking" type="text/template">          
           <div id="tracking-form" class="tracking-form">
             <p class="intro">Enter a tracking number <b class="nopghide">or scan your barcode</b></p>
-            <p class="blocked">You must be online to search for new tracking codes</p>            
             <form>
               <div class="row">
                 <div class="tracking-form-search" style="inline-block">
@@ -212,7 +212,7 @@
           </div>
                   
         <div class="row ac">
-          <a href="#" id="tracking-refresh" class="btn btn-primary refresh">Refresh</a>
+          <a href="#" id="tracking-refresh" class="needsclick btn btn-primary refresh">Refresh</a>
         </div>          
 
       </script>
@@ -299,7 +299,7 @@
             <% } %>
           
 
-          <% if (typeof(error_code) != "undefined") { %>          
+          <% if (typeof(error_code) == "error") { %>          
             <p class="ac">
             <a href="#" id="tracking-delete" class="btn btn-primary">Delete</a>
             </p>
@@ -390,6 +390,7 @@
       <script src="js/libs/fastclick/fastclick.js"></script>
       <script src="js/helper/date.js"></script>
       <script src="js/plugins/barcodescanner.js"></script>  
+      <script src="js/plugins/ChildBrowser.js"></script>  
       <script src="js/helper/helper.js"></script>   
       
 

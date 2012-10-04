@@ -51,7 +51,12 @@
 			// Change the data attribute so show and hide stuff
 				switch(this.model.slug) {		
 					case 'locator':						  
-					  nzp.router.navigate('locator', true);	
+					  var isOnline = checkStatus();
+					  if (isOnline) {
+					  	nzp.router.navigate('locator', true);		
+					  } else {
+					  	nzp.$offline.show();	
+					  };					  
 					  break;
 					case 'ratefinder':
 					  nzp.router.navigate('ratefinder', true);

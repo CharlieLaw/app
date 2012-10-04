@@ -236,6 +236,33 @@ h3,
 .spinner {
   background: url(../img/spinner.gif) #434343 50% 10% no-repeat;
 }
+#offline {
+  background-color: #DC0000;
+  display: none;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+#offline div {
+  border: solid 1px #a4a4a4;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  font-size: 1.6rem;
+  left: 50%;
+  margin-left: -110px;
+  margin-top: -90px;
+  padding: 1em;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 220px;
+}
+#offline a {
+  color: #000;
+}
 #flyout-menu {
   list-style-type: none;
   margin-left: 20%;
