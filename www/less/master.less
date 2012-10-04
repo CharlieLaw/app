@@ -186,10 +186,11 @@
 		.active .tabbar {margin-left:-80%;}
 		.fullmap .tabbar-posttype {display:block}
 		.fullmap .tabbar-mode {display:none}
-		.tabbar ul { list-style-type: none }
+		.tabbar { list-style-type: none }
 		.tabbar li { border-right: solid 1px #dcdcdc; float: left; height: @tabHeight; text-align: center; }
 		.tabbar li:last-child {border-right:none}
-			.tabbar-mode li {width:50%}
+			.tabbar-mode li,
+			.tabbar-tracking li {width:50%}
 			.tabbar-posttype li {width:20%}
 		.tabbar a { color: #fff; display: block; height: @tabHeight; width: 100%; }
 			.tabbar a { text-decoration: none; }
@@ -324,6 +325,8 @@
 	//.inner-txt li {list-style-type: circle;}
 .tracking-error .actions-name {display:none}
 
+
+	.norefresh #tracking-refresh {display: none}
 
 //****************************************************************************************************************
 //	Header

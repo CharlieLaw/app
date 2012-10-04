@@ -419,26 +419,28 @@ nzp.Router = Backbone.Router.extend({
 		        	
 			        nzp.trackingPageCollection.fetch({
 			        	success: function() {
-							//var self = this;
-							
-							// If the view does not exist already
-								if (nzp.trackingPageView == undefined){
-	
-									var trackingPage = new nzp.TrackingPage();
 
-									nzp.trackingPageView = new TrackingPageView({
-									 	model: trackingPage,
-									 	collection: nzp.trackingPageCollection
-									});
-									
-									nzp.$page.append(nzp.trackingPageView.render().el);
-									//nzp.appView.showView(nzp.trackingPageView);
+						// If the view does not exist already
+							if (nzp.trackingPageView == undefined){
 
-									if(nzp.trackingPageCollection.length > 0) {
-										nzp.trackingPageCollection.models[0].save({spinner: ''});
-									}
+								var trackingPage = new nzp.TrackingPage();
 
-								}			        		
+								nzp.trackingPageView = new TrackingPageView({
+								 	model: trackingPage,
+								 	collection: nzp.trackingPageCollection
+								});
+								
+								$('#tracking-form').after(nzp.trackingPageView.render().el);
+								//nzp$.page.append(nzp.trackingPageView.render().el);
+								//nzp.appView.showView(nzp.trackingPageView);								
+								if(nzp.trackingPageCollection.length > 0) {
+									nzp.trackingPageCollection.models[0].save({spinner: ''});
+								}
+
+							}	else {
+								// Required to insure the list comes before the buttons
+								$('#tracking-form').after(nzp.trackingPageView.render().el);
+							}		        		
 			        	}
 			        }, this);			
 			

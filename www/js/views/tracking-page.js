@@ -80,29 +80,26 @@
 			// Rendered at the start to show all items in Local storage
 			// 
 			addOne: function(trackItem) {
-				//console.log('add one')
+				console.log('add one')
+
 				var view = new nzp.TrackingItemView({model: trackItem});				
 				// This is prepended with the default values, 
 				// Once a sucessful ajax call has been made some defaults are changed and saved (getPackage ajax call)
-				this.$el.prepend(view.render().el);														
+				this.$el.prepend(view.render().el);																		
 			},
 
-			addAll: function() {
-			
+			addAll: function() {			
+				console.log('add all')
 				$(this.el).html("");
-				//console.log(this.collection)
-				//console.log(nzp.trackingPageCollection)
-				
-				// The issue is we reinstantiate the items which results in a new timestamp being created.
-				//if (this.collection.length == 0) { // When woudl this occur
-					nzp.trackingPageCollection.each(function(model){						
-						var view = new nzp.TrackingItemView({model: model});					
-						this.$el.append(view.render().el)							
-					}, this);					
-				//} else {
-					// Loop over data and append to page	
-				//}
-
+				if (nzp.trackingPageCollection.length == 0) {
+					nzp.$body.addClass('norefresh')
+				}
+				nzp.trackingPageCollection.each(function(model){						
+					var view = new nzp.TrackingItemView({
+						model: model
+					});					
+					this.$el.append(view.render().el)							
+				}, this);					
 			}
 	});
 
@@ -297,8 +294,12 @@
 											short_description:  data[userCode].short_description, 
 											spinner:            ''
 										}); // Save the item to the collection and set its spinner to blank            				    										
-									}
-								}
+									};
+
+									nzp.$body.removeClass('norefresh'); // Theres something added so show the refresh button
+								};
+
+								
 							}
 						});
 				};

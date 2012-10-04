@@ -58,6 +58,7 @@
   var buttonsData = [       
     {title: 'Home', slug:'home', classname: 'btn-head btn-head-home'},
     {title: 'Menu', slug:'menu', classname: 'btn-head btn-head-menu'},
+    //{title: 'Refresh', slug:'refresh', classname: 'btn-head btn-head-refresh'},
     {title: 'Back', slug:'back', classname: 'btn-head btn-head-back'}
   ];   
   
@@ -194,8 +195,8 @@
   <!-- TRACKING -->
 
       <script id="tmp-tracking" type="text/template">          
-          <div class="tracking-form">
-          <p class="intro">Enter a tracking number <b class="nopghide">or scan your barcode</b></p>
+          <div id="tracking-form" class="tracking-form">
+            <p class="intro">Enter a tracking number <b class="nopghide">or scan your barcode</b></p>
             <p class="blocked">You must be online to search for new tracking codes</p>            
             <form>
               <div class="row">
@@ -209,13 +210,20 @@
               </div>
             </form>            
           </div>
-          
-          <div class="row ac">
-            <a href="#" id="tracking-refresh" class="btn btn-primary refresh">Refresh</a>
-          </div>
+                  
+        <div class="row ac">
+          <a href="#" id="tracking-refresh" class="btn btn-primary refresh">Refresh</a>
+        </div>          
 
       </script>
   
+ <!--
+ <ul class="tabbar tabbar-tracking grad-mask">
+            <li><a href="#" id="tracking-refresh">Reresh</a></li>
+            <li><a href="#" id="tracking-scan">Scan</a></li>
+          </ul>
+ -->
+
       <script id="tmp-tracking-item" type="text/template">           
            <% if (typeof(error_code) != "undefined") { %>                                                     
               <a href="#" class="tracking-<%= error_code %> <%= spinner %>">              
@@ -266,7 +274,7 @@
             <% if (typeof(detail_description) != "undefined" && detail_description.length > 0) { 
               %>
 
-              <p><%= detail_description %></p>
+              <p id="tracking-desc-text"><%= detail_description %></p>
             <% } %>
 
             <% if (typeof(events) != "undefined") { %>

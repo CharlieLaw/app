@@ -100,9 +100,34 @@
  			template: _.template($('#tmp-tracking-description-item').html()),
 
 	 		events: {
-	    		"click #tracking-delete": "deleteModel",
-	    		"click #tracking-edit"  : "showForm",
-				"click #tracking-email" : "processEmail" 
+	    		//"click #tracking-delete": "deleteModel",
+	    		//"click #tracking-edit"  : "showForm",
+				//"click #tracking-email" : "processEmail", 
+				"click" : "allEvents"
+			},
+
+			allEvents: function(e) {
+				e.preventDefault();				
+				if (e.target.id != '') {
+					switch(e.target.id) {
+						case 'tracking-delete':
+						  this.deleteModel(e);
+						  break;
+						case 'tracking-edit':
+						  this.showForm(e);
+						  break;
+						case 'tracking-email':
+						  this.processEmail(e);
+						  break;   
+						default:
+							console.log('child browser plugin time 2')	
+						  //code to be executed if n is different from case 1 and 2
+					}					
+				} else {
+					console.log(e.target.href)
+					//cordova.exec("ChildBrowserCommand.showWebPage", e.target.href );
+					console.log('child browser plugin time 1')	
+				}
 			},
 
 			initialize:function() {
@@ -112,6 +137,10 @@
 		    render:function() {
 				this.$el.html(this.template(this.model.toJSON()));
 		        return this;
+		    },
+
+		    miracle: function(e) {
+		    	alert('micacle')
 		    },
 
  		// Remove model from collection

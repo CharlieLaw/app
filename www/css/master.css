@@ -282,7 +282,7 @@ h3,
 .fullmap .tabbar-mode {
   display: none;
 }
-.tabbar ul {
+.tabbar {
   list-style-type: none;
 }
 .tabbar li {
@@ -294,7 +294,8 @@ h3,
 .tabbar li:last-child {
   border-right: none;
 }
-.tabbar-mode li {
+.tabbar-mode li,
+.tabbar-tracking li {
   width: 50%;
 }
 .tabbar-posttype li {
@@ -535,6 +536,9 @@ h3,
   display: inline-block;
 }
 .tracking-error .actions-name {
+  display: none;
+}
+.norefresh #tracking-refresh {
   display: none;
 }
 #header {
