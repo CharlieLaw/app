@@ -34,7 +34,7 @@ nzp.Router = Backbone.Router.extend({
 						    'tracking': 'trackingList',
 					    'tracking/:id': 'trackingDetails',
 						     'contact': 'contact',
-						     'mappage': 'mappage',
+						     //'mappage': 'mappage',
 	  	 	 	 'locator/closest/:id': "locatorDetails",
  	'locator/closest/:id/:travel_mode': "directionsPage",
 		 'locator/nearby/:place_type' : "nearbyPage",
@@ -317,7 +317,7 @@ nzp.Router = Backbone.Router.extend({
 
 
 	directionsPage: function(id,travel_mode){
-		
+		nzp.$loading.show();
 		var place;		
 		// Get the currect travel mode (walking or driving)
 			nzp.travel_mode = travel_mode;      
@@ -362,8 +362,12 @@ nzp.Router = Backbone.Router.extend({
 			// Set previous page
 				nzp.router.previousPage = 'locator';			
 				
-			// Create tabs and append to the body wrapper 	
+				//var createTab = new nzp.TabCollection(DirectionTabsData);
+	
+
+			// Set the selected tab
 				var createTab = new nzp.TabCollection(DirectionTabsData);
+
 				var createTabView = new nzp.TabView({
 					collection: createTab, 
 					el:'<ul id="mode" class="tabbar tabbar-mode grad-mask">', 
@@ -371,7 +375,6 @@ nzp.Router = Backbone.Router.extend({
 				});
 				nzp.$wrapper.append(createTabView.render().el);
 
-			// Set the selected tab
 				var selectedTab = createTab.find(function(tab){
 					return tab.get("slug") == nzp.travel_mode;
 				});

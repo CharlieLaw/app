@@ -332,9 +332,9 @@
     
     #header { background-color: rgb(220,0,0); border-bottom: 1px solid @gray; height: @headerHeight; margin-left: 0; position: fixed; text-align: center; top: 0; width: 100%; z-index: 3; 
               -webkit-transition:0.25s all ease-in;    	
-		h1 { color: #fff; font-weight: normal; line-height: @headerHeight; text-align: center; text-shadow: 1px 1px 1px #000; text-transform: capitalize; width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0 auto}		
+		h1 { color: #fff; font-weight: normal; line-height: @headerHeight; text-align: center; text-shadow: 1px 1px 1px #000; text-transform: capitalize; width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0 auto;  position: relative; z-index: 3}		
 	}
-	#home #header h1 {background: url(../img/sprite.png) transparent 0 -170px no-repeat; text-indent: -9999em; min-width:165px; min-height:31px; display: inline-block; line-height: 1; top:6px; position: relative;}
+	#home #header h1 {background: url(../img/sprite.png) transparent 0 -170px no-repeat; text-indent: -9999em; min-width:165px; min-height:31px; display: inline-block; line-height: 1; top:6px;}
 	.active #header { margin-left:-80%; }
 
 
@@ -356,28 +356,29 @@
 
 	//.list-arrows li > a.tracking-U {background-color: #fdf3f3; }
 	//.list-arrows li > a.tracking-success {background-color: rgb(242, 248, 242)}
-	.list-arrows b { background: url(../img/sprite.png) 0 -220px no-repeat; display: block; float: left; height: 12px; margin: 4px 10px 0 0; width: 12px; }
+	
+	.list-arrows b { background: url(../img/sprite.png) -36px -220px no-repeat; display: block; float: left; height: 12px; margin: 4px 10px 0 0; width: 12px; }
 	.list-arrows .tracking-success b { background-position: -24px -220px; }
-	.list-arrows .tracking-U b { background-position: -36px -220px; }
+	.list-arrows .tracking-error b { background-position: -36px -220px; }
+	.list-arrows .tracking-transit b { background-position: 0px -220px; }
 	.list-arrows div { overflow: auto; }
 	.tracking-error {}
 
 	//#user-added-name {display:none}
 	.hasheader #user-added-name { display: block; }
 	//.noheader  #user-added-name  {display:none}
- .blocked {display: none;}
- 	.offline .blocked {display: block;
-width: 100%;
-height:75px;
-top: 0;
-position: absolute;
-background-color: rgba(0, 0, 0, 0.7);
-z-index: 3;
-text-align: center;
-color:#fff;
-overflow: hidden;
-padding-top: 16px;
-}
+
+
+/****************************************************************************************************************
+	Offline mode
+****************************************************************************************************************/
+
+	.online .blocked { display: none; }
+	.offline {
+		.blocked { background-color: rgba(0, 0, 0, 0.7); display: block; color:#fff; height:103px; left:0; overflow: hidden; padding-top: 26px; position: absolute; text-align: center; top: 0; width: 100%; z-index: 3; }
+		#flyout-menu li:nth-child(2),
+		#home-page li:nth-child(2) { display:none; }
+	}
 
 /****************************************************************************************************************
 	Contact Us

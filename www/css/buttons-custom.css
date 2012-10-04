@@ -40,7 +40,7 @@
   width: 40px;
 }
 .btn-head-menu {
-  background: url(../img/sprite.png) no-repeat -248px -107px, -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  background: url(../img/sprite.png) no-repeat -247px -106px, -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
   background-color: #fff;
   right: 0;
   text-indent: -9999em;

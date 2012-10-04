@@ -22,7 +22,7 @@
 	}
 	else if(err.code==2)
 	{
-		alert("Position unavailable.");
+		alert("You must be online to use this service");
 	}
 	else if(err.code==3)
 	{

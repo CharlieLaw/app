@@ -59,7 +59,7 @@ nzp.MapDirections = Backbone.View.extend({
 			//this.calcRoute(default_mode.toUpperCase());
 	}
 
-	});
+});
 
 
 // Calculate the route via google map directions
@@ -85,46 +85,7 @@ nzp.MapDirections = Backbone.View.extend({
 		  	}
 
 		// Custom Icons for start and of journey,
-		// Switch statement work out whether it should be the closed or active state
-			/*
-			var today = times().day;
-	        var isOpenNow = checkClosed( today, destination );           
-			if (isOpenNow) {
-				switch( destination.toJSON().type.toLowerCase() ) {
-					case 'postshop':
-					  var sizeX = 24, sizeY = 36, pointaX = 0, pointaY = 25, pointbX = 10, pointbY = 34;   	
-					  break;
-					case 'postbox lobby':
-					  var sizeX = 24, sizeY = 36, pointaX = 40, pointaY = 25, pointbX = 10, pointbY = 34;
-					  break;
-					case 'postbox':
-					  var sizeX = 24, sizeY = 36, pointaX = 80, pointaY = 25, pointbX = 10, pointbY = 34;
-					  break;
-					case 'atm':
-					  var sizeX = 24, sizeY = 36, pointaX = 256, pointaY = 25, pointbX = 10, pointbY = 34;   	
-					  break;
-					default:
-					  var sizeX = 33, sizeY = 37, pointaX = 0, pointaY = 25, pointbX = 16, pointbY = 18;
-				}				
-			} else {
-				switch( destination.toJSON().type.toLowerCase() ) {
-					case 'postshop':
-					  var sizeX = 24, sizeY = 36, pointaX = 0, pointaY = 64, pointbX = 10, pointbY = 34;   	
-					  break;
-					case 'postbox lobby':
-					  var sizeX = 24, sizeY = 36, pointaX = 40, pointaY = 64, pointbX = 10, pointbY = 34;
-					  break;
-					case 'postbox':
-					  var sizeX = 24, sizeY = 36, pointaX = 80, pointaY = 64, pointbX = 10, pointbY = 34;
-					  break;
-					case 'atm':
-					  var sizeX = 24, sizeY = 36, pointaX = 256, pointaY = 64, pointbX = 10, pointbY = 34;   	
-					  break;
-					default:
-					  var sizeX = 33, sizeY = 37, pointaX = 0, pointaY = 64, pointbX = 16, pointbY = 18;
-				}
-			};*/
-
+		// Switch statement work out whether it should be the closed or active state	
 			var destinationMarker = createMarker(destination);
 
 			var icons = {
@@ -135,12 +96,6 @@ nzp.MapDirections = Backbone.View.extend({
 			   new google.maps.Point( 30, 30 )
 			  ),
 			  end: destinationMarker
-			 //  end: new google.maps.MarkerImage(destinationMarker
-			 //   './img/sprite.locator.png',
-				// new google.maps.Size( sizeX, sizeY ),
-			 //   new google.maps.Point( pointaX, pointaY ),
-			 //   new google.maps.Point( pointbX, pointbY )
-			 //  )
 			};
 
 		// Journey details
@@ -154,69 +109,66 @@ nzp.MapDirections = Backbone.View.extend({
 			directionsService.route( request, function( response, status ) {
 				if ( status == google.maps.DirectionsStatus.OK ) {
 					directionsDisplay.setDirections(response); 
-					processMarker(response)
+					processMarker(response, bounds)
 				}
 			});
-
-
-function processMarker( directionResults ) {				
-
-
-	var leg = directionResults.routes[0].legs[0];
-
-// Pass the lat long bounds of the start and end location
-	bounds.extend(leg.start_location);
-	bounds.extend(leg.end_location);
-
-	// The start and end markers are handled differently as there will only over be 2
-	// and its necessary to overwrite the default behavious for the 2 markers
-
-	// Start Location
-		var marker = new google.maps.Marker({
-			position: leg.start_location,
-			map: map,
-			icon: icons.start
-		});
-
-		startWindowHtml = '';// Empty bubble
-		startWindowHtml += '<div class="bubble">';
-		startWindowHtml += '<h2>Current location</h2>';          
-		startWindowHtml += '<p class="mbn">'+leg.start_address+'</p>';          
-		startWindowHtml += '</div>';
-
-		attachInstructionText(marker, startWindowHtml);
-		markerArray[0] = marker;
-
-	// End Location	
-		var marker2 = new google.maps.Marker({
-	        position: leg.end_location,
-	        map: map,
-	        icon: icons.end
-	    });
-
-		// Create info window for destination.  
-		//This is build from the same function as the all map markers
-		endWindowHtml = ''; // Empty bubble
-		var endWindowHtml = infowindowContent(nzp.destination)
-		
-		attachInstructionText(marker2, endWindowHtml);
-		markerArray[1] = marker2;		
-
-}
-
-function attachInstructionText(marker, text) {
 	
-	google.maps.event.addListener(marker, 'click', function() {
-		directionsInfoWindow.setContent(text);
-		directionsInfoWindow.open(map, marker);			    
-	});
-// google.maps.event.addListener(map,"bounds_changed",function() {
-// nzp.$loading.hide();
-// });
-	map.fitBounds(bounds); // Center based on values added to bounds
 
-	nzp.$loading.hide();
-};
+		function processMarker( directionResults) {				
+
+
+			var leg = directionResults.routes[0].legs[0];
+
+		// Pass the lat long bounds of the start and end location
+			bounds.extend(leg.start_location);
+			bounds.extend(leg.end_location);
+
+			// The start and end markers are handled differently as there will only over be 2
+			// and its necessary to overwrite the default behavious for the 2 markers
+
+			// Start Location
+				var marker = new google.maps.Marker({
+					position: leg.start_location,
+					map: map,
+					icon: icons.start
+				});
+
+				startWindowHtml = '';// Empty bubble
+				startWindowHtml += '<div class="bubble">';
+				startWindowHtml += '<h2>Current location</h2>';          
+				startWindowHtml += '<p class="mbn">'+leg.start_address+'</p>';          
+				startWindowHtml += '</div>';
+
+				attachInstructionText(marker, startWindowHtml);
+				markerArray[0] = marker;
+
+			// End Location	
+				var marker2 = new google.maps.Marker({
+			        position: leg.end_location,
+			        map: map,
+			        icon: icons.end
+			    });
+
+				// Create info window for destination.  
+				//This is build from the same function as the all map markers
+				endWindowHtml = ''; // Empty bubble
+				var endWindowHtml = infowindowContent(nzp.destination)
+				
+				attachInstructionText(marker2, endWindowHtml);
+				markerArray[1] = marker2;		
+
+		};
+
+		function attachInstructionText(marker, text) {
+			
+			google.maps.event.addListener(marker, 'click', function() {
+				directionsInfoWindow.setContent(text);
+				directionsInfoWindow.open(map, marker);			    
+			});
+			map.fitBounds(bounds); // Center based on values added to bounds
+			// Once the markers have loaded, hide the spinner and show the tabs
+			nzp.$loading.hide();			
+		};
 
 
 		// Update the URL

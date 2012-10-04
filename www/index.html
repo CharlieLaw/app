@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/utilities.css" media="screen">
 
     <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&client=gme-nzpost&sensor=false&channel=nzpost-locator"></script>-->
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
   </head>
 
   <body id="home">
@@ -30,7 +30,20 @@
       <div id="pages"></div>
     </div>
 
-   
+   <script>
+                // AS000000001NZ
+              //var mockURL = '10.10.10.1';
+              //var mockURL = '10.10.10.2';
+              //var mockURL = '10.10.10.3';
+              //var mockURL = '10.10.10.4';
+
+    userip = '10.10.10.3';
+    /*
+    <?php
+      $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
+      echo $hostname;
+    ;?> */
+   </script>
 
  
 <script>
@@ -182,7 +195,8 @@
 
       <script id="tmp-tracking" type="text/template">          
           <div class="tracking-form">
-            <p class="intro">Enter a tracking number <b class="nopghide">or scan your barcode</b></p>
+          <p class="intro">Enter a tracking number <b class="nopghide">or scan your barcode</b></p>
+            <p class="blocked">You must be online to search for new tracking codes</p>            
             <form>
               <div class="row">
                 <div class="tracking-form-search" style="inline-block">
@@ -193,19 +207,21 @@
                  <span class="or">or</span>
                 <a href="#" id="tracking-scan" class="btn btn-scan btn-primary"><b>Scan</b></a>
               </div>
-
-            </form>
-            
+            </form>            
+          </div>
+          
+          <div class="row ac">
+            <a href="#" id="tracking-refresh" class="btn btn-primary refresh">Refresh</a>
           </div>
 
       </script>
-
+  
       <script id="tmp-tracking-item" type="text/template">           
-           <% if (typeof(error_code) != "undefined") { %> 
-            <a href="#" class="tracking-<%= error_code %> <%= spinner %>">
-           <% } else { %> 
-            <a href="#" class="tracking-success <%= spinner %>">
-           <% } %>               
+           <% if (typeof(error_code) != "undefined") { %>                                                     
+              <a href="#" class="tracking-<%= error_code %> <%= spinner %>">              
+           <% } else { %>               
+              <a href="#" class="<%= spinner %>">
+            <% }  %>               
               <div>
                 <b></b>
                 <% if (typeof(user_added_name) != "undefined" && user_added_name.length > 0) { %>
@@ -323,11 +339,6 @@
   <!--/ TRACKING -->
 
 
-      <script>
-        var nzp = nzp || {};
-       // nzp.vent = _.extend({}, Backbone.Events);
-
-      </script>
 
       <script id="tmp-nav" type="text/template">
         <a href="" class="fc nav-<%= slug %> menu-item" data-page="<%= slug %>"><h2><%= title %></h2><p><%= desc %></p></a>
@@ -354,6 +365,11 @@
 
       <script id="hiddenMenu" type="text/template"></script>
 
+
+      <script>
+        var nzp = nzp || {};
+      </script>
+
     <!-- Libs -->
       <script src="js/libs/phonegap/cordova-2.1.0.js"></script> 
 
@@ -364,6 +380,7 @@
       <script src="js/libs/backbone/backbone.localStorage.js"></script>
       <script src="js/plugins/EmailComposer.js"></script>      
       <script src="js/libs/fastclick/fastclick.js"></script>
+      <script src="js/helper/date.js"></script>
       <script src="js/plugins/barcodescanner.js"></script>  
       <script src="js/helper/helper.js"></script>   
       

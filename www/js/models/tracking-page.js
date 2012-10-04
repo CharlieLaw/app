@@ -8,11 +8,12 @@
 			highlight: '',												// ClassName is added to highlight the row
 	    	user_added_name: '', 											// User added name
         	short_description: 'loading...',
-        	spinner: 'list-spinner'	    	
+        	spinner: 'list-spinner',
+        	ip: userip	    	
 	    },
 
 	    url:function(){
-	      return 'http://api.nzpost.co.nz/tracking/track?license_key='+this.get('apiKey')+'&tracking_code='+this.get("track_code")+'&mock='+this.get('mockValue')+'&format=jsonp&callback=?';
+	      return 'http://api.nzpost.co.nz/tracking/track?license_key='+this.get('apiKey')+'&user_ip_address='+this.get('ip')+'&tracking_code='+this.get("track_code")+'&mock='+this.get('mockValue')+'&format=jsonp&callback=?';
 	    },
 
 	    /*

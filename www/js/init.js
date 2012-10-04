@@ -27,7 +27,7 @@ nzp.AppView = Backbone.View.extend({
 
 	render: function() {
 
-		//checkOnLine();
+		checkOnLine();
 
 		/* Header Area */
 			var header = new nzp.Header();
@@ -217,13 +217,20 @@ var app = {
 
 // Check if the user if on or offline
 	function checkOnLine() {
-		var statusElem = document.getElementsByTagName('html')[0]
+		//var statusElem = document.getElementsByTagName('html')[0]
+		checkIt();
 		setInterval(function () {
-		  statusElem.className = navigator.onLine ? 'online' : 'offline';
-		  //statusElem.innerHTML = navigator.onLine ? 'online' : 'offline';  
-		}, 250);		
+			checkIt();
+		}, 30000);		
 	}
 
+	function checkIt() {
+		 if(navigator.onLine) {
+			nzp.$body.removeClass('offline').addClass('online');
+		  } else {
+			nzp.$body.removeClass('online').addClass('offline');
+		  };
+	}
 
 Backbone.View.prototype.close = function(){
   this.remove();
