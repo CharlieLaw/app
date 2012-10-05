@@ -498,7 +498,8 @@ nzp.Router = Backbone.Router.extend({
 			If no match is found or no records are found display an error message
 			*/
 			// Set page title, body class & previuos page								
-			nzp.headerTitle.set({title: id});				
+			//nzp.headerTitle.set({title: id});	
+			nzp.headerTitle.set({title: 'Package details'});				
 			nzp.$body.attr('id', 'tracking-details')
 			this.previousPage = 'tracking';
 
@@ -529,7 +530,6 @@ nzp.Router = Backbone.Router.extend({
 					var details = $(nzp.userName.render().el).after(nzp.trackingDetails.render().el)
 					var allContent = $(nzp.trackingDetailsForm.render().el).after(details);
 					nzp.$page.html(allContent);
-
 
 
 				} else {

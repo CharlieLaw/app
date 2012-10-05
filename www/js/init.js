@@ -28,7 +28,6 @@ nzp.AppView = Backbone.View.extend({
 
 	render: function() {
 
-		//checkOnLine();
 
 		/* Header Area */
 			var header = new nzp.Header();
@@ -61,20 +60,6 @@ nzp.AppView = Backbone.View.extend({
 		// Location Page Collection
 			nzp.placesCollection = new nzp.Places;
 		
-
-
-		// Fast Click to remove 300ms delay			
-			//new FastClick(document.getElementById('header')); // This needs disabled for the map page 						
-		
-			//var clickPage = document.getElementsByTagName('body')[0];
-			//console.log(clickPage)
-			//if(clickPage.) {
-			//	new FastClick(clickPage);	
-			// };
-			
-			//var p = document.getElementById('pages')
-			//new FastClick(p)
-
 		// Fire router & history 
 			nzp.router = new nzp.Router;
 			Backbone.history.start();	
@@ -85,28 +70,11 @@ nzp.AppView = Backbone.View.extend({
 		nzp.$offline.hide();
 	},
 	
-	//fastClicked: function(e) {
-		//e.preventDefault();
-		//var $target = $(e.target)
-		//if ($target.hasClass('fc')) {		  
-		 // new FastClick(this.$el);
-			//console.log(e.target)
-		//}
-	//},
-
 	// Manage view transitions without fear of the zombies
 	// http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/
 
 	showView: function(view, spinner) {
- 		
- 		if(spinner) {
- 			/*
- 			nzp.$loading.show();
-			setTimeout(function() {
-				nzp.$loading.hide();
-			}, 300); */
- 		};
- 				
+ 		 		 				
 		if (this.currentView){
 			this.currentView.close();
 		}
@@ -118,19 +86,6 @@ nzp.AppView = Backbone.View.extend({
 		
 	},
 
-	// showViewWrapper: function(view) {
- 		
-	// 	if (this.currentView){
-	// 		this.currentView.close();
-	// 	}
-
-	// 	this.currentView = view;
-	// 	this.currentView.render();
-
-	// 	nzp.$wrapper.html(this.currentView.el);
-	// },
-
-
 	hideSpinner: function() {
 		setTimeout(function() {
 			nzp.$loading.hide();
@@ -140,20 +95,6 @@ nzp.AppView = Backbone.View.extend({
 });
 
 
-
-
-	//$(function() {
-			
-
-			//nzp.appView = new nzp.AppView;
-			//nzp.appView.render();
-			
-
-
-				
-	//});
-
-//} (jQuery));
 
 
 /*
@@ -193,21 +134,16 @@ var app = {
     onDeviceReady: function() {
         	nzp.appView = new nzp.AppView;
 			nzp.appView.render();
-			cb = window.plugins.childBrowser;
-
-        //app.receivedEvent('deviceready');        
+			cb = window.plugins.childBrowser; // ChildBrowser Plugin
     }
    
 };
 
 
-
-
-
-
-// function isOffline() {
-// 	nzp.$offline.show();
-// };
+// Check for whitespace regex
+	function hasWhiteSpace(s) {
+	  return /\s/g.test(s);
+	}
 
 // Check if object is object
 	function IsObject(obj){
@@ -227,14 +163,6 @@ var app = {
       };
 
 // Check if the user if on or offline
-	//function checkOnLine() {
-		//var statusElem = document.getElementsByTagName('html')[0]
-		//checkStatus();
-		//setInterval(function () {
-		//	checkIt();
-		//}, 30000);		
-	//};
-
 	function checkStatus() {
 	 if(navigator.onLine) {
 		return true
@@ -243,14 +171,12 @@ var app = {
 	  };
 	}
 
-Backbone.View.prototype.close = function(){
-  this.remove();
-  //console.log('remove');
-  this.unbind();
-  //console.log('unbind');
-  if (this.onClose){    
-    this.onClose();
-    //console.log('closing')
-  }
-}
+// Extend backbone with a close method
+	Backbone.View.prototype.close = function(){
+	  this.remove();
+	  this.unbind();
+	  if (this.onClose){    
+	    this.onClose();    
+	  }
+	};
 		

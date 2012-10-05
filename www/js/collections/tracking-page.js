@@ -6,7 +6,7 @@
         localStorage: new Backbone.LocalStorage("tracking"),
 
     	comparator: function(a,b) {
-      		return b.get("timestamp") - a.get("timestamp");		// Sort order by timestamp
+            return b.get("timestamp") - a.get("timestamp");		// Sort order by timestamp
     	},
 
         clear: function() {

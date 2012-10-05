@@ -97,8 +97,8 @@ clicked: function(e){
 
         },
 		    render: function(){
-     			var tmpl = _.template("<a href='#' class='<% print(slug); %>'><span><% print(title); %></span></a>");
-				var tmplData = tmpl({slug: 'tab-'+this.model.toJSON().slug, title:this.model.toJSON().title});
+     			var tmpl = _.template("<a href='#'><b class='icon <% print(slug); %>'><% print(title); %></b></a>");
+				var tmplData = tmpl({slug: 'icon-'+this.model.toJSON().slug, title:this.model.toJSON().title});
 		        this.$el.html(tmplData);
 	            return this;
 		    }

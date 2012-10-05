@@ -59,6 +59,7 @@
 	    template:_.template($('#singleLocatorTemplate').html()),
 
 	    render:function () {
+	    	//console.log(this.model.toJSON().type.toLowerCase())
 	        $(this.el).html(this.template(this.model.attributes));
 	        return this;
 	    },

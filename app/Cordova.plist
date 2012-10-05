@@ -29,6 +29,7 @@
 		<string>http://*.custhelp.com/</string>
 		<string>http://*.googleapis.com/</string>
 		<string>http://*google-analytics.com/</string>
+		<string>*</string>
 	</array>
 	<key>Plugins</key>
 	<dict>

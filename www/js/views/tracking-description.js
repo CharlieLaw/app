@@ -8,7 +8,13 @@
 
 ---------------------------------------------------------------------------------------------------------*/
 
-	// Form area
+
+		
+/****************************************************************************************************************
+	Form for submitting a name
+****************************************************************************************************************/
+
+
 		nzp.TrackingDetailsForm = Backbone.View.extend({
 
 			el: '<form action="" id="tracking-add-name" class="tracking-form">',
@@ -48,7 +54,11 @@
 		});	    
 
 
-	// Edit the package name
+/****************************************************************************************************************
+	Add a package name
+****************************************************************************************************************/
+
+
 		nzp.TrackingDetailsUserName = Backbone.View.extend({
 
 			el: '<h2 id="user-added-name">',
@@ -92,7 +102,12 @@
 
 		});	    
 
-	// The individual tracked items finer details
+
+/****************************************************************************************************************
+	Tracking details buttons.  Email, Edit, Delete
+****************************************************************************************************************/
+
+
 		nzp.TrackingDetails = Backbone.View.extend({
 
 			el: '<div id="tracking-details-page">',
@@ -122,11 +137,15 @@
 						default:
 							if(cb != null) {
 							    cordova.exec("ChildBrowserCommand.showWebPage", e.target.href );
+							} else {
+								window.location = e.target.href;
 							}
 					}					
 				} else {										
 					if(cb != null) {
 					    cordova.exec("ChildBrowserCommand.showWebPage", e.target.href );
+					} else {
+						window.location = e.target.href;
 					};
 				};
 			},
@@ -170,6 +189,10 @@
 		 	}		 		
 	});
 
+
+/****************************************************************************************************************
+	Email handling - using phonegap plugin
+****************************************************************************************************************/
 
 	// The individual tracked items finer details
 	nzp.TrackingEmail = Backbone.View.extend({			

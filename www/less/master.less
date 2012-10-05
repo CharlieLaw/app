@@ -22,6 +22,7 @@
 	body {.font-size(16); line-height: @baseLineHeight; background-color: @bodyBackground; font-family:@sansFontFamily; font-weight: 300; position: relative}
    	p { margin-bottom: @baseLineHeight; }      		
 
+
 //****************************************************************************************************************
 //	Scaffolding
 //****************************************************************************************************************
@@ -111,11 +112,12 @@
 		}
 
 		
-
+	// List with arrow 
 		.list-arrows li {padding:0}
-			.list-arrows li > a {padding: @defaultSpacing; padding-right:(37/320)*100%; display: block; background:url(../img/arrow.right.png) 100%-(10/320)*100% center no-repeat; display: block}
+		.list-arrows li > a {padding: @defaultSpacing; padding-right:(40/320)*100%; display: block; background:url(../img/arrow.right.png) 100%-(10/320)*100% center no-repeat; display: block}
 		.list-arrows li .list-spinner { padding-left: (45/320)*100%; background: url(../img/spinner-small.gif) (10/320)*100% 12px no-repeat;  }
 		.list-arrows li .list-spinner b {display:none}
+	
 	// Inline list		
 		.list-inline { margin-bottom: 1em; 
 			li { display: inline; }
@@ -203,47 +205,41 @@
 			.tabbar-posttype li {width:20%}
 		.tabbar a { color: #fff; display: block; height: @tabHeight; width: 100%; }
 			.tabbar a { text-decoration: none; }
-		.tabbar span { background: url(../img/sprite.png) 0 0 no-repeat; display: block; height: 24px; margin: 0 auto; position: relative; text-indent: -9999em; top: 13px; width: 24px; }
-			.tab-postshop span { background-position: 0 0; }
-			.tab-postbox span { background-position: -80px 0; }
-			.tab-postboxlobby span { background-position: -40px 0; }
-			.tab-postall span { background-position: -120px 0; width: 64px; }
-			.tab-walking span { background-position: -120px -113px; }
-			.tab-driving span { background-position: -200px -113px; }
-			.tab-atm span { background-position: -256px 0px; }
+			.tabbar .icon { margin: 0 auto; top: 13px; }
 		.tab-current {background: #434343}
-		/*.fullmap .tabbar {display:none}*/
 
 
 //****************************************************************************************************************
-//	Map
+//	Icons
 //****************************************************************************************************************
 
 
-	//#map-container {width:100%;}
-	.bubble {width:250px; min-height: 125px}
-	.bubble h2 { color:@grayDarker; .font-size(16)}
-	.bubble li {}
-
+	.icon { background: url(../img/sprite.png) 0 0 no-repeat; display: inline-block; height: 24px; overflow: hidden; position: relative; text-indent: -9999em; width: 24px; }
+		.icon-postshop { background-position: 0 0; }
+		.icon-postbox  { background-position: -80px 0; }
+		.icon-postboxlobby { background-position: -40px 0; }
+		.icon-postall { background-position: -120px 0; width: 64px; }
+		.icon-walking { background-position: -120px -113px; }
+		.icon-driving { background-position: -200px -113px; }
+		.icon-atm { background-position: -256px 0px; }
 
 
 //****************************************************************************************************************
-//	Locator
-//****************************************************************************************************************/
+//	Header
+//****************************************************************************************************************
 
-		
-	.locator-map-wrapper {position: absolute; top: 1em; right: 1em}
-		.locator-map {display: inline-block; vertical-align: middle; }
-		.locator-map b,
-		.all-map b { background:url(../img/sprite.png) -200px -170px no-repeat; display: block; height: @tabHeight; width: @tabHeight; margin:0 auto; vertical-align: middle; margin-right: 10px }
-	
-	.locator-info { margin-right: (90/320)*100% } // 90px required to fit map image in and give some space
-	
+    
+    #header { background-color: rgb(220,0,0); border-bottom: 1px solid @gray; height: @headerHeight; margin-left: 0; position: fixed; text-align: center; top: 0; width: 100%; z-index: 3; 
+              -webkit-transition:0.25s all ease-in;    	
+		h1 { color: #fff; font-weight: normal; line-height: @headerHeight; text-align: center; text-shadow: 1px 1px 1px #000; text-transform: capitalize; width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0 auto;  position: relative; z-index: 3}		
+	}
+	#home #header h1 {background: url(../img/sprite.png) transparent 0 -170px no-repeat; text-indent: -9999em; min-width:165px; min-height:31px; display: inline-block; line-height: 1; top:6px;}
+	.active #header { margin-left:-80%; }
+
 
 //****************************************************************************************************************
 //	Home
 //****************************************************************************************************************/
-
 	
 
 	#home {
@@ -257,24 +253,49 @@
 
 
 //****************************************************************************************************************
-//	Contact
+//	Locator
 //****************************************************************************************************************/
+
+	// Listing
+		.list-locator .icon {  float: left; margin-right: 1em; position: relative; top: 1px; }
+		.list-locator div { overflow: hidden }
+
+	// Map	
+		.locator-map-wrapper {position: absolute; top: 1em; right: 1em}
+			.locator-map {display: inline-block; vertical-align: middle; }
+			.locator-map b { background:url(../img/sprite.png) -200px -170px no-repeat; display: block; height: @tabHeight; width: @tabHeight; margin:0 auto; vertical-align: middle; margin-right: 10px }
+	
+	.locator-info { margin-right: (90/320)*100% } // 90px required to fit map image in and give some space
+	
+
+//****************************************************************************************************************
+//	Locator Details
+//****************************************************************************************************************
+
+
+	#locator-details-page {padding: @defaultSpacing; }
+
+//****************************************************************************************************************
+//	Map
+//****************************************************************************************************************
+
+
+	.bubble {width:250px; min-height: 125px}
+	.bubble h2 { color:@grayDarker; .font-size(16)}
+	.bubble li {}
+
+
+//****************************************************************************************************************
+//	Contact
+//****************************************************************************************************************
 
 
 	#contact .page { padding: @defaultSpacing; }	
 
 
 //****************************************************************************************************************
-//	Locator
-//****************************************************************************************************************/
-
-
-	#locator-details-page {padding: @defaultSpacing; }
-
-
-/****************************************************************************************************************
-	Tracking
-****************************************************************************************************************/
+//	Tracking
+//****************************************************************************************************************
 
 	#user-added-name, 
 	#tracking-details-page { padding: @defaultSpacing; }
@@ -291,8 +312,6 @@
 		                     -webkit-appearance: none; }		
 	}
 
-	//#tracking-add-name .btn {  }	
-	//#tracking-list { z-index: 1; -webkit-overflow-scrolling: touch; }
 
 	.pg .tracking-form {
 		.tracking-form-search { display: inline-block; width: 65%;  margin-right: 5%; }
@@ -307,22 +326,15 @@
 
 
 
-	//.tracking-close { display:block; position: absolute; width:@tabHeight; height: @tabHeight; top:1em; right: 1em}
-
 	.loading-tracking { position: relative; height: 0; padding: 0 }
 	.showspinner { -webkit-transition: height .3s linear; height:108px;}
 	.fadeout,
 	.fadeout a { -webkit-transition: color .5s linear; color:#fff}
 
 
-	 #tracking-add-name {display:none;/*height:0; overflow:hidden; -webkit-transition:0.25s all ease-in; padding-top:0; padding-bottom:0*/}
-	.showform #tracking-add-name {display:block;/*height:120px; padding-top:1em; padding-bottom:1em*/}
+	 #tracking-add-name {display:none;}
+	.showform #tracking-add-name {display:block;}
 	
-	//.tracking-status-table {margin-top:1em; width: 100%; border-top: solid 1px @gray; border-bottom: solid 1px @gray; background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0) 100%); margin-bottom: 1em;
-	//	p {margin-bottom: 1em}
-	//	th {text-align: center}
-	//	td {padding:0.5em; text-align: center}
-	//}
 	
 	#tracking-actions {list-style-type: none; overflow: hidden; margin-bottom:20px}
 	#tracking-actions li {float:left; width:30%; margin-right:5%;}
@@ -330,24 +342,12 @@
 	#tracking-actions a {/*padding:10px; */text-align: center; display: block}
 	#tracking-actions li:last-child {border-right:none}
 	.ac #tracking-actions a {display:inline-block}
-	//.inner-txt ul { overflow:hidden} // this is a hack as the API sometimes returns the messages in HTML 
-	//.inner-txt li {list-style-type: circle;}
-.tracking-error .actions-name {display:none}
+
+	.tracking-error .actions-name {display:none}
 
 
 	.norefresh #tracking-refresh {display: none}
 
-//****************************************************************************************************************
-//	Header
-//****************************************************************************************************************
-
-    
-    #header { background-color: rgb(220,0,0); border-bottom: 1px solid @gray; height: @headerHeight; margin-left: 0; position: fixed; text-align: center; top: 0; width: 100%; z-index: 3; 
-              -webkit-transition:0.25s all ease-in;    	
-		h1 { color: #fff; font-weight: normal; line-height: @headerHeight; text-align: center; text-shadow: 1px 1px 1px #000; text-transform: capitalize; width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0 auto;  position: relative; z-index: 3}		
-	}
-	#home #header h1 {background: url(../img/sprite.png) transparent 0 -170px no-repeat; text-indent: -9999em; min-width:165px; min-height:31px; display: inline-block; line-height: 1; top:6px;}
-	.active #header { margin-left:-80%; }
 
 
 /****************************************************************************************************************
@@ -369,16 +369,14 @@
 	//.list-arrows li > a.tracking-U {background-color: #fdf3f3; }
 	//.list-arrows li > a.tracking-success {background-color: rgb(242, 248, 242)}
 	
-	.list-arrows b { background: url(../img/sprite.png) -36px -220px no-repeat; display: block; float: left; height: 12px; margin: 4px 10px 0 0; width: 12px; }
-	.list-arrows .tracking-success b { background-position: -24px -220px; }
-	.list-arrows .tracking-error b { background-position: -36px -220px; }
-	.list-arrows .tracking-transit b { background-position: 0px -220px; }
-	.list-arrows div { overflow: auto; }
-	.tracking-error {}
+	.list-tracking b { background: url(../img/sprite.png) -36px -220px no-repeat; display: block; float: left; height: 12px; margin: 4px 10px 0 0; width: 12px; }
+	.list-tracking .tracking-success b { background-position: -24px -220px; }
+	.list-tracking .tracking-error b { background-position: -36px -220px; }
+	.list-tracking .tracking-transit b { background-position: 0px -220px; }
+	.list-tracking div { overflow: auto; }
 
-	//#user-added-name {display:none}
 	.hasheader #user-added-name { display: block; }
-	//.noheader  #user-added-name  {display:none}
+
 
 
 /****************************************************************************************************************

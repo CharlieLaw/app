@@ -31,14 +31,15 @@
       <div id="pages"></div>
     </div>
 
-   <script>
-                // AS000000001NZ
-              //var mockURL = '10.10.10.1';
-              //var mockURL = '10.10.10.2';
-              //var mockURL = '10.10.10.3';
-              //var mockURL = '10.10.10.4';
+   <script>    
+    // AS000000001NZ
+    //var mockURL = '10.10.10.1';
+    //var mockURL = '10.10.10.2';
+    //var mockURL = '10.10.10.3';
+    //var mockURL = '10.10.10.4';
 
-    userip = '10.10.10.4';
+
+    userip = '10.10.10.3';
     /*
     <?php
       $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
@@ -59,7 +60,6 @@
   var buttonsData = [       
     {title: 'Home', slug:'home', classname: 'btn-head btn-head-home'},
     {title: 'Menu', slug:'menu', classname: 'btn-head btn-head-menu'},
-    //{title: 'Refresh', slug:'refresh', classname: 'btn-head btn-head-refresh'},
     {title: 'Back', slug:'back', classname: 'btn-head btn-head-back'}
   ];   
   
@@ -83,12 +83,15 @@
       <script id="tmp-locator" type="text/template">
           <% /* %><p class="intro">Your closest New Zealand Post Office and Post box</p> <% */ %>
           
-          <ul id="locator-list" class="list list-arrows">             
+          <ul id="locator-list" class="list list-arrows list-locator">             
                 <li>
-                    <a href="#" class="all-map">                  
-                    <h2>All nearby</h2> 
-                    <p>All Post Boxes, Post Offices and KiwiBanks near you now.</p>
-                  </a>
+                    <a href="#" class="all-map">    
+                      <b class="icon icon-postall"></b>              
+                      <div>
+                        <h2>All nearby</h2> 
+                        <p>All Post Boxes, Post Offices and KiwiBanks near you now.</p>
+                      </div>
+                    </a>
                 </li>              
           </ul>
           <div class="row ac">
@@ -99,21 +102,28 @@
 
 
      <script id="singleLocatorTemplate" type="text/template">
-          <a href="#">
-          <% if (typeof(name) != "undefined") { %>
-            <h2><%= name %></h2>
-          <% } %>
-          <p>
-          <% if (typeof(address) != "undefined") { %>
-            <span class="row"><%= address %></span>
-          <% }  %>
-          <% if (typeof(description) != "undefined") { %>
-            <span class="row"><% description %></span>
-          <% }  %>
-          <% if (typeof(distance_in_m) != "undefined") { %>
-            <span class="row">Distance: <%= parseFloat(distance_in_m/1000).toFixed(2) %> km</span>
-          <% } %> 
-          </p>  
+          <a href="#">          
+          <%             
+            var nonSpacedItem = type.replace(/ /g, '');                             
+            var item = nonSpacedItem.toLowerCase();
+          %>                            
+          <b class="icon icon-<%= item %>"></b>
+          <div>
+            <% if (typeof(name) != "undefined") { %>
+              <h2><%= name %></h2>
+            <% } %>
+            <p>
+            <% if (typeof(address) != "undefined") { %>
+              <span class="row"><%= address %></span>
+            <% }  %>
+            <% if (typeof(description) != "undefined") { %>
+              <span class="row"><% description %></span>
+            <% }  %>
+            <% if (typeof(distance_in_m) != "undefined") { %>
+              <span class="row">Distance: <%= parseFloat(distance_in_m/1000).toFixed(2) %> km</span>
+            <% } %> 
+            </p>  
+          </div>
           </a>         
       </script>
 
@@ -217,16 +227,11 @@
 
       </script>
   
- <!--
- <ul class="tabbar tabbar-tracking grad-mask">
-            <li><a href="#" id="tracking-refresh">Reresh</a></li>
-            <li><a href="#" id="tracking-scan">Scan</a></li>
-          </ul>
- -->
+
 
       <script id="tmp-tracking-item" type="text/template">           
-           <% if (typeof(error_code) != "undefined") { %>                                                     
-              <a href="#" class="tracking-<%= error_code %> <%= spinner %>">              
+           <% if (typeof(error_desc) != "undefined") { %>                                                     
+              <a href="#" class="tracking-<%= error_desc %> <%= spinner %>">              
            <% } else { %>               
               <a href="#" class="<%= spinner %>">
             <% }  %>               
@@ -241,11 +246,11 @@
             </a>
       </script>
 
+
       <script id="tmp-tracking-description" type="text/template">
           <p class="intro">Tracking Details</p>
           <div id="tracking-wrapper"></div>
       </script>
-
 
   
     
@@ -264,17 +269,21 @@
                 <% /*<a href="#" id="tracking-close">Close</a>*/ %>
               </div>
       </script>   
-
-      <script id="tmp-tracking-description-item" type="text/template">
-                
-            <% if (typeof(short_description) != "undefined" && short_description.length > 0) { %>
-              <h2><%= short_description %></h2>
+<!--
+ <% if (typeof(short_description) != "undefined" && short_description.length > 0) { %>
+              <p><%= short_description %></p>
             <% } %>
-
-            <% if (typeof(detail_description) != "undefined" && detail_description.length > 0) { 
-              %>
-
-              <p id="tracking-desc-text"><%= detail_description %></p>
+-->
+      <script id="tmp-tracking-description-item" type="text/template">
+           <% if (typeof(track_code) != "undefined") { %>
+              <h2>Item number: <%= track_code %></h2> 
+           <% } %>
+            <% if (typeof(detail_description) != "undefined" && detail_description.length > 0) { %>              
+              <% if (typeof(error_code) != 'undefined' && error_code == 'N') {  %>
+                <%= detail_description %>
+              <% } else { %>
+                <p id="tracking-desc-text"><%= detail_description %></p>
+              <% } %>
             <% } %>
 
             <% if (typeof(events) != "undefined") { %>
@@ -299,7 +308,7 @@
             <% } %>
           
 
-          <% if (typeof(error_code) == "error") { %>          
+          <% if (typeof(error_desc) == "error") { %>          
             <p class="ac">
             <a href="#" id="tracking-delete" class="btn btn-primary">Delete</a>
             </p>
@@ -314,7 +323,9 @@
       </script>
 
 
+<!-- TRACKING EMAIL TEMPLATE -->
       <script id="tmp-tracking-email" type="text/template">
+
         <p>Tracking number: <%= track_code %><br />
         <% if (typeof(lastDate) != "undefined") { %>Date: <%= lastDate %><br /><% } %>
         <% if (typeof(lastTime) != "undefined") { %>Time: <%= lastTime %><br /><% } %>
@@ -323,9 +334,14 @@
         <p>The latest tracking information for this item can be viewed here: <a href="http://www.nzpost.co.nz/tools/tracking?trackid=<%= track_code %>">http://www.nzpost.co.nz/tools/tracking?trackid=<%= track_code %></a></p>
         <p>If you have an internet capable mobile device, you can view it here: <a href="http://m.nzpost.co.nz/t?id=<%= track_code %>">http://m.nzpost.co.nz/t?id=<%= track_code %></a></p>
         <p>If you have an iPhone or iPod Touch you can download the New Zealand Post iPhone application from here: <a href="http://nzpost.co.nz/iPhoneApp">http://nzpost.co.nz/iPhoneApp</a> and enter this tracking code in the search field</p>  
-      </script>
 
+      </script>
+<!--/ TRACKING EMAIL TEMPLATE -->
+
+
+<!-- CONTACT -->
       <script id="tmp-contact" type="text/template">
+        
         <h2>Email</h2>
           <p><a href="#" id="support-email">Email us</a></p>
         <h2>Phone</h2>
@@ -333,18 +349,18 @@
           <li><strong>Within NZ: </strong> <a href="tel:0800 501 501">0800 501 501</a></li>         
           <li><strong>Outside NZ</strong> <a href="tel:64 9 367 9710">+64 9 367 9710</a></li>
         </ul>
-
         <h2>Postal Address</h2>
         <p>
-        Customer Service Centre<br />
-        New Zealand Post<br />
-        PO Box 39100<br />
-        Wellington Mail Centre<br />
-        Lower Hutt 5045
+          Customer Service Centre<br />
+          New Zealand Post<br />
+          PO Box 39100<br />
+          Wellington Mail Centre<br />
+          Lower Hutt 5045
         </p>
 
        </script> 
-  <!--/ TRACKING -->
+<!--/ CONTACT -->
+
 
 
 

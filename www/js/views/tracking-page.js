@@ -13,8 +13,11 @@
 ---------------------------------------------------------------------------------------------------------*/
 
 
+/****************************************************************************************************************
+	Individual tracking LIST item
+****************************************************************************************************************/
 
-// Individual tracking item
+
 	nzp.TrackingItemView = Backbone.View.extend({
 
 		    el:'<li>',
@@ -27,26 +30,16 @@
 
 			initialize: function() {
 	      		this.model.bind('change', this.render, this);
-	      		//this.model.bind('change:short_description', this.removeSpinner);
 	    	},
-
-	    	//removeSpinner: function() {
-			//	alert('updated')
-				//console.log(this.toJSON().spinner)
-				//setTimeout(function() {
-						//this.toJSON().set({spinner: ''});
-				//}, 1000);
-			//},
 
 			render: function() {
 				// Wrap the element in an anchor and give the list item an ID
-		    		//this.$el.attr('id', this.model.toJSON().track_code); // Set an ID on the list item
 		        	var item = this.template(this.model.toJSON());
 		        	this.$el.html(item);
 		        	// Highlight item if its a matching code
               		$("a", this.$el).addClass(this.model.get("highlight"));
-              		//this.model.set({timestamp: Date.now()});              		
-              		//this.model.set("highlight", null);              		
+
+              		
 
 					return this;
 			},
@@ -60,22 +53,22 @@
 	});
 
 
-// Individual tracking item
+/****************************************************************************************************************
+	<ul> Wrapper for tracking list itmes
+****************************************************************************************************************/
+
+
 	var TrackingPageView = Backbone.View.extend({
 
 
 			template: _.template($('#tmp-tracking').html()),
 
-			el: '<ul id="tracking-list" class="list list-arrows">',
+			el: '<ul id="tracking-list" class="list-tracking list list-arrows">',
 
 			initialize: function() {
 
 			    nzp.trackingPageCollection.bind('add', this.addOne, this);
 			    nzp.trackingPageCollection.bind('reset', this.render, this);	// Fires when whole collection updates
-      			//trackingPageCollection.bind('all', this.render, this); // Commented this out as it causes strange behaviours
-
-
-
 			},
 
 			render: function(trackItem) {
@@ -85,11 +78,8 @@
 				return this;
 			},
 
-			// Rendered at the start to show all items in Local storage
-			// 
+			// Rendered at the start to show all items in Local storage			
 			addOne: function(trackItem) {
-				console.log('add one')
-
 				var view = new nzp.TrackingItemView({model: trackItem});				
 				// This is prepended with the default values, 
 				// Once a sucessful ajax call has been made some defaults are changed and saved (getPackage ajax call)
@@ -110,9 +100,13 @@
 			}
 	});
 
-//{"apiKey":"b74c4cd0-b123-012f-7fbc-000c294e04ef","mockValue":1,"highlight":null,"user_added_name":"Bob","short_description":"Delivered Signature","loading_class":"","timestamp":1348027807384,"track_code":"UD190381395NZ","id":"564b6f7a-1528-76f4-d1e7-d702dfaf5b31","detail_description":"Your item number UD190381395NZ was delivered at 5:40 a.m. on 22 Sep 2009 and was signed for by \"WCP110 NZPOSTSVSCNTRE\"","events":[{"flag":"A","description":"Acceptance","date":"21/09/2009","time":"08:29 AM"},{"flag":"O","description":"Out for Delivery","date":"22/09/2009","time":"04:59 AM"},{"flag":"F","description":"Delivered","date":"22/09/2009","time":"05:40 AM"}]}
 
-// Individual tracking item
+
+/****************************************************************************************************************
+	Tracking Form
+****************************************************************************************************************/
+	
+
 	nzp.TrackingFormView = Backbone.View.extend({
 
 		template: _.template($('#tmp-tracking').html()),
@@ -141,10 +135,20 @@
 			var isOnline = checkStatus();
 			if (isOnline) {
 				// If the user has entered a value into the input box
-				if($trackingNo.val() != "") {				
+				var stringHasSpace = hasWhiteSpace($trackingNo.val());							
+				
+				if($trackingNo.val() == "") {				
+					alert('Please enter a tracking code');
+				} else if(stringHasSpace == true) {
+					alert('The tracking code cannot contain spaces')
+				} else if($trackingNo.val().length <= 9) {
+					alert('The code entered is too short')
+				} else {
 					var tCode = $trackingNo.val();
 					this.processTrackingCode(tCode);
-				};
+				}
+				//if($trackingNo.val() != "" && stringHasSpace != true) {				
+				//};
 			} else {
 				nzp.$offline.show();
 			}
@@ -179,17 +183,21 @@
 				};		
 			},
 
+			
+/****************************************************************************************************************
+	Refresh Existing items
+		* Loop over tracking page collection
+		* Fire each item to the getDeliveryStatus function which will return the deliery status
+		* If the status is not sucess then proceed to create a string of tracking codes to process								
+		* Keep a record of the number of items 
+****************************************************************************************************************/
+
 			refreshItems: function(e) {
 
 				e.preventDefault();
 				
 				var isOnline = checkStatus();
 				if (isOnline) {
-
-					// Loop over tracking page collection
-					// Fire each item to the getDeliveryStatus function which will return the deliery status
-					// If the status is not sucess then proceed to create a string of tracking codes to process								
-					// Keep a record of the number of items 
 								
 					var refreshedItemsArray = [];
 					
@@ -250,11 +258,12 @@
 													} else {
 														// The model has changed												
 															model.save({
-																error_code:         deliveryStatus, 
+																error_code:         value.error_code, 
+																error_desc:         deliveryStatus, 
 																detail_description: value.detail_description, 
 																short_description:  value.short_description, 
 																events:             value.events,
-																spinner:            ''
+																spinner:            ''																
 															}); 
 													};
 												};
@@ -270,13 +279,16 @@
 
 			},
 
-		// Check for duplicate code and retrieve new item if its not a duplicate	
+/****************************************************************************************************************
+	Check for duplicate code and retrieve new item if its not a duplicate	
+
+	*	Loop over the collection to check the code entered is not a dupliate
+	*	If it is a duplicate add a classname to hightlight class name
+	*	If is not a duplicate then do the AJAX call
+****************************************************************************************************************/
+		
+
 			processTrackingCode: function(tCode) {				
-				/*
-					Loop over the collection to check the code entered is not a dupliate
-				 	If it is a duplicate add a classname to hightlight class name
-				 	If is not a duplicate then do the AJAX call
-				*/
 				$trackingNo.blur(); // Hides keyboard after form submission
 				
 				var matchingCode;
@@ -307,20 +319,30 @@
 								if(data[userCode] != undefined) {
 									
 									var deliveryStatus = getDeliveryStatus(data[userCode]);	// Get the correct status
-									//console.log(deliveryStatus)
-									
+									//console.log(data)
 									if(item.toJSON().track_code != undefined) {																																						
-										item.save({
-											error_code:         deliveryStatus, 
+										item.save({											
+											error_code:         data[userCode].error_code, 
+											error_desc:         deliveryStatus, 											
 											detail_description: data[userCode].detail_description, 
 											short_description:  data[userCode].short_description, 
 											events:             data[userCode].events,
-	 										spinner:            ''
-										}); // Save the item to the collection and set its spinner to blank            				    										
+	 										spinner:            '',
+	 										timestamp: 			Date.now()              		
+										});
+	
+										// If the error code is N then pass a custom message as the one returned from the API is not suitable
+											if (data[userCode].error_code != undefined && data[userCode].error_code == "N") {	
+												item.save({
+													short_description: errorShortDecTxt(userCode),
+													detail_description:  errorDescTxt(userCode)
+												});
+											};
 									} else {
 										console.log('unsucessful code')
 										item.save({
-											error_code:         deliveryStatus, 
+											error_code:         data[userCode].error_code, 
+											error_desc:         deliveryStatus, 											
 											detail_description: data[userCode].detail_description, 
 											short_description:  data[userCode].short_description, 
 											spinner:            ''
@@ -328,9 +350,7 @@
 									};
 
 									nzp.$body.removeClass('norefresh'); // Theres something added so show the refresh button
-								};
-
-								
+								};								
 							}
 						});
 				};
@@ -339,21 +359,22 @@
 
 	});
 
-	// Get delivery status.  This will be the error code
+
+/****************************************************************************************************************
+	Get delivery status.  This will be the error, transit or succes code
+****************************************************************************************************************/
+
+
 	var getDeliveryStatus = function(item) {
 	
-		// Return the tracking status or, error, success and transit.
-		//console.log(item)
 		var trackingStatus;
 
 		// If sucessful there should be events, otherwise there will be an error_code
 			if (item.error_code != 'undefined') {			
 				// Sucessful call, now find the status of the item
-					if (item.error_code == "N" || item.error_code == "U") {
-						trackingStatus = 'error';
-						console.log('error code ' + item.error_code)
+					if (item.error_code == "N" || item.error_code == "U") {						
+						trackingStatus = 'error';						
 					} else {
-						//console.log(item)
 						if (item.events != undefined && item.events.length > 0 ) {				
 							
 						// Sort array based on date, then time						
@@ -363,8 +384,6 @@
 							item.events.sort(function(a, b) {
 								var dateA = Date.parse(a.date+', '+a.time); // merge the date & time
 								var dateB = Date.parse(b.date+', '+b.time); // depending on the format
-								//console.log(dateA)
-								//console.log(dateB)
 								if (!a.date && b.date)  {
 									return 1;
 								} else if (a.date && !b.date) {
@@ -394,3 +413,32 @@
 
 		return trackingStatus;
 	};
+
+
+/****************************************************************************************************************
+	Improve Error text as its poorly formed HTML thats returned from the API
+****************************************************************************************************************/
+
+
+	var errorShortDecTxt = function(code) {
+		return "Error - We don't appear to have a record of that item";
+	};
+
+	var errorDescTxt = function(code) {
+		var allText = '';
+		allText += "<p></p>";
+		allText += "<p>The item details may not have been received into our tracking system yet.</p>"; 
+		allText += "<p>Please try again later or call <a href='tel: 0800 501 501'>0800 501 501</a> should you require further assistance.</p>";
+		allText += "<p>Please ensure your tracking numbers are:</p>";
+		allText += "<ul>";
+		allText += "<li>Accurately typed</li>";
+		allText += "<li>In the format XX123456789XX</li>";
+		allText += "<li>If you have any questions please check out our <a href='http://www.nzpost.co.nz/faq'>frequently asked questions</li>.";
+		allText += "</ul>";
+		return allText;
+	};
+
+
+// <P>Sorry, but your tracking number is not valid. Please ensure your tracking numbers are:</P>
+// <UL><LI>Accurately typed</LI>
+// <LI>In the format XX123456789XX</LI></UL><P>If you have any questions please check out our <A href=\"http://www.nzpost.co.nz/faq\">frequently asked questions.</A></P>	
