@@ -116,12 +116,12 @@ nzp.Router = Backbone.Router.extend({
 
 			// Set to true so the getLocation function is aware that it has to get the itmes once more
 				nzp.refreshMe = true;
-				
-			// Show the spinner while getting new items	
-				nzp.$loading.show();
-								
+												
 			// Empty the page before putting new content in				
 				nzp.$page.empty();												
+
+			// Show the spinner while getting new items	
+				nzp.$loading.show();
 
 			// Get the users current location	
 				getLocation(this.getLocation);
@@ -137,6 +137,10 @@ nzp.Router = Backbone.Router.extend({
 		},		
 
 		getLocation: function(pos) {
+			
+			// Empty the page before putting new content in				
+				nzp.$page.empty();												
+
 			
 			//If the places collection is empty then a fetch will be required which can take some time so provide an animation			
 				if(nzp.placesCollection.length == 0) {					
@@ -413,10 +417,10 @@ nzp.Router = Backbone.Router.extend({
 				selectedTab.set("highlighted", true);
 
 			// Attach fastclick to wrapper element	
-				var clickPage = document.getElementById('mode');
-				if(clickPage) {
-					new FastClick(clickPage);	
-				};		
+				// var clickPage = document.getElementById('mode');
+				// if(clickPage) {
+				// 	new FastClick(clickPage);	
+				// };		
 
 
 		});
@@ -545,7 +549,7 @@ nzp.Router = Backbone.Router.extend({
 
 
 		contact: function() {
-			//nzp.$page.empty(); 								// Empty the page before putting new content in
+			nzp.$page.empty(); 								// Empty the page before putting new content in
 			var contactPageView = new nzp.ContactPageView({});
 			
 			//nzp.$page.html(contactPageView.el);

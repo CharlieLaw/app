@@ -18,13 +18,13 @@
 		delegatedEvents: function(e) {
 			e.preventDefault();		
 			var $target = $(e.target);
-
+				//console.log(e)
 			// Refresh buttons
 				if ($target.hasClass('refresh')) {
 					this.pageRefresh();
 				};
 			// Click on the all map list itme or elements within it
-				if ($target.hasClass('all-map') || $target.parent().hasClass('all-map')) {
+				if ($target.hasClass('all-map') || $target.closest('a').hasClass('all-map')) {	
 					this.loadAllMap();	
 				}		
 		},

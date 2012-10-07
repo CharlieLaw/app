@@ -114,52 +114,69 @@
 
  			template: _.template($('#tmp-tracking-description-item').html()),
 
-	 		events: {
-	    		//"click #tracking-delete": "deleteModel",
-	    		//"click #tracking-edit"  : "showForm",
-				//"click #tracking-email" : "processEmail", 
-				"click a" : "allEvents"
-			},
-
-			allEvents: function(e) {
-				e.preventDefault();				
-				if (e.target.id != '') {
-					switch(e.target.id) {
-						case 'tracking-delete':
-						  this.deleteModel(e);
-						  break;
-						case 'tracking-edit':
-						  this.showForm(e);
-						  break;
-						case 'tracking-email':
-						  this.processEmail(e);
-						  break;   
-						default:
-							if(cb != null) {
-							    cordova.exec("ChildBrowserCommand.showWebPage", e.target.href );
-							} else {
-								window.location = e.target.href;
-							}
-					}					
-				} else {										
-					if(cb != null) {
-					    cordova.exec("ChildBrowserCommand.showWebPage", e.target.href );
-					} else {
-						window.location = e.target.href;
-					};
-				};
-			},
-
 			initialize:function() {
-				_.bindAll(this, 'render', 'deleteModel', 'showForm', 'processEmail');				
+				_.bindAll(this, 'render', 'deleteModel', 'showForm', 'processEmail', 'refresh');				
+				this.model.bind('change', this.render, this);			// Change event will allow model to be refreshed instantly			
 			},
 
-		    render:function() {
+
+	 		events: {
+	    		"click #tracking-delete"  : "deleteModel",
+	    		"click #tracking-edit"    : "showForm",
+				"click #tracking-email"   : "processEmail", 
+				"click #tracking-refresh" : "refresh", 
+				"click #faq" 			  : "faqs"
+				//"click a" : "allEvents"
+			},
+
+			// allEvents: function(e) {
+			// 	e.preventDefault();				
+			// 	if (e.target.id != '') {
+			// 		switch(e.target.id) {
+			// 			case 'tracking-delete':
+			// 			  this.deleteModel(e);
+			// 			  break;
+			// 			case 'tracking-edit':
+			// 			  this.showForm(e);
+			// 			  break;
+			// 			case 'tracking-email':
+			// 			  this.processEmail(e);
+			// 			  break;   
+			// 			case 'faq':
+			// 				if(cb != null) {
+			// 				    cordova.exec("ChildBrowserCommand.showWebPage", e.target.href );
+			// 				} else {
+			// 					window.location = e.target.href;
+			// 				}
+			// 			  break;   
+			// 			default:
+
+							
+			// 		}					
+			// 	}// else {										
+			// 	// 	if(cb != null) {
+			// 	// 	    cordova.exec("ChildBrowserCommand.showWebPage", e.target.href );
+			// 	// 	} else {
+			// 	// 		window.location = e.target.href;
+			// 	// 	};
+			// 	// };
+			// },
+
+
+		    render:function() {				
 				this.$el.html(this.template(this.model.toJSON()));
 		        return this;
 		    },
 
-		    
+			// Remove model from collection
+	 		faqs:function(e) {
+				e.preventDefault();
+				if(cb != null) {
+				    cordova.exec("ChildBrowserCommand.showWebPage", e.target.href );
+				} else {
+					window.location = e.target.href;
+				};
+	 		},		    
 
  		// Remove model from collection
 	 		deleteModel:function(e) {
@@ -186,7 +203,36 @@
 		 			model: this.model		 		
 		 		})
 		 		emailHtml.render();		 		
-		 	}		 		
+		 	},
+
+			refresh: function(e) {
+		 		// Request the model
+		 		e.preventDefault();
+		 		nzp.$loading.show();
+				userip = '10.10.10.4';
+
+
+		 		var track_code = this.model.toJSON().track_code;		 		
+				var currentShortDesc = this.model.toJSON().short_description;
+				var refreshUrl = 'http://api.nzpost.co.nz/tracking/track?license_key=b74c4cd0-b123-012f-7fbc-000c294e04ef&user_ip_address='+userip+'&tracking_code='+track_code+'&mock=1&format=jsonp&callback=?';																								
+				var self = this;
+
+				// Request an item based on the tracking code which will be passed in the defaults					
+					$.ajax({
+						dataType: 'jsonp',
+						url: refreshUrl,
+						success: function(data) {
+							var tCode = track_code.toUpperCase();
+							var newModel = data[tCode];
+							saveDetails(self.model, newModel, track_code);
+							self.model.save({
+								timestamp: Date.now()              		
+							});
+							nzp.$loading.hide();																	
+						}
+					});
+
+		 	}		 				 			 		
 	});
 
 

@@ -47,17 +47,19 @@
 		nzp.SingleButtonView  = Backbone.View.extend({
 
 	    	tagName: "li",
-	    	
-		    events: {
-		        "click a": "clicked"
-		    },
 
 		    initialize: function() {
 	        	_.bindAll(this, 'render');
+	        	addFastButtons(this);
 	    	},
+	    	
+		    events: {
+		        "fastclick": "clicked"
+		        //"click a": "clicked"
+		    },
 
 		    clicked: function(e){
-		        e.preventDefault();
+		        e.preventDefault();		        
 				switch(this.model.slug) {
 					case 'home':
 					  console.log('home button clicked');
@@ -67,9 +69,10 @@
 					  break;
 					case 'back':
 					  nzp.router.navigate(nzp.router.previousPage, true);
-					  nzp.$page.removeClass("map");
-					  nzp.$body.removeClass("showform");
-            		  $('.tabbar').remove(); // if the tabbar is presenet remove it
+					  clearPossibles();
+					  // nzp.$page.removeClass("map");
+					  // nzp.$body.removeClass("showform");
+       //      		  $('.tabbar').remove(); // if the tabbar is presenet remove it
 					  break;					
 					default:
 					  nzp.router.navigate('', true);
@@ -84,3 +87,9 @@
 		    }
 
 		});
+
+function clearPossibles() {
+	nzp.$page.removeClass("map");
+	nzp.$body.removeClass("showform");
+	$('.tabbar').remove(); // if the tabbar is presenet remove it
+};

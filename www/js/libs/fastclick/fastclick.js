@@ -16,19 +16,27 @@
 
 
 		/**
+		 * Android requires an exception for labels.
+		 *
+		 * @type boolean
+		 */
+		android = navigator.userAgent.indexOf('Android') > 0,
+
+
+		/**
 		 * Earlier versions of Chrome for Android don't report themselves as "Chrome" but "CrMo" - check for both.
 		 *
 		 * @type boolean
 		 */
-		chromeAndroid = /Android.+Chrome|CrMo/.test(navigator.userAgent),
+		chromeAndroid = android && (/Chrome|CrMo/).test(navigator.userAgent),
 
 
 		/**
-		 * Placebook requires a greater scroll boundary.
+		 * Playbook requires a greater scroll boundary.
 		 *
 		 * @type number
 		 */
-		scrollBoundary = navigator.userAgent.indexOf('PlayBook') === -1 ? 5 : 20;
+		scrollBoundary = (android || (navigator.userAgent.indexOf('PlayBook') === -1)) ? 5 : 20;
 
 
 	/**
@@ -39,14 +47,40 @@
 	 */
 	function needsClick(target) {
 		switch (target.nodeName.toLowerCase()) {
-			case 'textarea':
-			case 'select':
-			case 'input':
 			case 'label':
 			case 'video':
-			return true;
+				return true;
 			default:
-			return (/\bneedsclick\b/).test(target.className);
+				return (/\bneedsclick\b/).test(target.className);
+		}
+	}
+
+	/**
+	 * Determine whether a given element requires a call to focus to simulate click into element.
+	 *
+	 * @param  {Element} target target DOM element.
+	 * @return {boolean}  Returns true if the element requires a call to focus to simulate native click.
+	 */
+	function needsFocus(target) {
+		switch(target.nodeName.toLowerCase()) {
+			case 'textarea':
+			case 'select':
+				return true;
+			case 'input':
+				switch (target.type) {
+					case 'button':
+					case 'checkbox':
+					case 'file':
+					case 'image':
+					case 'radio':
+					case 'submit':
+						return false;
+					default:
+						return true;
+				}
+				break;
+			default:
+				return (/\bneedsfocus\b/).test(target.className);
 		}
 	}
 
@@ -166,7 +200,7 @@
 			 * @returns {boolean}
 			 */
 			onTouchEnd = function(event) {
-				var targetElement, targetCoordinates, clickEvent;
+				var targetElement, forElement, targetCoordinates, clickEvent;
 
 				if (!trackingClick) {
 					return true;
@@ -193,6 +227,21 @@
 					targetElement = targetElement.parentElement;
 				}
 
+				if (targetElement.nodeName.toLowerCase() === 'label' && targetElement.htmlFor) {
+					forElement = document.getElementById(targetElement.htmlFor);
+					if (forElement) {
+						targetElement.focus();
+						if (android) {
+							return false;
+						}
+
+						targetElement = forElement;
+					}
+				} else if (needsFocus(targetElement)) {
+					targetElement.focus();
+					return false;
+				}
+
 				// Prevent the actual click from going though - unless the target node is marked as requiring
 				// real clicks or if it is in the whitelist in which case only non-programmatic clicks are permitted
 				// to open the options list and so the original event is required.
@@ -207,6 +256,7 @@
 				targetElement.dispatchEvent(clickEvent);
 
 				event.preventDefault();
+				
 				return false;
 			},
 

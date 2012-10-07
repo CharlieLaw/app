@@ -1,8 +1,5 @@
 //(function ($) {
 
-// Attache fastclick to the html element
-// this will bubble up to allow event delegation
-// If the body does not have a map class then carry out with the fastclick, otherwise no fastclick	
 	
 nzp.AppView = Backbone.View.extend({
 	
@@ -34,7 +31,13 @@ nzp.AppView = Backbone.View.extend({
 			nzp.headerView = new nzp.HeaderView({
 				model: header, 
 				el: nzp.$header
-			});						
+			});	
+
+			// var clickPage = document.getElementById('header');
+			// if(clickPage) {
+			// 	new FastClick(clickPage);	
+			// };
+
 			
 		// Flyout Menu
 			var flyoutMenu = new nzp.Nav(navigationData);	
@@ -179,4 +182,43 @@ var app = {
 	    this.onClose();    
 	  }
 	};
+
+// Add fast button
+ function addFastButtons(item) {
+
+	//console.log(item)
+	var self = item;
+	//return false;
+	
+	var EVENT_NAME = 'fastclick';
+    var events = (_.isFunction(self.events) ? self.events() : self.events) || {};
+    var that = self;
+
+    function byEventName(key) {
+        //console.log(key.substr(0, EVENT_NAME.length + 1) === EVENT_NAME + ' ' || key === EVENT_NAME)
+        return key.substr(0, EVENT_NAME.length + 1) === EVENT_NAME + ' ' || key === EVENT_NAME;
+    }
+
+    function toJustSelectors(key) {
+        //console.log(key.substr(EVENT_NAME.length + 1))
+        return key.substr(EVENT_NAME.length + 1);
+    }
+
+    function toMatchingElements(selector) {
+        //console.log(selector === "" ? [that.el] : that.$(selector).toArray())
+        return selector === "" ? [that.el] : that.$(selector).toArray();
+    }
+
+    function registerTrigger(element) {
+        new MBP.fastButton(element, function() {
+          //  console.log(')
+            $(element).trigger(EVENT_NAME);
+        });
+    }
+
+    _.chain(events).keys().filter(byEventName).map(toJustSelectors).map(toMatchingElements).flatten().each(registerTrigger);
+
+};
+
+MBP.hadTouchEvent = true;
 		

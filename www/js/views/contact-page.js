@@ -15,7 +15,6 @@
 
 		initialize: function() {
 			_.bindAll(this, "render", "processEmail"); 
-			this.render();       			
 		},
 
 		events: {

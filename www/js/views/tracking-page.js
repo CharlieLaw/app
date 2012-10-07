@@ -24,13 +24,15 @@
 
 			template: _.template($('#tmp-tracking-item').html()),
 
-			events: {
-			  'click a' : 'showDetails'
-			},
-
 			initialize: function() {
 	      		this.model.bind('change', this.render, this);
+	      		addFastButtons(this);
 	    	},
+
+			events: {
+			  //'click a' : 'showDetails'
+			  "fastclick": "showDetails"
+			},
 
 			render: function() {
 				// Wrap the element in an anchor and give the list item an ID
@@ -48,9 +50,47 @@
 			 	e.preventDefault();
 				var pageCode = this.model.toJSON().track_code;
 		    	nzp.router.navigate('tracking/'+pageCode, {trigger:true});
-			}
+			},
+
+// Add fast button
+
+ addFastButtons: function(e) {
+	//e.preventDefault();
+	var EVENT_NAME = 'fastclick';
+    //console.log(e)
+    var events = (_.isFunction(this.events) ? this.events() : this.events) || {};
+   // console.log(events)
+    var that = this;
+   // console.log(that)
+
+    function byEventName(key) {
+        //console.log(key.substr(0, EVENT_NAME.length + 1) === EVENT_NAME + ' ' || key === EVENT_NAME)
+        return key.substr(0, EVENT_NAME.length + 1) === EVENT_NAME + ' ' || key === EVENT_NAME;
+    }
+
+    function toJustSelectors(key) {
+       // console.log(key.substr(EVENT_NAME.length + 1))
+        return key.substr(EVENT_NAME.length + 1);
+    }
+
+    function toMatchingElements(selector) {
+        //console.log(selector === "" ? [that.el] : that.$(selector).toArray())
+        return selector === "" ? [that.el] : that.$(selector).toArray();
+    }
+
+    function registerTrigger(element) {
+        new MBP.fastButton(element, function() {
+           // console.log('d')
+            $(element).trigger(EVENT_NAME);
+        });
+    }
+
+    _.chain(events).keys().filter(byEventName).map(toJustSelectors).map(toMatchingElements).flatten().each(registerTrigger);
+
+}			
 
 	});
+MBP.hadTouchEvent = true;
 
 
 /****************************************************************************************************************
@@ -157,30 +197,50 @@
 		// Scan item using PhoneGap barcode plugin
 			scanItem: function(e) {
 				e.preventDefault();
+				//nzp.$loading.show();
 				var isOnline = checkStatus();
 				if (isOnline) {
 		
 					// If the user has entered a value into the input box
-					if($trackingNo.val() != "") {				
-					
 
-						var self = this;
-						window.plugins.barcodeScanner.scan(							
-							function(result) {
-								if (!result.cancelled) {
-									self.processTrackingCode(result.text)
+							nzp.$loading.show();		
+						
+							var self = this;
+							window.plugins.barcodeScanner.scan(							
+								function(result) {
+									if (!result.cancelled) {
+										nzp.$loading.hide();
+										self.processTrackingCode(result.text)
+									} else {
+										nzp.$loading.hide();
+									}
+								},
+								function(error) {			
+									nzp.$loading.hide();		
+									alert("Scanning failed: " + error)
 								}
-							},
-							function(error) {					
-								alert("Scanning failed: " + error)
-							}
-						);
+							);							
+						 
 
-					};
+						// var self = this;
+						// window.plugins.barcodeScanner.scan(							
+						// 	function(result) {
+						// 		if (!result.cancelled) {
+						// 			self.processTrackingCode(result.text)
+						// 		}
+						// 	},
+						// 	function(error) {					
+						// 		alert("Scanning failed: " + error)
+						// 	}
+						// );
+
+					//};
 
 				} else {
 					nzp.$offline.show();
-				};		
+				};
+
+				//nzp.$loading.hide();		
 			},
 
 			
@@ -239,33 +299,18 @@
 									success: function(data) {
 										
 										$.each(data, function(key, value) { 
-
+console.log(model)
+console.log(key)
+console.log(value)
 											var currentShortDesc = value.short_description; 	// Returned short description										
 											
 											// Loop over the collection to find the matching model based on the unique tracking code	
 											nzp.trackingPageCollection.each(function(model, i){
-												
-												if( model.get('track_code').toUpperCase() == key.toUpperCase() ) {
-													
+																								
+												if( model.get('track_code').toUpperCase() == key.toUpperCase() ) {													
 													// If the code matches one in the collection, compare the short description
 													// If the short desc has changed then save the details, otherwise no change, just remove the spinner														
-													var deliveryStatus = getDeliveryStatus(value);	// Get the correct status if its changed
-													if(model.get('short_description') == currentShortDesc) {											
-														// No change has taken place, just hide the spinner													
-															model.save({
-																spinner:            ''
-															});
-													} else {
-														// The model has changed												
-															model.save({
-																error_code:         value.error_code, 
-																error_desc:         deliveryStatus, 
-																detail_description: value.detail_description, 
-																short_description:  value.short_description, 
-																events:             value.events,
-																spinner:            ''																
-															}); 
-													};
+													saveDetails(model, value, key);
 												};
 											});
 										});										
@@ -318,36 +363,7 @@
 								var userCode = tCode.toUpperCase();
 								if(data[userCode] != undefined) {
 									
-									var deliveryStatus = getDeliveryStatus(data[userCode]);	// Get the correct status
-									//console.log(data)
-									if(item.toJSON().track_code != undefined) {																																						
-										item.save({											
-											error_code:         data[userCode].error_code, 
-											error_desc:         deliveryStatus, 											
-											detail_description: data[userCode].detail_description, 
-											short_description:  data[userCode].short_description, 
-											events:             data[userCode].events,
-	 										spinner:            '',
-	 										timestamp: 			Date.now()              		
-										});
-	
-										// If the error code is N then pass a custom message as the one returned from the API is not suitable
-											if (data[userCode].error_code != undefined && data[userCode].error_code == "N") {	
-												item.save({
-													short_description: errorShortDecTxt(userCode),
-													detail_description:  errorDescTxt(userCode)
-												});
-											};
-									} else {
-										console.log('unsucessful code')
-										item.save({
-											error_code:         data[userCode].error_code, 
-											error_desc:         deliveryStatus, 											
-											detail_description: data[userCode].detail_description, 
-											short_description:  data[userCode].short_description, 
-											spinner:            ''
-										}); // Save the item to the collection and set its spinner to blank            				    										
-									};
+									saveDetails(item, data[userCode], userCode, true);
 
 									nzp.$body.removeClass('norefresh'); // Theres something added so show the refresh button
 								};								
@@ -359,6 +375,39 @@
 
 	});
 
+//saveDetails(model, value, key);
+//saveDetails(item, data[userCode], userCode, true);
+var saveDetails = function(currentModel, newModel, trackcode, norefresh) {
+	var deliveryStatus = getDeliveryStatus(newModel);	// Get the correct status
+
+	// Save items	
+		currentModel.save({											
+			error_code:         newModel.error_code, 
+			error_desc:         deliveryStatus, 														
+			spinner:            ''		
+		});
+	
+	// If the error code is N then pass a custom message as the one returned from the API is not suitable
+		if (newModel.error_code != undefined && newModel.error_code == "N") {	
+			currentModel.save({
+				short_description: errorShortDecTxt(trackcode),
+				detail_description:  errorDescTxt(trackcode)
+			});
+		} else {			
+			currentModel.save({
+				events:             newModel.events,
+				short_description:  newModel.short_description,						
+				detail_description: newModel.detail_description 
+			});
+		};
+
+	// If not a refresh set the timestamp
+		if (norefresh) {
+			currentModel.save({
+				timestamp: 		Date.now()              		
+			});			
+		};
+}
 
 /****************************************************************************************************************
 	Get delivery status.  This will be the error, transit or succes code
@@ -368,7 +417,6 @@
 	var getDeliveryStatus = function(item) {
 	
 		var trackingStatus;
-
 		// If sucessful there should be events, otherwise there will be an error_code
 			if (item.error_code != 'undefined') {			
 				// Sucessful call, now find the status of the item
@@ -426,15 +474,15 @@
 
 	var errorDescTxt = function(code) {
 		var allText = '';
-		allText += "<p></p>";
 		allText += "<p>The item details may not have been received into our tracking system yet.</p>"; 
 		allText += "<p>Please try again later or call <a href='tel: 0800 501 501'>0800 501 501</a> should you require further assistance.</p>";
 		allText += "<p>Please ensure your tracking numbers are:</p>";
-		allText += "<ul>";
+		allText += "<ul class='mbm'>";
 		allText += "<li>Accurately typed</li>";
 		allText += "<li>In the format XX123456789XX</li>";
-		allText += "<li>If you have any questions please check out our <a href='http://www.nzpost.co.nz/faq'>frequently asked questions</li>.";
 		allText += "</ul>";
+		allText += "<p>If you have any questions please check out our <a href='http://www.nzpost.co.nz/faq' id='faq'>frequently asked questions</a>.</p>";
+
 		return allText;
 	};
 

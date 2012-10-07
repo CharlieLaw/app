@@ -23,24 +23,29 @@
 	    	tagName: "li",
 	    	//template: $("#tabTemplate").html(),
 
-		    events: {
-		        "click a": "clicked"
-		    },
-
 		    initialize: function() {
+	        	addFastButtons(this);
 	        	_.bindAll(this, 'render');
             	this.model.bind("change:highlighted",this.highlight, this);
 		        // if(this.model.id === 0) {
 		        // 	this.$el.addClass('tab-current');
 		        // };
+		        
 	        	this.render();
 	    	},
+	    	
+		    events: {
+		        //"click a": "clicked"
+		        "fastclick": "clicked"
+		    },
+
+
 
 clicked: function(e){
 
 	var self = this;
 
-	e.preventDefault();
+	//e.preventDefault();
 
 	// If the tab is used for switching travel modes, calculate the route
 	if (this.options.parentview == 'travelroute') {
