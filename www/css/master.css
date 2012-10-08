@@ -238,7 +238,8 @@ h3,
   display: none;
   height: 100%;
   position: absolute;
-  top: 45px;
+  /*top: @headerHeight;*/
+  top: 0;
   width: 100%;
   z-index: 10;
 }

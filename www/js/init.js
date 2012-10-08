@@ -169,10 +169,23 @@ var app = {
 	function checkStatus() {
 	 if(navigator.onLine) {
 		return true
-	  } else {
-	  	return false
+	  } else {	  	
+	  	//setTimeout(function() {
+	  	//	nzp.$loading.show();
+	  		return false
+	  	//}, 5000)	  	
 	  };
 	}
+
+// offLine spinner
+	function offLineSpinner(waitTime) {
+		nzp.$loading.show();
+	  	setTimeout(function() {							
+			nzp.$offline.show();	
+			nzp.$loading.hide();
+			nzp.$body.removeClass('active');
+	  	}, waitTime)
+	};	
 
 // Extend backbone with a close method
 	Backbone.View.prototype.close = function(){

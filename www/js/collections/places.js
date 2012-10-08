@@ -5,6 +5,8 @@ nzp.Places = Backbone.Collection.extend({
   noResults: 50,
   oDay: '',
 
+ // localStorage: new Backbone.LocalStorage("places"),
+
   url:function(){    
 //    return 'http://api.nzpost.co.nz/locator/api/locations?api_key='+this.apiKey+'&type=ATM&type=Business+Banking+Centre&type=Postbox+Lobby&type=Dropbox&type=Postbox&type=PostShop&nearby_latitude='+this.lat+'&nearby_longitude='+this.lng+'&opening_day='+this.oday+'&max='+this.noResults+'&format=jsonp&callback=?'
       return 'http://api.nzpost.co.nz/locator/api/locations?api_key='+this.apiKey+'&type=Postbox+Lobby&type=Dropbox&type=Postbox&type=PostShop&type=ATM&type=Business+Banking+Centre&nearby_latitude='+this.lat+'&nearby_longitude='+this.lng+'&max='+this.noResults+'&format=jsonp&callback=?'

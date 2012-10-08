@@ -88,6 +88,9 @@ nzp.Router = Backbone.Router.extend({
 			// Empty the page before putting new content in				
 				//nzp.$page.empty();												
 				var isOnline = checkStatus();
+				
+				// If the user is offline check local storage
+
 				if (isOnline) {
 				
 					// Set page title, body class & previuos page								
@@ -101,12 +104,13 @@ nzp.Router = Backbone.Router.extend({
 						this.previousPage = '';										
 
 					// Attach fastclick to wrapper element	
-						var clickPage = document.getElementById('locator-page');
-						if(clickPage) {
-							new FastClick(clickPage);	
-						};
+						// var clickPage = document.getElementById('locator-page');
+						// if(clickPage) {
+						// 	new FastClick(clickPage);	
+						// };
 				} else {
-					nzp.$offline.show();
+					//nzp.$offline.show();
+					console.log(nzp.placesCollection)
 					nzp.router.navigate('', {trigger:true});
 				}			
 		},
@@ -129,8 +133,8 @@ nzp.Router = Backbone.Router.extend({
 			// Set previous page	
 				this.previousPage = '';										
 
-			// Attach fastclick to wrapper element	
-				var clickPage = document.getElementById('locator-page');
+			// Attach fastclick to button element	
+				var clickPage = document.getElementById('tracking-refresh');
 				if(clickPage) {
 					new FastClick(clickPage);	
 				};				
@@ -156,12 +160,13 @@ nzp.Router = Backbone.Router.extend({
 					collection: nzp.placesCollection
 				});					
 		
-							
+				console.log(nzp.placesCollection)		
+
 			// If the collection has no item, then a fetch has taken place so there may be a delay				
 				if(nzp.placesCollection.length == 0 || nzp.refreshMe == true) {
 					nzp.placesCollection.fetch({
 						success: function(collection, response) {								
-							//console.log('route 1');
+							console.log('route 1');
 							nzp.appView.showView(nzp.placeListView);
 							nzp.appView.hideSpinner();
 							nzp.refreshMe = false; // Set back to false in case this was a refresh event							
@@ -173,7 +178,69 @@ nzp.Router = Backbone.Router.extend({
 					nzp.appView.showView(nzp.placeListView);					
 					nzp.appView.hideSpinner();
 				};								
-		},		
+		},
+
+
+// 		getLocation2: function(pos) {
+// 			console.log(pos)
+// 			// Empty the page before putting new content in				
+// 				nzp.$page.empty();												
+
+			
+// 			//If the places collection is empty then a fetch will be required which can take some time so provide an animation			
+// 				if(nzp.placesCollection.length == 0) {					
+// 					nzp.$loading.show();
+// 				} 
+			
+// 			// Set the lat and lng	
+// 				nzp.placesCollection.lat = pos.coords.latitude;
+// 				nzp.placesCollection.lng = pos.coords.longitude;
+
+// 			// Instantiate a new placeListView		
+// 				nzp.placeListView = new nzp.LocatorPageView({	
+// 					collection: nzp.placesCollection
+// 				});					
+		
+// 				//console.log(nzp.placesCollection)		
+// 				// Need to do an AJAX call and populate localstorage
+// var placesUrl = 'http://api.nzpost.co.nz/locator/api/locations?api_key=a7f0c7b0b123012f06d2000c29b44ac0&type=Postbox+Lobby&type=Dropbox&type=Postbox&type=PostShop&type=ATM&type=Business+Banking+Centre&nearby_latitude='+nzp.placesCollection.lat+'&nearby_longitude='+nzp.placesCollection.lng+'&max=30&format=jsonp&callback=?';				
+// $.jsonp({													
+// 	'url': placesUrl,
+// 	'timeout': '10000',										
+// 	'success': function(data) {											
+// 		console.log(data)
+// 		// var userCode = tCode.toUpperCase();
+// 		// if(data[userCode] != undefined) {
+// 		// 	saveDetails(item, data[userCode], userCode, true);
+// 		// 	nzp.$body.removeClass('norefresh'); // Theres something added so show the refresh button
+// 		// };								
+// 	}, 
+// 	'error': function() {
+// 		console.log('pish')
+// 		//saveDetailsOffline(item);										
+// 	}
+// });			
+
+
+
+// 			// If the collection has no item, then a fetch has taken place so there may be a delay				
+// 				if(nzp.placesCollection.length == 0 || nzp.refreshMe == true) {
+// 					nzp.placesCollection.fetch({
+// 						success: function(collection, response) {								
+// 							console.log(collection)
+// 							// console.log('route 1');
+// 							// nzp.appView.showView(nzp.placeListView);
+// 							// nzp.appView.hideSpinner();
+// 							// nzp.refreshMe = false; // Set back to false in case this was a refresh event							
+// 						}
+// 					});
+// 				} else {	
+// 					//console.log('route 2');												
+// 					//nzp.$page.html(nzp.placeListView.render().el);
+// 					nzp.appView.showView(nzp.placeListView);					
+// 					nzp.appView.hideSpinner();
+// 				};								
+// 		},						
 
 /********************************************************************************************************
 	Locator Place Detail Page
@@ -321,7 +388,6 @@ nzp.Router = Backbone.Router.extend({
       nzp.$wrapper.append(createTabView.render().el)
       
       
-
       setMap.render();
 
       var selectedTab = createTab.find(function(tab){
@@ -330,11 +396,11 @@ nzp.Router = Backbone.Router.extend({
       selectedTab.set("highlighted", true);
 
 
-		// Attach fastclick to wrapper element	
-			var clickPage = document.getElementById('posttype');
-			if(clickPage) {
-				new FastClick(clickPage);	
-			};		
+	//Attach fastclick to all map element, others are handled with fastclick (NOT FT version)
+		var clickPage = document.getElementById('all-map');
+		if(clickPage) {
+			new FastClick(clickPage);	
+		};		
 
     },
 
@@ -396,10 +462,7 @@ nzp.Router = Backbone.Router.extend({
 				setMap.render();
 			
 			// Set previous page
-				nzp.router.previousPage = 'locator';			
-				
-				//var createTab = new nzp.TabCollection(DirectionTabsData);
-	
+				nzp.router.previousPage = 'locator/closest/' + place.toJSON().id;		
 
 			// Set the selected tab
 				var createTab = new nzp.TabCollection(DirectionTabsData);

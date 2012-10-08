@@ -51,68 +51,42 @@
 	    clicked: function(e){
 	        e.preventDefault();
 	        // Show spinner
-				nzp.$loading.addClass('show');
+				//nzp.$loading.addClass('show');
 				
 			// Change the data attribute so show and hide stuff
 				switch(this.model.slug) {		
 					case 'locator':						  
-					  var isOnline = checkStatus();
-					  if (isOnline) {
+					  //var isOnline = checkStatus();
+					  //if (isOnline) {
 					  	nzp.router.navigate('locator', true);		
-					  } else {
-					  	nzp.$offline.show();	
-					  };					  
+					  	nzp.$body.removeClass('active');
+					  //} else {					
+					  //  offLineSpinner(4000);			  	
+					  //};					  
 					  break;
 					case 'ratefinder':
 					  nzp.router.navigate('ratefinder', true);
+					  nzp.$body.removeClass('active');
 					  break;
 					case 'tracking':						  						  
 					  nzp.router.navigate('tracking', true);
+					  nzp.$body.removeClass('active');
 					  break;
 					case 'contact':											  
 					  nzp.router.navigate('contact', true);
+					  nzp.$body.removeClass('active');
 					  break;
 					default:
 						nzp.router.navigate('', true);
+						nzp.$body.removeClass('active');
 				};
 			  
 				nzp.$page.removeClass("map");
 				nzp.$body.removeClass("showform");
 				$('.tabbar').remove(); // if the tabbar is present remove it			
-				nzp.$body.removeClass('active');
+				//nzp.$body.removeClass('active');
 				nzp.$loading.removeClass('show');														
 
-	    }
-	    /*
-	     addFastButtons: function() {	     	
-            var EVENT_NAME = 'fastclick';
-            var events = (_.isFunction(this.events) ? this.events() : this.events) || {};
-            var that = this;
-            console.log(events)
-            function byEventName(key) {
-                return key.substr(0, EVENT_NAME.length + 1) === EVENT_NAME + ' ' || key === EVENT_NAME;
-            }
-
-            function toJustSelectors(key) {
-                return key.substr(EVENT_NAME.length + 1);
-            }
-
-            function toMatchingElements(selector) {
-                return selector === "" ? [that.el] : that.$(selector).toArray();
-            }
-
-            function registerTrigger(element) {
-                new MBP.fastButton(element, function() {
-                    $(element).trigger(EVENT_NAME);
-                });
-            }
-
-            _.chain(events).keys().filter(byEventName).map(toJustSelectors).map(toMatchingElements).flatten().each(registerTrigger);
-
-        }*/
-
-	    
+	    }	   	    
 	});
-
-//MBP.hadTouchEvent = true; // work around some Android 2.3.x workarounds for the demo...
 

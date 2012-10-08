@@ -7,7 +7,7 @@
 	    initialize:function () {
 	      this.template = _.template($('#tmp-locator').html());
 	      this.collection.bind("reset", this.render, this);
-
+		  //addFastButtons(this);
 	    },
 
 	    events: {
@@ -18,7 +18,7 @@
 		delegatedEvents: function(e) {
 			e.preventDefault();		
 			var $target = $(e.target);
-				//console.log(e)
+
 			// Refresh buttons
 				if ($target.hasClass('refresh')) {
 					this.pageRefresh();
@@ -58,18 +58,21 @@
 
 	    template:_.template($('#singleLocatorTemplate').html()),
 
+	    initialize: function() {
+			addFastButtons(this);
+	    },
+
 	    render:function () {
-	    	//console.log(this.model.toJSON().type.toLowerCase())
 	        $(this.el).html(this.template(this.model.attributes));
 	        return this;
 	    },
 
 		events: {
-	    	"click a": "loadDetails"
+	    	//"fastclick": "loadDetails"
+	    	"fastclick": "loadDetails"
 		},
 
 		loadDetails: function(e) {
-			e.preventDefault();
 			nzp.router.navigate('locator/closest/'+this.model.id, {trigger:true});
 		}
 

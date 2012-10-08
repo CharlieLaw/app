@@ -208,29 +208,35 @@
 			refresh: function(e) {
 		 		// Request the model
 		 		e.preventDefault();
-		 		nzp.$loading.show();
-				userip = '10.10.10.4';
 
+				var isOnline = checkStatus();
+				if (isOnline) {
 
-		 		var track_code = this.model.toJSON().track_code;		 		
-				var currentShortDesc = this.model.toJSON().short_description;
-				var refreshUrl = 'http://api.nzpost.co.nz/tracking/track?license_key=b74c4cd0-b123-012f-7fbc-000c294e04ef&user_ip_address='+userip+'&tracking_code='+track_code+'&mock=1&format=jsonp&callback=?';																								
-				var self = this;
+			 		nzp.$loading.show();
+					userip = '10.10.10.4';
 
-				// Request an item based on the tracking code which will be passed in the defaults					
-					$.ajax({
-						dataType: 'jsonp',
-						url: refreshUrl,
-						success: function(data) {
-							var tCode = track_code.toUpperCase();
-							var newModel = data[tCode];
-							saveDetails(self.model, newModel, track_code);
-							self.model.save({
-								timestamp: Date.now()              		
-							});
-							nzp.$loading.hide();																	
-						}
-					});
+			 		var track_code = this.model.toJSON().track_code;		 		
+					var currentShortDesc = this.model.toJSON().short_description;
+					var refreshUrl = 'http://api.nzpost.co.nz/tracking/track?license_key=b74c4cd0-b123-012f-7fbc-000c294e04ef&user_ip_address='+userip+'&tracking_code='+track_code+'&mock=1&format=jsonp&callback=?';																								
+					var self = this;
+
+					// Request an item based on the tracking code which will be passed in the defaults					
+						$.ajax({
+							dataType: 'jsonp',
+							url: refreshUrl,
+							success: function(data) {
+								var tCode = track_code.toUpperCase();
+								var newModel = data[tCode];
+								saveDetails(self.model, newModel, track_code);
+								self.model.save({
+									timestamp: Date.now()              		
+								});
+								nzp.$loading.hide();																	
+							}
+						});
+				} else {
+					offLineSpinner(4000);
+				}
 
 		 	}		 				 			 		
 	});

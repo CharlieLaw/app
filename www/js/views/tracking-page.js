@@ -50,47 +50,9 @@
 			 	e.preventDefault();
 				var pageCode = this.model.toJSON().track_code;
 		    	nzp.router.navigate('tracking/'+pageCode, {trigger:true});
-			},
-
-// Add fast button
-
- addFastButtons: function(e) {
-	//e.preventDefault();
-	var EVENT_NAME = 'fastclick';
-    //console.log(e)
-    var events = (_.isFunction(this.events) ? this.events() : this.events) || {};
-   // console.log(events)
-    var that = this;
-   // console.log(that)
-
-    function byEventName(key) {
-        //console.log(key.substr(0, EVENT_NAME.length + 1) === EVENT_NAME + ' ' || key === EVENT_NAME)
-        return key.substr(0, EVENT_NAME.length + 1) === EVENT_NAME + ' ' || key === EVENT_NAME;
-    }
-
-    function toJustSelectors(key) {
-       // console.log(key.substr(EVENT_NAME.length + 1))
-        return key.substr(EVENT_NAME.length + 1);
-    }
-
-    function toMatchingElements(selector) {
-        //console.log(selector === "" ? [that.el] : that.$(selector).toArray())
-        return selector === "" ? [that.el] : that.$(selector).toArray();
-    }
-
-    function registerTrigger(element) {
-        new MBP.fastButton(element, function() {
-           // console.log('d')
-            $(element).trigger(EVENT_NAME);
-        });
-    }
-
-    _.chain(events).keys().filter(byEventName).map(toJustSelectors).map(toMatchingElements).flatten().each(registerTrigger);
-
-}			
+			}			
 
 	});
-MBP.hadTouchEvent = true;
 
 
 /****************************************************************************************************************
@@ -172,8 +134,8 @@ MBP.hadTouchEvent = true;
 
 		getPackage: function(e) {
 			e.preventDefault();			
-			var isOnline = checkStatus();
-			if (isOnline) {
+			//var isOnline = checkStatus();
+			//if (isOnline) {
 				// If the user has entered a value into the input box
 				var stringHasSpace = hasWhiteSpace($trackingNo.val());							
 				
@@ -189,9 +151,9 @@ MBP.hadTouchEvent = true;
 				}
 				//if($trackingNo.val() != "" && stringHasSpace != true) {				
 				//};
-			} else {
-				nzp.$offline.show();
-			}
+			//} else {
+			//	nzp.$offline.show();
+			//}
 		},
 
 		// Scan item using PhoneGap barcode plugin
@@ -221,26 +183,10 @@ MBP.hadTouchEvent = true;
 								}
 							);							
 						 
-
-						// var self = this;
-						// window.plugins.barcodeScanner.scan(							
-						// 	function(result) {
-						// 		if (!result.cancelled) {
-						// 			self.processTrackingCode(result.text)
-						// 		}
-						// 	},
-						// 	function(error) {					
-						// 		alert("Scanning failed: " + error)
-						// 	}
-						// );
-
-					//};
-
 				} else {
 					nzp.$offline.show();
 				};
-
-				//nzp.$loading.hide();		
+				
 			},
 
 			
@@ -299,9 +245,7 @@ MBP.hadTouchEvent = true;
 									success: function(data) {
 										
 										$.each(data, function(key, value) { 
-console.log(model)
-console.log(key)
-console.log(value)
+
 											var currentShortDesc = value.short_description; 	// Returned short description										
 											
 											// Loop over the collection to find the matching model based on the unique tracking code	
@@ -319,7 +263,7 @@ console.log(value)
 
 						};
 				} else {
-					nzp.$offline.show();
+					offLineSpinner(4000)
 				}		
 
 			},
@@ -336,40 +280,67 @@ console.log(value)
 			processTrackingCode: function(tCode) {				
 				$trackingNo.blur(); // Hides keyboard after form submission
 				
-				var matchingCode;
-				this.collection.each(function(model){
-					
-					if ( model.get("track_code") === tCode ) {
-						matchingCode = model;							
-						model.set('highlight', 'highlight high-out');
-						setTimeout(function(){
-							model.set('highlight', 'high-out')
-						},1000);
-					}
-				});
+				var isOnline = checkStatus();
+				
 
-				if (!IsObject(matchingCode)) {			        
-			        // Get defaults			        
-				        var item = nzp.trackingPageCollection.create({
-				        	track_code: tCode
-				        }); 
+					var matchingCode;
+					this.collection.each(function(model){
 						
-					// Request an item based on the tracking code which will be passed in the defaults					
-						$.ajax({
-							dataType: 'jsonp',
-							url: item.url(),
-							success: function(data) {
-															
-								var userCode = tCode.toUpperCase();
-								if(data[userCode] != undefined) {
-									
-									saveDetails(item, data[userCode], userCode, true);
+						if ( model.get("track_code") === tCode ) {
+							matchingCode = model;							
+							model.set('highlight', 'highlight high-out');
+							setTimeout(function(){
+								model.set('highlight', 'high-out')
+							},1000);
+						}
+					});
 
-									nzp.$body.removeClass('norefresh'); // Theres something added so show the refresh button
-								};								
+					if (!IsObject(matchingCode)) {			        
+				        // Get defaults			        
+					        var item = nzp.trackingPageCollection.create({
+					        	track_code: tCode
+					        }); 
+							if (isOnline) {
+								// Request an item based on the tracking code which will be passed in the defaults					
+								// Using JSONP pluing as full error / timeout handling required.  JQuery does not provide this
+								/*	$.ajax({
+										dataType: 'jsonp',
+										url: item.url(),
+										success: function(data) {																		
+											var userCode = tCode.toUpperCase();
+											if(data[userCode] != undefined) {												
+												saveDetails(item, data[userCode], userCode, true);
+												nzp.$body.removeClass('norefresh'); // Theres something added so show the refresh button
+											};								
+										}
+									});
+								*/
+									$.jsonp({													
+										'url': item.url(),
+										'timeout': '10000',										
+										'success': function(data) {											
+											var userCode = tCode.toUpperCase();
+											if(data[userCode] != undefined) {
+												
+												saveDetails(item, data[userCode], userCode, true);
+
+												nzp.$body.removeClass('norefresh'); // Theres something added so show the refresh button
+											};								
+										}, 
+										'error': function() {
+											saveDetailsOffline(item);										
+										}
+									});									
+							} else {
+								// set to offline but put a delay
+								setTimeout(function() {
+									saveDetailsOffline(item);						
+								}, 4000);
+
 							}
-						});
-				};
+					};
+
+				//}
 
 			}			
 
@@ -407,7 +378,15 @@ var saveDetails = function(currentModel, newModel, trackcode, norefresh) {
 				timestamp: 		Date.now()              		
 			});			
 		};
-}
+};
+
+var saveDetailsOffline = function(item) {
+	item.save({
+		short_description: 'You must be online to search for an item',
+		detail_description: 'We were unable to process your request as it appears you were offline when the request was made.  Please connect to the internet and refresh.',
+		spinner: ''
+	})									
+};
 
 /****************************************************************************************************************
 	Get delivery status.  This will be the error, transit or succes code
